@@ -5,21 +5,28 @@ Imports System.Windows.Forms
 Public Class KlxPiaoPanel
     Inherits Panel
 
+    Public Enum 方向
+        右下
+        左下
+        左下右
+    End Enum
+
     Private _边框颜色 As Color
     Private _边框大小 As Integer
     Private _启用投影 As Boolean
     Private _投影长度 As Integer
     Private _投影颜色 As Color
+    Private _投影方向 As 方向
 
     Public Sub New()
         MyBase.New()
 
-        SetStyle(ControlStyles.SupportsTransparentBackColor, True)
         _边框颜色 = Color.FromArgb(199, 199, 199)
         _边框大小 = 1
         _启用投影 = True
         _投影长度 = 5
         _投影颜色 = Color.FromArgb(142, 142, 142)
+        _投影方向 = 方向.右下
 
         BackColor = Color.White
         BorderStyle = BorderStyle.None
@@ -75,6 +82,17 @@ Public Class KlxPiaoPanel
             Invalidate()
         End Set
     End Property
+    <Category("KlxPiaoPanel外观"), Description("投影的方向")>
+    Public Property 投影方向 As 方向
+        Get
+            Return _投影方向
+        End Get
+        Set(value As 方向)
+            _投影方向 = value
+            Invalidate()
+        End Set
+    End Property
+
     Protected Overrides Sub OnPaint(e As PaintEventArgs)
         MyBase.OnPaint(e)
 
@@ -88,24 +106,51 @@ Public Class KlxPiaoPanel
         Dim 递减值 As Integer = 255 \ 投影长度
 
         If 启用投影 Then
-            '投影
-            For i = 0 To 投影长度
-                Using brush As New SolidBrush(Color.FromArgb(递减值, 255 - i * 递减值R, 255 - i * 递减值G, 255 - i * 递减值B))
-                    g.FillRectangle(brush, New Rectangle(投影长度 - i, 投影长度 - i, Width - 投影长度, Height - 投影长度))
-                End Using
-            Next
+            Dim 边框Rect As Rectangle
+            Dim 背景Rect As Rectangle
+
+            Select Case 投影方向
+                Case 方向.右下
+                    边框Rect = New Rectangle(0, 0, Width - 投影长度 - 1, Height - 投影长度 - 1)
+                    背景Rect = New Rectangle(1, 1, Width - 投影长度 - 2, Height - 投影长度 - 2)
+
+                    For i = 0 To 投影长度
+                        Using brush As New SolidBrush(Color.FromArgb(递减值, 255 - i * 递减值R, 255 - i * 递减值G, 255 - i * 递减值B))
+                            g.FillRectangle(brush, New Rectangle(投影长度 - i, 投影长度 - i, Width - 投影长度, Height - 投影长度))
+                        End Using
+                    Next
+                Case 方向.左下
+                    边框Rect = New Rectangle(投影长度, 0, Width - 投影长度 - 1, Height - 投影长度 - 1)
+                    背景Rect = New Rectangle(投影长度 + 1, 1, Width - 投影长度 - 2, Height - 投影长度 - 2)
+
+                    For i = 0 To 投影长度
+                        Using brush As New SolidBrush(Color.FromArgb(递减值, 255 - i * 递减值R, 255 - i * 递减值G, 255 - i * 递减值B))
+                            g.FillRectangle(brush, New Rectangle(i, 投影长度 - i, Width - 投影长度, Height - 投影长度))
+                        End Using
+                    Next
+                Case 方向.左下右
+                    边框Rect = New Rectangle(投影长度, 0, Width - 投影长度 * 2 - 1, Height - 投影长度 - 1)
+                    背景Rect = New Rectangle(投影长度 + 1, 1, Width - 投影长度 * 2 - 2, Height - 投影长度 - 2)
+
+                    For i = 0 To 投影长度
+                        Using brush As New SolidBrush(Color.FromArgb(递减值, 255 - i * 递减值R, 255 - i * 递减值G, 255 - i * 递减值B))
+                            g.FillRectangle(brush, New Rectangle(投影长度 * 2 - i, 投影长度 - i, Width - 投影长度 * 2, Height - 投影长度))
+                            g.FillRectangle(brush, New Rectangle(i, 投影长度 - i, Width - 投影长度 * 2, Height - 投影长度))
+                        End Using
+                    Next
+            End Select
 
             '边框
-            Using pen1 As New Pen(边框颜色, 1)
-                g.DrawRectangle(pen1, 0, 0, Width - 投影长度 - 1, Height - 投影长度 - 1)
+            Using BorderPen As New Pen(边框颜色, 1)
+                g.DrawRectangle(BorderPen, 边框Rect)
             End Using
 
-            '背景色
+            '背景
             Using brush As New SolidBrush(BackColor)
-                g.FillRectangle(brush, New Rectangle(1, 1, Width - 投影长度 - 2, Height - 投影长度 - 2))
+                g.FillRectangle(brush, 背景Rect)
             End Using
         Else
-            '背景色
+            '背景
             Using brush As New SolidBrush(BackColor)
                 g.FillRectangle(brush, New Rectangle(0, 0, Width, Height))
             End Using
@@ -113,7 +158,7 @@ Public Class KlxPiaoPanel
             '边框
             If 边框大小 <> 0 Then
                 Using pen1 As New Pen(边框颜色, 边框大小)
-                    g.DrawRectangle(pen1, 0, 0, Width - 1, Height - 1)
+                    g.DrawRectangle(pen1, New Rectangle(0, 0, Width - 1, Height - 1))
                 End Using
             End If
         End If

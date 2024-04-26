@@ -4,33 +4,33 @@ Imports System.IO
 Imports System.Reflection
 Imports System.Windows.Forms
 
-Public Enum 位置
-    左
-    居中
-    右
-End Enum
-
-Public Enum 窗体按钮样式
-    仅显示关闭
-    显示关闭和最小化
-    全部显示
-    不显示
-End Enum
-
-Public Enum 双击位置
-    双击标题框时
-    双击窗体任意位置时
-    不启用
-End Enum
-
-Public Enum 拖动位置
-    仅标题框
-    整个窗体
-    不启用拖动
-End Enum
-
 Public Class KlxPiaoForm
     Inherits Form
+
+    Public Enum 位置
+        左
+        居中
+        右
+    End Enum
+
+    Public Enum 窗体按钮样式
+        仅显示关闭
+        显示关闭和最小化
+        全部显示
+        不显示
+    End Enum
+
+    Public Enum 拖动位置
+        仅标题框
+        整个窗体
+        不启用拖动
+    End Enum
+
+    Public Enum 双击位置
+        双击标题框时
+        双击窗体任意位置时
+        不启用
+    End Enum
 
     Private _标题框颜色 As Color
     Private _标题框高度 As Integer

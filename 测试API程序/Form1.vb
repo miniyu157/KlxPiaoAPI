@@ -1,12 +1,10 @@
-﻿Imports System.Runtime.InteropServices
-Imports KlxPiaoAPI
+﻿Imports KlxPiaoAPI
 Imports KlxPiaoAPI.字符串操作
 Public Class Form1
 
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Text = $"{关于KlxPiao.产品名称} {关于KlxPiao.产品版本} Demo"
-
         '加载主题文件(Application.StartupPath & "\Themes\浅粉.ini")
 
         CheckBox1.Checked = 启用缩放动画
@@ -50,6 +48,15 @@ Public Class Form1
                 ComboBox3.SelectedIndex = 1
             Case 拖动位置.不启用拖动
                 ComboBox3.SelectedIndex = 2
+        End Select
+
+        Select Case 快捷缩放方式
+            Case 双击位置.双击标题框时
+                ComboBox4.SelectedIndex = 0
+            Case 双击位置.双击窗体任意位置时
+                ComboBox4.SelectedIndex = 1
+            Case 双击位置.不启用
+                ComboBox4.SelectedIndex = 2
         End Select
 
         刷新配色()
@@ -125,6 +132,17 @@ End Property")
                 窗体可拖动位置 = 拖动位置.整个窗体
             Case 2
                 窗体可拖动位置 = 拖动位置.不启用拖动
+        End Select
+    End Sub
+    '快捷缩放方式
+    Private Sub ComboBox4_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox4.SelectedIndexChanged
+        Select Case ComboBox4.SelectedIndex
+            Case 0
+                快捷缩放方式 = 双击位置.双击标题框时
+            Case 1
+                快捷缩放方式 = 双击位置.双击窗体任意位置时
+            Case 2
+                快捷缩放方式 = 双击位置.不启用
         End Select
     End Sub
 
@@ -491,5 +509,6 @@ End Property")
         Dim blue As Integer = Math.Min(Math.Max(0, color.B * (1 + factor)), 255)
         Return Color.FromArgb(color.A, red, green, blue)
     End Function
+
 
 End Class
