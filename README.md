@@ -12,14 +12,23 @@
 
     导出主题文件(文件路径 As String)
     加载主题文件(文件路径或资源文件 As String)
+
+>一些常用函数
+
+    应用本地字体(文件路径 As String, 控件 As Control)
+    
+    Dim 设置样式 As New 设置WindowState With {
+        .应用于 = Me,
+        .样式 = FormWindowState.Maximized,
+        .启用动画 = True
+    }
     
 ![此处输入图片的描述][2]
-
-> 拖进工具箱即可使用KlxPiao的控件
 
 
 ![此处输入图片的描述][3]
 
+> 拖进工具箱即可使用KlxPiao的控件
 
 ![此处输入图片的描述][4]
 
