@@ -1,0 +1,495 @@
+﻿Imports System.Runtime.InteropServices
+Imports KlxPiaoAPI
+Imports KlxPiaoAPI.字符串操作
+Public Class Form1
+
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Text = $"{关于KlxPiao.产品名称} {关于KlxPiao.产品版本} Demo"
+
+        '加载主题文件(Application.StartupPath & "\Themes\浅粉.ini")
+
+        CheckBox1.Checked = 启用缩放动画
+        CheckBox2.Checked = 窗体可调整大小
+        CheckBox3.Checked = KlxPiaoLabel1.投影连线
+        CheckBox4.Checked = KlxPiaoLabel1.颜色减淡
+
+        Select Case CheckBox4.Checked
+            Case True
+                KlxPiaoLabel1.投影颜色 = Color.Black
+            Case False
+                KlxPiaoLabel1.投影颜色 = Color.DarkGray
+        End Select
+
+        PointBar1.值 = KlxPiaoLabel1.偏移量
+
+        Select Case 窗体按钮
+            Case 窗体按钮样式.全部显示
+                ComboBox1.SelectedIndex = 0
+            Case 窗体按钮样式.显示关闭和最小化
+                ComboBox1.SelectedIndex = 1
+            Case 窗体按钮样式.仅显示关闭
+                ComboBox1.SelectedIndex = 2
+            Case 窗体按钮样式.不显示
+                ComboBox1.SelectedIndex = 3
+        End Select
+
+        Select Case 标题位置
+            Case 位置.左
+                ComboBox2.SelectedIndex = 0
+            Case 位置.居中
+                ComboBox2.SelectedIndex = 1
+            Case 位置.右
+                ComboBox2.SelectedIndex = 2
+        End Select
+
+        Select Case 窗体可拖动位置
+            Case 拖动位置.仅标题框
+                ComboBox3.SelectedIndex = 0
+            Case 拖动位置.整个窗体
+                ComboBox3.SelectedIndex = 1
+            Case 拖动位置.不启用拖动
+                ComboBox3.SelectedIndex = 2
+        End Select
+
+        刷新配色()
+    End Sub
+
+#Region "杂项，不做修改"
+    '代码生成器
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        TextBox3.Clear()
+
+        Dim 自定义属性名 As String = TextBox1.Text
+        Dim 类型 As String = TextBox2.Text
+        Dim 默认值 As String = TextBox4.Text
+
+        TextBox3.AppendText($"Private _{自定义属性名} As {类型}")
+        TextBox3.AppendText(vbCrLf & "-----" & vbCrLf)
+        TextBox3.AppendText($"_{自定义属性名} = {默认值}")
+        TextBox3.AppendText(vbCrLf & "-----" & vbCrLf)
+        TextBox3.AppendText($"
+Public Property {自定义属性名} As {类型}
+    Get
+        Return _{自定义属性名}
+    End Get
+    Set(value As {类型})
+        _{自定义属性名} = value
+        Invalidate()
+    End Set
+End Property")
+    End Sub
+    '按钮：应用本地字体
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        应用本地字体(Application.StartupPath & "\义启星空之翼.ttf", Me)
+    End Sub
+    '启用缩放动画
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+        启用缩放动画 = CheckBox1.Checked
+    End Sub
+    '窗体可调整大小
+    Private Sub CheckBox2_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox2.CheckedChanged
+        窗体可调整大小 = CheckBox2.Checked
+    End Sub
+    '设置窗体按钮
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        Select Case ComboBox1.SelectedIndex
+            Case 0
+                窗体按钮 = 窗体按钮样式.全部显示
+            Case 1
+                窗体按钮 = 窗体按钮样式.显示关闭和最小化
+            Case 2
+                窗体按钮 = 窗体按钮样式.仅显示关闭
+            Case 3
+                窗体按钮 = 窗体按钮样式.不显示
+        End Select
+    End Sub
+
+    '设置标题位置
+    Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
+        Select Case ComboBox2.SelectedIndex
+            Case 0
+                标题位置 = 位置.左
+            Case 1
+                标题位置 = 位置.居中
+            Case 2
+                标题位置 = 位置.右
+        End Select
+    End Sub
+    '设置窗体拖动
+    Private Sub ComboBox3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox3.SelectedIndexChanged
+        Select Case ComboBox3.SelectedIndex
+            Case 0
+                窗体可拖动位置 = 拖动位置.仅标题框
+            Case 1
+                窗体可拖动位置 = 拖动位置.整个窗体
+            Case 2
+                窗体可拖动位置 = 拖动位置.不启用拖动
+        End Select
+    End Sub
+
+#Region "设置展示投影文字的属性"
+    Private Sub CheckBox3_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox3.CheckedChanged
+        KlxPiaoLabel1.投影连线 = CheckBox3.Checked
+    End Sub
+    Private Sub CheckBox4_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox4.CheckedChanged
+        KlxPiaoLabel1.颜色减淡 = CheckBox4.Checked
+
+        Select Case CheckBox4.Checked
+            Case True
+                KlxPiaoLabel1.投影颜色 = Color.Black
+            Case False
+                KlxPiaoLabel1.投影颜色 = Color.DarkGray
+        End Select
+    End Sub
+
+    Private Sub PointBar1_值Changed(sender As Object, e As System.ComponentModel.PropertyChangedEventArgs) Handles PointBar1.值Changed
+        KlxPiaoLabel1.偏移量 = PointBar1.值
+    End Sub
+#End Region
+
+    'WindowState动画按钮
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        Select Case WindowState
+            Case FormWindowState.Normal
+                Dim 设置样式 As New 设置WindowState With {
+                    .应用于 = Me,
+                    .样式 = FormWindowState.Maximized,
+                    .启用动画 = True
+                }
+
+                设置样式.设置()
+            Case FormWindowState.Maximized
+                Dim 设置样式 As New 设置WindowState With {
+                    .应用于 = Me,
+                    .样式 = FormWindowState.Normal,
+                    .启用动画 = True
+                }
+
+                设置样式.设置()
+        End Select
+    End Sub
+
+    '加载主题按钮
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click, KlxPiaoButton4.Click
+        Dim 打开文件 As New OpenFileDialog With {
+            .Filter = "主题文件|*.ini",
+            .InitialDirectory = Application.StartupPath
+        }
+
+        If 打开文件.ShowDialog = DialogResult.OK Then
+            加载主题文件(打开文件.FileName)
+            刷新配色()
+        End If
+
+    End Sub
+    '保存主题按钮
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click, KlxPiaoButton3.Click
+        Dim 保存文件 As New SaveFileDialog With {
+            .Filter = "主题文件|*.ini",
+            .FileName = "新配色方案.ini",
+            .InitialDirectory = Application.StartupPath
+        }
+
+        If 保存文件.ShowDialog = DialogResult.OK Then
+            导出主题文件(保存文件.FileName)
+        End If
+
+    End Sub
+#End Region
+
+    Private Sub 刷新配色()
+        主题Panel.BackColor = 标题框颜色
+        背景Panel.BackColor = BackColor
+
+        '皮肤编辑器代码
+        Dim 统一配色 As Boolean = False
+
+        If 判断三个值是否相同(关闭按钮背景色, 缩放按钮背景色, 最小化按钮背景色) AndAlso 判断三个值是否相同(关闭按钮前景色, 缩放按钮前景色, 最小化按钮前景色) AndAlso 判断三个值是否相同(关闭按钮鼠标移入背景色, 缩放按钮鼠标移入背景色, 最小化按钮鼠标移入背景色) AndAlso 判断三个值是否相同(关闭按钮鼠标按下背景色, 缩放按钮鼠标按下背景色, 最小化按钮鼠标按下背景色) Then
+            统一配色 = True
+        End If
+
+
+        If 统一配色 Then
+            KlxPiaoPanel17.Visible = False
+            KlxPiaoLabel7.Text = "按钮颜色"
+            CheckBox5.Checked = True
+        Else
+            KlxPiaoPanel17.Visible = True
+            CheckBox5.Checked = False
+        End If
+
+        '应用到Panel
+        缩放按钮背景Panel.BackColor = 缩放按钮背景色
+        缩放按钮前景Panel.BackColor = 缩放按钮前景色
+        缩放按钮移入Panel.BackColor = 缩放按钮鼠标移入背景色
+        缩放按钮按下Panel.BackColor = 缩放按钮鼠标按下背景色
+
+        关闭按钮背景Panel.BackColor = 关闭按钮背景色
+        关闭按钮前景Panel.BackColor = 关闭按钮前景色
+        关闭按钮移入Panel.BackColor = 关闭按钮鼠标移入背景色
+        关闭按钮按下Panel.BackColor = 关闭按钮鼠标按下背景色
+
+        最小化按钮背景Panel.BackColor = 最小化按钮背景色
+        最小化按钮前景Panel.BackColor = 最小化按钮前景色
+        最小化按钮移入Panel.BackColor = 最小化按钮鼠标移入背景色
+        最小化按钮按下Panel.BackColor = 最小化按钮鼠标按下背景色
+    End Sub
+
+    '统一按钮配色
+    Private Sub CheckBox5_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox5.CheckedChanged
+        If CheckBox5.Checked = True Then
+            KlxPiaoPanel17.Visible = False
+            KlxPiaoLabel7.Text = "按钮颜色"
+            CheckBox5.Checked = True
+
+            '应用到panel
+            关闭按钮背景Panel.BackColor = 缩放按钮背景色
+            关闭按钮前景Panel.BackColor = 缩放按钮前景色
+            关闭按钮移入Panel.BackColor = 缩放按钮鼠标移入背景色
+            关闭按钮按下Panel.BackColor = 缩放按钮鼠标按下背景色
+
+            最小化按钮背景Panel.BackColor = 缩放按钮背景色
+            最小化按钮前景Panel.BackColor = 缩放按钮前景色
+            最小化按钮移入Panel.BackColor = 缩放按钮鼠标移入背景色
+            最小化按钮按下Panel.BackColor = 缩放按钮鼠标按下背景色
+
+            '应用到窗体
+            关闭按钮背景色 = 关闭按钮背景Panel.BackColor
+            关闭按钮前景色 = 关闭按钮前景Panel.BackColor
+            关闭按钮鼠标移入背景色 = 关闭按钮移入Panel.BackColor
+            关闭按钮鼠标按下背景色 = 关闭按钮按下Panel.BackColor
+
+            最小化按钮背景色 = 最小化按钮背景Panel.BackColor
+            最小化按钮前景色 = 最小化按钮前景Panel.BackColor
+            最小化按钮鼠标移入背景色 = 最小化按钮移入Panel.BackColor
+            最小化按钮鼠标按下背景色 = 最小化按钮按下Panel.BackColor
+
+        Else
+            KlxPiaoPanel17.Visible = True
+            KlxPiaoLabel7.Text = "缩放按钮"
+            CheckBox5.Checked = False
+        End If
+    End Sub
+
+    Private Sub 设置颜色_背景(sender As Object, e As EventArgs) Handles 缩放按钮背景Panel.Click, 关闭按钮背景Panel.Click, 最小化按钮背景Panel.Click
+        Dim panel As KlxPiaoPanel = TryCast(sender, KlxPiaoPanel)
+        Dim 设置颜色 As New ColorDialog
+        Dim 触发 As KlxPiaoPanel = Nothing
+
+        Select Case panel.Name
+            Case "缩放按钮背景Panel"
+                设置颜色.Color = 缩放按钮背景色
+                触发 = 缩放按钮背景Panel
+            Case "关闭按钮背景Panel"
+                设置颜色.Color = 关闭按钮背景色
+                触发 = 关闭按钮背景Panel
+            Case "最小化按钮背景Panel"
+                设置颜色.Color = 最小化按钮背景色
+                触发 = 最小化按钮背景Panel
+        End Select
+
+        If 设置颜色.ShowDialog = DialogResult.OK Then
+
+            If CheckBox5.Checked Then
+                缩放按钮背景色 = 设置颜色.Color
+                关闭按钮背景色 = 设置颜色.Color
+                最小化按钮背景色 = 设置颜色.Color
+
+                缩放按钮背景Panel.BackColor = 设置颜色.Color
+                关闭按钮背景Panel.BackColor = 设置颜色.Color
+                最小化按钮背景Panel.BackColor = 设置颜色.Color
+            Else
+
+                If 触发 Is 缩放按钮背景Panel Then
+                    缩放按钮背景色 = 设置颜色.Color
+                ElseIf 触发 Is 关闭按钮背景Panel Then
+                    关闭按钮背景色 = 设置颜色.Color
+                ElseIf 触发 Is 最小化按钮背景Panel Then
+                    最小化按钮背景色 = 设置颜色.Color
+                End If
+
+                触发.BackColor = 设置颜色.Color
+            End If
+
+        End If
+    End Sub
+    Private Sub 设置颜色_前景(sender As Object, e As EventArgs) Handles 缩放按钮前景Panel.Click, 关闭按钮前景Panel.Click, 最小化按钮前景Panel.Click
+        Dim panel As KlxPiaoPanel = TryCast(sender, KlxPiaoPanel)
+        Dim 设置颜色 As New ColorDialog
+        Dim 触发 As KlxPiaoPanel = Nothing
+
+        Select Case panel.Name
+            Case "缩放按钮前景Panel"
+                设置颜色.Color = 缩放按钮前景色
+                触发 = 缩放按钮前景Panel
+            Case "关闭按钮前景Panel"
+                设置颜色.Color = 关闭按钮前景色
+                触发 = 关闭按钮前景Panel
+            Case "最小化按钮前景Panel"
+                设置颜色.Color = 最小化按钮前景色
+                触发 = 最小化按钮前景Panel
+        End Select
+
+        If 设置颜色.ShowDialog = DialogResult.OK Then
+
+            If CheckBox5.Checked Then
+                缩放按钮前景色 = 设置颜色.Color
+                关闭按钮前景色 = 设置颜色.Color
+                最小化按钮前景色 = 设置颜色.Color
+
+                缩放按钮前景Panel.BackColor = 设置颜色.Color
+                关闭按钮前景Panel.BackColor = 设置颜色.Color
+                最小化按钮前景Panel.BackColor = 设置颜色.Color
+            Else
+
+                If 触发 Is 缩放按钮前景Panel Then
+                    缩放按钮前景色 = 设置颜色.Color
+                ElseIf 触发 Is 关闭按钮前景Panel Then
+                    关闭按钮前景色 = 设置颜色.Color
+                ElseIf 触发 Is 最小化按钮前景Panel Then
+                    最小化按钮前景色 = 设置颜色.Color
+                End If
+
+                触发.BackColor = 设置颜色.Color
+            End If
+
+        End If
+    End Sub
+    Private Sub 设置颜色_移入(sender As Object, e As EventArgs) Handles 缩放按钮移入Panel.Click, 关闭按钮移入Panel.Click, 最小化按钮移入Panel.Click
+        Dim panel As KlxPiaoPanel = TryCast(sender, KlxPiaoPanel)
+        Dim 设置颜色 As New ColorDialog
+        Dim 触发 As KlxPiaoPanel = Nothing
+
+        Select Case panel.Name
+            Case "缩放按钮移入Panel"
+                设置颜色.Color = 缩放按钮鼠标移入背景色
+                触发 = 缩放按钮移入Panel
+            Case "关闭按钮移入Panel"
+                设置颜色.Color = 关闭按钮鼠标移入背景色
+                触发 = 关闭按钮移入Panel
+            Case "最小化按钮移入Panel"
+                设置颜色.Color = 最小化按钮鼠标移入背景色
+                触发 = 最小化按钮移入Panel
+        End Select
+
+        If 设置颜色.ShowDialog = DialogResult.OK Then
+
+            If CheckBox5.Checked Then
+                缩放按钮鼠标移入背景色 = 设置颜色.Color
+                关闭按钮鼠标移入背景色 = 设置颜色.Color
+                最小化按钮鼠标移入背景色 = 设置颜色.Color
+
+                缩放按钮移入Panel.BackColor = 设置颜色.Color
+                关闭按钮移入Panel.BackColor = 设置颜色.Color
+                最小化按钮移入Panel.BackColor = 设置颜色.Color
+            Else
+
+                If 触发 Is 缩放按钮移入Panel Then
+                    缩放按钮鼠标移入背景色 = 设置颜色.Color
+                ElseIf 触发 Is 关闭按钮移入Panel Then
+                    关闭按钮鼠标移入背景色 = 设置颜色.Color
+                ElseIf 触发 Is 最小化按钮移入Panel Then
+                    最小化按钮鼠标移入背景色 = 设置颜色.Color
+                End If
+
+                触发.BackColor = 设置颜色.Color
+            End If
+
+        End If
+    End Sub
+    Private Sub 设置颜色_按下(sender As Object, e As EventArgs) Handles 缩放按钮按下Panel.Click, 关闭按钮按下Panel.Click, 最小化按钮按下Panel.Click
+        Dim panel As KlxPiaoPanel = TryCast(sender, KlxPiaoPanel)
+        Dim 设置颜色 As New ColorDialog
+        Dim 触发 As KlxPiaoPanel = Nothing
+
+        Select Case panel.Name
+            Case "缩放按钮按下Panel"
+                设置颜色.Color = 缩放按钮鼠标按下背景色
+                触发 = 缩放按钮按下Panel
+            Case "关闭按钮按下Panel"
+                设置颜色.Color = 关闭按钮鼠标按下背景色
+                触发 = 关闭按钮按下Panel
+            Case "最小化按钮按下Panel"
+                设置颜色.Color = 最小化按钮鼠标按下背景色
+                触发 = 最小化按钮按下Panel
+        End Select
+
+        If 设置颜色.ShowDialog = DialogResult.OK Then
+
+            If CheckBox5.Checked Then
+                缩放按钮鼠标按下背景色 = 设置颜色.Color
+                关闭按钮鼠标按下背景色 = 设置颜色.Color
+                最小化按钮鼠标按下背景色 = 设置颜色.Color
+
+                缩放按钮按下Panel.BackColor = 设置颜色.Color
+                关闭按钮按下Panel.BackColor = 设置颜色.Color
+                最小化按钮按下Panel.BackColor = 设置颜色.Color
+            Else
+
+                If 触发 Is 缩放按钮按下Panel Then
+                    缩放按钮鼠标按下背景色 = 设置颜色.Color
+                ElseIf 触发 Is 关闭按钮按下Panel Then
+                    关闭按钮鼠标按下背景色 = 设置颜色.Color
+                ElseIf 触发 Is 最小化按钮按下Panel Then
+                    最小化按钮鼠标按下背景色 = 设置颜色.Color
+                End If
+
+                触发.BackColor = 设置颜色.Color
+            End If
+
+        End If
+    End Sub
+
+    Private Sub KlxPiaoButton3_Click(sender As Object, e As EventArgs)
+        刷新配色()
+    End Sub
+
+    Private Sub 主题Panel_Click(sender As Object, e As EventArgs) Handles 主题Panel.Click
+        Dim 设置颜色 As New ColorDialog With {
+            .Color = 标题框颜色
+        }
+
+        If 设置颜色.ShowDialog = DialogResult.OK Then
+            主题Panel.BackColor = 设置颜色.Color
+            标题框颜色 = 设置颜色.Color
+
+            缩放按钮背景色 = 设置颜色.Color
+            关闭按钮背景色 = 设置颜色.Color
+            最小化按钮背景色 = 设置颜色.Color
+
+            刷新配色()
+        End If
+    End Sub
+
+    Private Sub 背景Panel_Click(sender As Object, e As EventArgs) Handles 背景Panel.Click
+        Dim 设置颜色 As New ColorDialog With {
+            .Color = BackColor
+        }
+
+        If 设置颜色.ShowDialog = DialogResult.OK Then
+            背景Panel.BackColor = 设置颜色.Color
+            BackColor = 设置颜色.Color
+        End If
+    End Sub
+
+    '一键生成
+    Private Sub KlxPiaoButton2_Click(sender As Object, e As EventArgs) Handles KlxPiaoButton2.Click
+        Dim originalColor As Color = 主题Panel.BackColor
+
+        缩放按钮鼠标移入背景色 = ChangeBrightness(originalColor, -0.03)
+        缩放按钮鼠标按下背景色 = ChangeBrightness(缩放按钮鼠标移入背景色, -0.03)
+
+        刷新配色()
+
+        CheckBox5.Checked = True
+    End Sub
+
+    Function ChangeBrightness(color As Color, factor As Double) As Color
+        Dim red As Integer = Math.Min(Math.Max(0, color.R * (1 + factor)), 255)
+        Dim green As Integer = Math.Min(Math.Max(0, color.G * (1 + factor)), 255)
+        Dim blue As Integer = Math.Min(Math.Max(0, color.B * (1 + factor)), 255)
+        Return Color.FromArgb(color.A, red, green, blue)
+    End Function
+
+End Class

@@ -1,0 +1,139 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+KlxPiaoAPI
+</name>
+</assembly>
+<members>
+<member name="T:KlxPiaoAPI.My.Resources.Resources">
+<summary>
+  一个强类型的资源类，用于查找本地化的字符串等。
+</summary>
+</member>
+<member name="P:KlxPiaoAPI.My.Resources.Resources.ResourceManager">
+<summary>
+  返回此类使用的缓存的 ResourceManager 实例。
+</summary>
+</member>
+<member name="P:KlxPiaoAPI.My.Resources.Resources.Culture">
+<summary>
+  重写当前线程的 CurrentUICulture 属性，对
+  使用此强类型资源类的所有资源查找执行重写。
+</summary>
+</member>
+<member name="P:KlxPiaoAPI.My.Resources.Resources.最大化按钮图标">
+<summary>
+  查找 System.Drawing.Bitmap 类型的本地化资源。
+</summary>
+</member>
+<member name="P:KlxPiaoAPI.My.Resources.Resources.还原按钮图标">
+<summary>
+  查找 System.Drawing.Bitmap 类型的本地化资源。
+</summary>
+</member>
+<member name="T:KlxPiaoAPI.常用功能.创建快捷方式">
+ <summary>
+ 调用WScript.Shell创建快捷方式
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.常用功能.创建快捷方式.快捷方式路径">
+ <summary>
+ 要带有.lnk
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.常用功能.创建快捷方式.起始位置">
+ <summary>
+ 未设置起始位置时使用目标文件所在文件夹
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.常用功能.创建快捷方式.图标">
+ <summary>
+ 未设置图标时使用默认图标
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.常用功能.创建快捷方式.快捷键">
+ <summary>
+ 例如"Ctrl+Alt+e"
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.常用功能.创建快捷方式.运行方式">
+ <summary>
+ 在常规窗口（默认），最大化，最小化中选择一项
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.常用功能.创建快捷方式.窗体样式.常规窗口">
+ <summary>
+ 创建快捷方式.窗体.常规窗口 = 1
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.常用功能.创建快捷方式.窗体样式.最大化">
+ <summary>
+ 创建快捷方式.窗体.最大化 = 3
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.常用功能.创建快捷方式.窗体样式.最小化">
+ <summary>
+ 创建快捷方式.窗体.最小化 = 7
+ </summary>
+</member>
+<member name="M:KlxPiaoAPI.字符串操作.默认类.提取中间文本1(System.String,System.String,System.String)">
+ <summary>
+ 提供者：ChatGPT
+ </summary>
+</member>
+<member name="M:KlxPiaoAPI.字符串操作.默认类.提取中间文本2(System.String,System.String,System.String)">
+ <summary>
+ 提供者：百度AI
+ </summary>
+</member>
+<member name="M:KlxPiaoAPI.字符串操作.默认类.提取中间文本3(System.String,System.String,System.String)">
+ <summary>
+ 提供者：KlxPiao
+ </summary>
+</member>
+<member name="M:KlxPiaoAPI.字符串操作.默认类.提取所有中间文本1(System.String,System.String,System.String)">
+ <summary>
+ 提供者：百度AI
+ </summary>
+</member>
+<member name="M:KlxPiaoAPI.字符串操作.默认类.提取所有中间文本2(System.String,System.String,System.String)">
+ <summary>
+ 提供者：ChatGPT
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.KlxPiaoForm.设置WindowState.应用于">
+ <summary>
+ 需要设置窗体样式的Form
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.KlxPiaoForm.设置WindowState.启用动画">
+ <summary>
+ 是否启用动画，默认为True
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.KlxPiaoForm.设置WindowState.持续时间">
+ <summary>
+ 动画持续的时间(毫秒)，默认为50
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.KlxPiaoForm.设置WindowState.最低透明度">
+ <summary>
+ 为0-100之间，默认为50
+ </summary>
+</member>
+<member name="M:KlxPiaoAPI.KlxPiaoForm.应用本地字体(System.String,System.Windows.Forms.Control)">
+ <summary>
+ 很容易卡死闪退
+ </summary>
+ <param name="文件路径"></param>
+ <param name="控件"></param>
+</member>
+<member name="M:KlxPiaoAPI.KlxPiaoForm.加载主题文件(System.String)">
+ <summary>
+ 加载现有主题文件
+ </summary>
+ <param name="文件路径或资源文件"></param>
+</member>
+</members>
+</doc>
