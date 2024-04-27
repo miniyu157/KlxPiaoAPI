@@ -2,10 +2,8 @@
 Imports KlxPiaoAPI.字符串操作
 Public Class Form1
 
-
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Text = $"{关于KlxPiao.产品名称} {关于KlxPiao.产品版本} Demo"
-        '加载主题文件(Application.StartupPath & "\Themes\浅粉.ini")
 
         CheckBox1.Checked = 启用缩放动画
         CheckBox2.Checked = 窗体可调整大小
@@ -283,10 +281,11 @@ End Property")
             最小化按钮鼠标移入背景色 = 最小化按钮移入Panel.BackColor
             最小化按钮鼠标按下背景色 = 最小化按钮按下Panel.BackColor
 
+            标题字体颜色 = 缩放按钮前景色
+            CheckBox6.Checked = False
         Else
             KlxPiaoPanel17.Visible = True
             KlxPiaoLabel7.Text = "缩放按钮"
-            CheckBox5.Checked = False
         End If
     End Sub
 
@@ -294,6 +293,8 @@ End Property")
         Dim panel As KlxPiaoPanel = TryCast(sender, KlxPiaoPanel)
         Dim 设置颜色 As New ColorDialog
         Dim 触发 As KlxPiaoPanel = Nothing
+
+        设置颜色.FullOpen = True
 
         Select Case panel.Name
             Case "缩放按钮背景Panel"
@@ -337,6 +338,8 @@ End Property")
         Dim 设置颜色 As New ColorDialog
         Dim 触发 As KlxPiaoPanel = Nothing
 
+        设置颜色.FullOpen = True
+
         Select Case panel.Name
             Case "缩放按钮前景Panel"
                 设置颜色.Color = 缩放按钮前景色
@@ -359,6 +362,8 @@ End Property")
                 缩放按钮前景Panel.BackColor = 设置颜色.Color
                 关闭按钮前景Panel.BackColor = 设置颜色.Color
                 最小化按钮前景Panel.BackColor = 设置颜色.Color
+
+                标题字体颜色 = 设置颜色.Color
             Else
 
                 If 触发 Is 缩放按钮前景Panel Then
@@ -378,6 +383,8 @@ End Property")
         Dim panel As KlxPiaoPanel = TryCast(sender, KlxPiaoPanel)
         Dim 设置颜色 As New ColorDialog
         Dim 触发 As KlxPiaoPanel = Nothing
+
+        设置颜色.FullOpen = True
 
         Select Case panel.Name
             Case "缩放按钮移入Panel"
@@ -420,6 +427,8 @@ End Property")
         Dim panel As KlxPiaoPanel = TryCast(sender, KlxPiaoPanel)
         Dim 设置颜色 As New ColorDialog
         Dim 触发 As KlxPiaoPanel = Nothing
+
+        设置颜色.FullOpen = True
 
         Select Case panel.Name
             Case "缩放按钮按下Panel"
@@ -465,7 +474,8 @@ End Property")
 
     Private Sub 主题Panel_Click(sender As Object, e As EventArgs) Handles 主题Panel.Click
         Dim 设置颜色 As New ColorDialog With {
-            .Color = 标题框颜色
+            .Color = 标题框颜色,
+            .FullOpen = True
         }
 
         If 设置颜色.ShowDialog = DialogResult.OK Then
@@ -482,7 +492,8 @@ End Property")
 
     Private Sub 背景Panel_Click(sender As Object, e As EventArgs) Handles 背景Panel.Click
         Dim 设置颜色 As New ColorDialog With {
-            .Color = BackColor
+            .Color = 标题框颜色,
+            .FullOpen = True
         }
 
         If 设置颜色.ShowDialog = DialogResult.OK Then
@@ -503,12 +514,25 @@ End Property")
         CheckBox5.Checked = True
     End Sub
 
-    Function ChangeBrightness(color As Color, factor As Double) As Color
+    Private Function ChangeBrightness(color As Color, factor As Double) As Color
         Dim red As Integer = Math.Min(Math.Max(0, color.R * (1 + factor)), 255)
         Dim green As Integer = Math.Min(Math.Max(0, color.G * (1 + factor)), 255)
         Dim blue As Integer = Math.Min(Math.Max(0, color.B * (1 + factor)), 255)
         Return Color.FromArgb(color.A, red, green, blue)
     End Function
 
+    '关闭按钮高亮
+    Private Sub CheckBox6_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox6.CheckedChanged
+        If CheckBox6.Checked Then
+            CheckBox5.Checked = False
 
+            关闭按钮移入Panel.BackColor = Color.FromArgb(255, 0, 0)
+            关闭按钮按下Panel.BackColor = Color.FromArgb(255, 85, 85)
+
+            关闭按钮鼠标移入背景色 = Color.FromArgb(255, 0, 0)
+            关闭按钮鼠标按下背景色 = Color.FromArgb(255, 85, 85)
+        Else
+            CheckBox5.Checked = True
+        End If
+    End Sub
 End Class
