@@ -618,18 +618,12 @@ Public Class KlxPiaoForm
     '响应窗体拖动，和调整大小
     Private Sub KlxPiaoForm_MouseDown(sender As Object, e As MouseEventArgs) Handles Me.MouseDown
 
-        '窗体拖动，（写成嵌套的形式是为了能看得懂）
-        If 窗体可拖动位置 <> 拖动位置.不启用拖动 Then
-            If Not WindowState = FormWindowState.Maximized Then
-                If e.Button = MouseButtons.Left Then
-                    If 窗体可拖动位置 = 拖动位置.整个窗体 Then
-                        MouseDownLocation = e.Location
-                    ElseIf 窗体可拖动位置 = 拖动位置.仅标题框 Then
-                        If e.Y < 标题框高度 Then
-                            MouseDownLocation = e.Location
-                        End If
-                    End If
-                End If
+        '窗体拖动
+        If 窗体可拖动位置 <> 拖动位置.不启用拖动 AndAlso WindowState <> FormWindowState.Maximized AndAlso e.Button = MouseButtons.Left Then
+            If 窗体可拖动位置 = 拖动位置.整个窗体 Then
+                MouseDownLocation = e.Location
+            ElseIf 窗体可拖动位置 = 拖动位置.仅标题框 AndAlso e.Y < 标题框高度 Then
+                MouseDownLocation = e.Location
             End If
         End If
 
@@ -961,6 +955,8 @@ Public Class KlxPiaoForm
             Throw New ArgumentException("属性不存在：" & 属性名称)
         End If
     End Function
+
+
 #End Region
 
 End Class

@@ -101,6 +101,9 @@
     <Compile Include="PointBar.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Switch.vb">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

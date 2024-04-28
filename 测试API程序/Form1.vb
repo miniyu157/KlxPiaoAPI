@@ -492,7 +492,7 @@ End Property")
 
     Private Sub 背景Panel_Click(sender As Object, e As EventArgs) Handles 背景Panel.Click
         Dim 设置颜色 As New ColorDialog With {
-            .Color = 标题框颜色,
+            .Color = BackColor,
             .FullOpen = True
         }
 
@@ -534,5 +534,24 @@ End Property")
         Else
             CheckBox5.Checked = True
         End If
+    End Sub
+    '代码生成器
+    Private Sub KlxPiaoButton5_Click(sender As Object, e As EventArgs) Handles KlxPiaoButton5.Click
+        TextBox5.Text = $"        Me.关闭按钮前景色 = System.Drawing.Color.FromArgb(CType(CType({关闭按钮前景色.R}, Byte), Integer), CType(CType({关闭按钮前景色.G}, Byte), Integer), CType(CType({关闭按钮前景色.B}, Byte), Integer))
+        Me.关闭按钮背景色 = System.Drawing.Color.FromArgb(CType(CType({关闭按钮背景色.R}, Byte), Integer), CType(CType({关闭按钮背景色.G}, Byte), Integer), CType(CType({关闭按钮背景色.B}, Byte), Integer))
+        Me.关闭按钮鼠标按下背景色 = System.Drawing.Color.FromArgb(CType(CType({关闭按钮鼠标按下背景色.R}, Byte), Integer), CType(CType({关闭按钮鼠标按下背景色.G}, Byte), Integer), CType(CType({关闭按钮鼠标按下背景色.B}, Byte), Integer))
+        Me.关闭按钮鼠标移入背景色 = System.Drawing.Color.FromArgb(CType(CType({关闭按钮鼠标移入背景色.R}, Byte), Integer), CType(CType({关闭按钮鼠标移入背景色.G}, Byte), Integer), CType(CType({关闭按钮鼠标移入背景色.B}, Byte), Integer))
+        Me.最小化按钮前景色 = System.Drawing.Color.FromArgb(CType(CType({最小化按钮前景色.R}, Byte), Integer), CType(CType({最小化按钮前景色.G}, Byte), Integer), CType(CType({最小化按钮前景色.B}, Byte), Integer))
+        Me.最小化按钮背景色 = System.Drawing.Color.FromArgb(CType(CType({最小化按钮背景色.R}, Byte), Integer), CType(CType({最小化按钮背景色.G}, Byte), Integer), CType(CType({最小化按钮背景色.B}, Byte), Integer))
+        Me.最小化按钮鼠标按下背景色 = System.Drawing.Color.FromArgb(CType(CType({最小化按钮鼠标按下背景色.R}, Byte), Integer), CType(CType({最小化按钮鼠标按下背景色.G}, Byte), Integer), CType(CType({最小化按钮鼠标按下背景色.B}, Byte), Integer))
+        Me.最小化按钮鼠标移入背景色 = System.Drawing.Color.FromArgb(CType(CType({最小化按钮鼠标移入背景色.R}, Byte), Integer), CType(CType({最小化按钮鼠标移入背景色.G}, Byte), Integer), CType(CType({最小化按钮鼠标移入背景色.B}, Byte), Integer))
+        Me.缩放按钮前景色 = System.Drawing.Color.FromArgb(CType(CType({缩放按钮前景色.R}, Byte), Integer), CType(CType({缩放按钮前景色.G}, Byte), Integer), CType(CType({缩放按钮前景色.B}, Byte), Integer))
+        Me.缩放按钮背景色 = System.Drawing.Color.FromArgb(CType(CType({缩放按钮背景色.R}, Byte), Integer), CType(CType({缩放按钮背景色.G}, Byte), Integer), CType(CType({缩放按钮背景色.B}, Byte), Integer))
+        Me.缩放按钮鼠标按下背景色 = System.Drawing.Color.FromArgb(CType(CType({缩放按钮鼠标按下背景色.R}, Byte), Integer), CType(CType({缩放按钮鼠标按下背景色.G}, Byte), Integer), CType(CType({缩放按钮鼠标按下背景色.B}, Byte), Integer))
+        Me.缩放按钮鼠标移入背景色 = System.Drawing.Color.FromArgb(CType(CType({缩放按钮鼠标移入背景色.R}, Byte), Integer), CType(CType({缩放按钮鼠标移入背景色.G}, Byte), Integer), CType(CType({缩放按钮鼠标移入背景色.B}, Byte), Integer))
+        Me.标题框颜色 = System.Drawing.Color.FromArgb(CType(CType({标题框颜色.R}, Byte), Integer), CType(CType({标题框颜色.G}, Byte), Integer), CType(CType({标题框颜色.B}, Byte), Integer))
+        Me.标题字体颜色 = System.Drawing.Color.FromArgb(CType(CType({标题字体颜色.R}, Byte), Integer), CType(CType({标题字体颜色.G}, Byte), Integer), CType(CType({标题字体颜色.B}, Byte), Integer))"
+
+        My.Computer.Clipboard.SetText(TextBox5.Text)
     End Sub
 End Class

@@ -96,72 +96,77 @@ Public Class KlxPiaoPanel
     Protected Overrides Sub OnPaint(e As PaintEventArgs)
         MyBase.OnPaint(e)
 
-        Dim g As Graphics = e.Graphics
-        g.Clear(Color.White)
+        '创建双缓冲绘图对象
+        Using bitmap As New Bitmap(Width, Height)
 
-        Dim 递减值R As Integer = (255 - 投影颜色.R) \ 投影长度
-        Dim 递减值G As Integer = (255 - 投影颜色.G) \ 投影长度
-        Dim 递减值B As Integer = (255 - 投影颜色.B) \ 投影长度
+            Dim g As Graphics = Graphics.FromImage(bitmap)
+            g.Clear(Color.White)
 
-        Dim 递减值 As Integer = 255 \ 投影长度
+            Dim 递减值R As Integer = (255 - 投影颜色.R) \ 投影长度
+            Dim 递减值G As Integer = (255 - 投影颜色.G) \ 投影长度
+            Dim 递减值B As Integer = (255 - 投影颜色.B) \ 投影长度
 
-        If 启用投影 Then
-            Dim 边框Rect As Rectangle
-            Dim 背景Rect As Rectangle
+            Dim 递减值 As Integer = 255 \ 投影长度
 
-            Select Case 投影方向
-                Case 方向.右下
-                    边框Rect = New Rectangle(0, 0, Width - 投影长度 - 1, Height - 投影长度 - 1)
-                    背景Rect = New Rectangle(1, 1, Width - 投影长度 - 2, Height - 投影长度 - 2)
+            If 启用投影 Then
+                Dim 边框Rect As Rectangle
+                Dim 背景Rect As Rectangle
 
-                    For i = 0 To 投影长度
-                        Using brush As New SolidBrush(Color.FromArgb(递减值, 255 - i * 递减值R, 255 - i * 递减值G, 255 - i * 递减值B))
-                            g.FillRectangle(brush, New Rectangle(投影长度 - i, 投影长度 - i, Width - 投影长度, Height - 投影长度))
-                        End Using
-                    Next
-                Case 方向.左下
-                    边框Rect = New Rectangle(投影长度, 0, Width - 投影长度 - 1, Height - 投影长度 - 1)
-                    背景Rect = New Rectangle(投影长度 + 1, 1, Width - 投影长度 - 2, Height - 投影长度 - 2)
+                Select Case 投影方向
+                    Case 方向.右下
+                        边框Rect = New Rectangle(0, 0, Width - 投影长度 - 1, Height - 投影长度 - 1)
+                        背景Rect = New Rectangle(1, 1, Width - 投影长度 - 2, Height - 投影长度 - 2)
 
-                    For i = 0 To 投影长度
-                        Using brush As New SolidBrush(Color.FromArgb(递减值, 255 - i * 递减值R, 255 - i * 递减值G, 255 - i * 递减值B))
-                            g.FillRectangle(brush, New Rectangle(i, 投影长度 - i, Width - 投影长度, Height - 投影长度))
-                        End Using
-                    Next
-                Case 方向.左下右
-                    边框Rect = New Rectangle(投影长度, 0, Width - 投影长度 * 2 - 1, Height - 投影长度 - 1)
-                    背景Rect = New Rectangle(投影长度 + 1, 1, Width - 投影长度 * 2 - 2, Height - 投影长度 - 2)
+                        For i = 0 To 投影长度
+                            Using brush As New SolidBrush(Color.FromArgb(递减值, 255 - i * 递减值R, 255 - i * 递减值G, 255 - i * 递减值B))
+                                g.FillRectangle(brush, New Rectangle(投影长度 - i, 投影长度 - i, Width - 投影长度, Height - 投影长度))
+                            End Using
+                        Next
+                    Case 方向.左下
+                        边框Rect = New Rectangle(投影长度, 0, Width - 投影长度 - 1, Height - 投影长度 - 1)
+                        背景Rect = New Rectangle(投影长度 + 1, 1, Width - 投影长度 - 2, Height - 投影长度 - 2)
 
-                    For i = 0 To 投影长度
-                        Using brush As New SolidBrush(Color.FromArgb(递减值, 255 - i * 递减值R, 255 - i * 递减值G, 255 - i * 递减值B))
-                            g.FillRectangle(brush, New Rectangle(投影长度 * 2 - i, 投影长度 - i, Width - 投影长度 * 2, Height - 投影长度))
-                            g.FillRectangle(brush, New Rectangle(i, 投影长度 - i, Width - 投影长度 * 2, Height - 投影长度))
-                        End Using
-                    Next
-            End Select
+                        For i = 0 To 投影长度
+                            Using brush As New SolidBrush(Color.FromArgb(递减值, 255 - i * 递减值R, 255 - i * 递减值G, 255 - i * 递减值B))
+                                g.FillRectangle(brush, New Rectangle(i, 投影长度 - i, Width - 投影长度, Height - 投影长度))
+                            End Using
+                        Next
+                    Case 方向.左下右
+                        边框Rect = New Rectangle(投影长度, 0, Width - 投影长度 * 2 - 1, Height - 投影长度 - 1)
+                        背景Rect = New Rectangle(投影长度 + 1, 1, Width - 投影长度 * 2 - 2, Height - 投影长度 - 2)
 
-            '边框
-            Using BorderPen As New Pen(边框颜色, 1)
-                g.DrawRectangle(BorderPen, 边框Rect)
-            End Using
+                        For i = 0 To 投影长度
+                            Using brush As New SolidBrush(Color.FromArgb(递减值, 255 - i * 递减值R, 255 - i * 递减值G, 255 - i * 递减值B))
+                                g.FillRectangle(brush, New Rectangle(投影长度 * 2 - i, 投影长度 - i, Width - 投影长度 * 2, Height - 投影长度))
+                                g.FillRectangle(brush, New Rectangle(i, 投影长度 - i, Width - 投影长度 * 2, Height - 投影长度))
+                            End Using
+                        Next
+                End Select
 
-            '背景
-            Using brush As New SolidBrush(BackColor)
-                g.FillRectangle(brush, 背景Rect)
-            End Using
-        Else
-            '背景
-            Using brush As New SolidBrush(BackColor)
-                g.FillRectangle(brush, New Rectangle(0, 0, Width, Height))
-            End Using
-
-            '边框
-            If 边框大小 <> 0 Then
-                Using pen1 As New Pen(边框颜色, 边框大小)
-                    g.DrawRectangle(pen1, New Rectangle(0, 0, Width - 1, Height - 1))
+                '边框
+                Using BorderPen As New Pen(边框颜色, 1)
+                    g.DrawRectangle(BorderPen, 边框Rect)
                 End Using
-            End If
-        End If
 
+                '背景
+                Using brush As New SolidBrush(BackColor)
+                    g.FillRectangle(brush, 背景Rect)
+                End Using
+            Else
+                '背景
+                Using brush As New SolidBrush(BackColor)
+                    g.FillRectangle(brush, New Rectangle(0, 0, Width, Height))
+                End Using
+
+                '边框
+                If 边框大小 <> 0 Then
+                    Using pen1 As New Pen(边框颜色, 边框大小)
+                        g.DrawRectangle(pen1, New Rectangle(0, 0, Width - 1, Height - 1))
+                    End Using
+                End If
+            End If
+
+            e.Graphics.DrawImage(bitmap, 0, 0)
+        End Using
     End Sub
 End Class
