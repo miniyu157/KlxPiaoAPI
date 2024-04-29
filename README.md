@@ -22,6 +22,8 @@
         .样式 = FormWindowState.Maximized,
         .启用动画 = True
     }
+
+    复制主题(从 As KlxPiaoForm, 到 As KlxPiaoForm)
     
 ![此处输入图片的描述][2]
 
