@@ -102,6 +102,12 @@ KlxPiaoAPI
  提供者：ChatGPT
  </summary>
 </member>
+<member name="M:KlxPiaoAPI.KlxPiaoForm.加载主题文件(System.String)">
+ <summary>
+ 加载现有主题文件
+ </summary>
+ <param name="文件路径或资源文件"></param>
+</member>
 <member name="F:KlxPiaoAPI.KlxPiaoForm.设置WindowState.应用于">
  <summary>
  需要设置窗体样式的Form
@@ -128,12 +134,7 @@ KlxPiaoAPI
  </summary>
  <param name="文件路径"></param>
  <param name="控件"></param>
-</member>
-<member name="M:KlxPiaoAPI.KlxPiaoForm.加载主题文件(System.String)">
- <summary>
- 加载现有主题文件
- </summary>
- <param name="文件路径或资源文件"></param>
+ 
 </member>
 </members>
 </doc>

@@ -782,66 +782,7 @@ Public Class KlxPiaoForm
     End Sub
 #End Region
 
-    '最大化、还原的动画
-    Public Class 设置WindowState
-        ''' <summary>
-        ''' 需要设置窗体样式的Form
-        ''' </summary>
-        Public 应用于 As Form
-        Public 样式 As FormWindowState
-        ''' <summary>
-        ''' 是否启用动画，默认为True
-        ''' </summary>
-        Public 启用动画 As Boolean = True
-        ''' <summary>
-        ''' 动画持续的时间(毫秒)，默认为50
-        ''' </summary>
-        Public 持续时间 As Integer = 50
-        ''' <summary>
-        ''' 为0-100之间，默认为50
-        ''' </summary>
-        Public 最低透明度 As Integer = 50
-
-        Public Sub 设置()
-            If 启用动画 Then
-                For i = 100 To 最低透明度 Step -((100 - 最低透明度) / (持续时间 / 10))
-                    应用于.Opacity = i / 100
-                    Threading.Thread.Sleep(10)
-                Next
-
-                应用于.WindowState = 样式
-                应用于.Refresh()
-
-                For i = 最低透明度 To 100 Step ((100 - 最低透明度) / (持续时间 / 10))
-                    应用于.Opacity = i / 100
-                    Threading.Thread.Sleep(10)
-                Next
-            Else
-                应用于.WindowState = 样式
-                应用于.Refresh()
-            End If
-
-        End Sub
-    End Class
-
-    ''' <summary>
-    ''' 很容易卡死闪退
-    ''' </summary>
-    ''' <param name="文件路径"></param>
-    ''' <param name="控件"></param>
-    Public Sub 应用本地字体(文件路径 As String, 控件 As Control)
-        If Not (TypeOf 控件 Is Form OrElse TypeOf 控件 Is ContainerControl) Then
-            控件.Font = 文件处理.加载字体(文件路径, 控件.Font.Size, 控件.Font.Style)
-        End If
-
-        For Each ctrl As Control In 控件.Controls
-            ctrl.Font = 文件处理.加载字体(文件路径, ctrl.Font.Size, ctrl.Font.Style)
-
-            If ctrl.HasChildren Then
-                应用本地字体(文件路径, ctrl)
-            End If
-        Next
-    End Sub
+    '-----KlxPiaoForm函数
 
 #Region "加载主题文件"
     ''' <summary>
@@ -958,5 +899,84 @@ Public Class KlxPiaoForm
 
 
 #End Region
+
+    Public Class 设置WindowState
+        ''' <summary>
+        ''' 需要设置窗体样式的Form
+        ''' </summary>
+        Public 应用于 As Form
+        Public 样式 As FormWindowState
+        ''' <summary>
+        ''' 是否启用动画，默认为True
+        ''' </summary>
+        Public 启用动画 As Boolean = True
+        ''' <summary>
+        ''' 动画持续的时间(毫秒)，默认为50
+        ''' </summary>
+        Public 持续时间 As Integer = 50
+        ''' <summary>
+        ''' 为0-100之间，默认为50
+        ''' </summary>
+        Public 最低透明度 As Integer = 50
+
+        Public Sub 设置()
+            If 启用动画 Then
+                For i = 100 To 最低透明度 Step -((100 - 最低透明度) / (持续时间 / 10))
+                    应用于.Opacity = i / 100
+                    Threading.Thread.Sleep(10)
+                Next
+
+                应用于.WindowState = 样式
+                应用于.Refresh()
+
+                For i = 最低透明度 To 100 Step ((100 - 最低透明度) / (持续时间 / 10))
+                    应用于.Opacity = i / 100
+                    Threading.Thread.Sleep(10)
+                Next
+            Else
+                应用于.WindowState = 样式
+                应用于.Refresh()
+            End If
+
+        End Sub
+    End Class
+
+    ''' <summary>
+    ''' 很容易卡死闪退
+    ''' </summary>
+    ''' <param name="文件路径"></param>
+    ''' <param name="控件"></param>
+    ''' 
+    Public Sub 应用本地字体(文件路径 As String, 控件 As Control)
+        If Not (TypeOf 控件 Is Form OrElse TypeOf 控件 Is ContainerControl) Then
+            控件.Font = 文件处理.加载字体(文件路径, 控件.Font.Size, 控件.Font.Style)
+        End If
+
+        For Each ctrl As Control In 控件.Controls
+            ctrl.Font = 文件处理.加载字体(文件路径, ctrl.Font.Size, ctrl.Font.Style)
+
+            If ctrl.HasChildren Then
+                应用本地字体(文件路径, ctrl)
+            End If
+        Next
+    End Sub
+
+    Public Sub 复制主题(从 As KlxPiaoForm, 到 As KlxPiaoForm)
+        到.关闭按钮背景色 = 从.关闭按钮背景色
+        到.关闭按钮前景色 = 从.关闭按钮前景色
+        到.关闭按钮鼠标移入背景色 = 从.关闭按钮鼠标移入背景色
+        到.关闭按钮鼠标按下背景色 = 从.关闭按钮鼠标按下背景色
+        到.最小化按钮背景色 = 从.最小化按钮背景色
+        到.最小化按钮前景色 = 从.最小化按钮前景色
+        到.最小化按钮鼠标移入背景色 = 从.最小化按钮鼠标移入背景色
+        到.最小化按钮鼠标按下背景色 = 从.最小化按钮鼠标按下背景色
+        到.缩放按钮背景色 = 从.缩放按钮背景色
+        到.缩放按钮前景色 = 从.缩放按钮前景色
+        到.缩放按钮鼠标移入背景色 = 从.缩放按钮鼠标移入背景色
+        到.缩放按钮鼠标按下背景色 = 从.缩放按钮鼠标按下背景色
+        到.标题框颜色 = 从.标题框颜色
+        到.标题字体颜色 = 从.标题字体颜色
+    End Sub
+
 
 End Class

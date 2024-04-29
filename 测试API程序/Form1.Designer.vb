@@ -1,4 +1,4 @@
-﻿Imports KlxPiaoAPI
+Imports KlxPiaoAPI
 
 <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
@@ -35,17 +35,24 @@ Partial Class Form1
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.ComboBox4 = New System.Windows.Forms.ComboBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.KlxPiaoButton6 = New KlxPiaoAPI.KlxPiaoButton()
+        Me.KlxPiaoLabel24 = New KlxPiaoAPI.KlxPiaoLabel()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
+        Me.ComboBox4 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.KlxPiaoLabel26 = New KlxPiaoAPI.KlxPiaoLabel()
+        Me.KlxPiaoLabel25 = New KlxPiaoAPI.KlxPiaoLabel()
+        Me.KlxPiaoLabel23 = New KlxPiaoAPI.KlxPiaoLabel()
         Me.KlxPiaoLabel21 = New KlxPiaoAPI.KlxPiaoLabel()
         Me.Switch1 = New KlxPiaoAPI.Switch()
         Me.KlxPiaoButton1 = New KlxPiaoAPI.KlxPiaoButton()
@@ -102,13 +109,17 @@ Partial Class Form1
         Me.KlxPiaoLabel3 = New KlxPiaoAPI.KlxPiaoLabel()
         Me.KlxPiaoLabel2 = New KlxPiaoAPI.KlxPiaoLabel()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.KlxPiaoButton7 = New KlxPiaoAPI.KlxPiaoButton()
         Me.KlxPiaoLabel20 = New KlxPiaoAPI.KlxPiaoLabel()
         Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.KlxPiaoButton5 = New KlxPiaoAPI.KlxPiaoButton()
-        Me.KlxPiaoLabel23 = New KlxPiaoAPI.KlxPiaoLabel()
+        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
+        Me.KlxPiaoLabel27 = New KlxPiaoAPI.KlxPiaoLabel()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.TabPage3.SuspendLayout()
         Me.KlxPiaoPanel1.SuspendLayout()
         Me.TabPage4.SuspendLayout()
@@ -219,16 +230,8 @@ Partial Class Form1
         'TabPage2
         '
         Me.TabPage2.BackColor = System.Drawing.Color.White
-        Me.TabPage2.Controls.Add(Me.Label7)
-        Me.TabPage2.Controls.Add(Me.ComboBox4)
-        Me.TabPage2.Controls.Add(Me.CheckBox1)
-        Me.TabPage2.Controls.Add(Me.Label6)
-        Me.TabPage2.Controls.Add(Me.ComboBox3)
-        Me.TabPage2.Controls.Add(Me.ComboBox2)
-        Me.TabPage2.Controls.Add(Me.Label5)
-        Me.TabPage2.Controls.Add(Me.Label4)
-        Me.TabPage2.Controls.Add(Me.ComboBox1)
-        Me.TabPage2.Controls.Add(Me.CheckBox2)
+        Me.TabPage2.Controls.Add(Me.GroupBox2)
+        Me.TabPage2.Controls.Add(Me.GroupBox1)
         Me.TabPage2.Location = New System.Drawing.Point(4, 26)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
@@ -236,50 +239,154 @@ Partial Class Form1
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "调整窗体属性"
         '
-        'Label7
+        'GroupBox2
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(19, 176)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(97, 17)
-        Me.Label7.TabIndex = 15
-        Me.Label7.Text = "最大化/还原方式"
+        Me.GroupBox2.Controls.Add(Me.KlxPiaoButton6)
+        Me.GroupBox2.Controls.Add(Me.KlxPiaoLabel24)
+        Me.GroupBox2.Location = New System.Drawing.Point(355, 19)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(279, 240)
+        Me.GroupBox2.TabIndex = 17
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "配色"
         '
-        'ComboBox4
+        'KlxPiaoButton6
         '
-        Me.ComboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Items.AddRange(New Object() {"双击标题框时", "双击窗体任意位置时", "不启用"})
-        Me.ComboBox4.Location = New System.Drawing.Point(129, 173)
-        Me.ComboBox4.Name = "ComboBox4"
-        Me.ComboBox4.Size = New System.Drawing.Size(121, 25)
-        Me.ComboBox4.TabIndex = 14
+        Me.KlxPiaoButton6.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro
+        Me.KlxPiaoButton6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
+        Me.KlxPiaoButton6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.KlxPiaoButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.KlxPiaoButton6.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
+        Me.KlxPiaoButton6.Location = New System.Drawing.Point(34, 58)
+        Me.KlxPiaoButton6.Name = "KlxPiaoButton6"
+        Me.KlxPiaoButton6.Size = New System.Drawing.Size(110, 40)
+        Me.KlxPiaoButton6.TabIndex = 1
+        Me.KlxPiaoButton6.Text = "-> 皮肤编辑器"
+        Me.KlxPiaoButton6.UseVisualStyleBackColor = True
+        '
+        'KlxPiaoLabel24
+        '
+        Me.KlxPiaoLabel24.AutoSize = False
+        Me.KlxPiaoLabel24.BackColor = System.Drawing.Color.White
+        Me.KlxPiaoLabel24.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
+        Me.KlxPiaoLabel24.ForeColor = System.Drawing.Color.Black
+        Me.KlxPiaoLabel24.Location = New System.Drawing.Point(31, 32)
+        Me.KlxPiaoLabel24.Name = "KlxPiaoLabel24"
+        Me.KlxPiaoLabel24.Size = New System.Drawing.Size(152, 17)
+        Me.KlxPiaoLabel24.TabIndex = 0
+        Me.KlxPiaoLabel24.Text = "使用皮肤编辑器以修改配色"
+        Me.KlxPiaoLabel24.偏移量 = New System.Drawing.Point(2, 2)
+        Me.KlxPiaoLabel24.启用投影 = False
+        Me.KlxPiaoLabel24.启用边框 = False
+        Me.KlxPiaoLabel24.圆角百分比 = 0!
+        Me.KlxPiaoLabel24.投影连线 = True
+        Me.KlxPiaoLabel24.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel24.边框外部颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel24.边框大小 = 0
+        Me.KlxPiaoLabel24.边框颜色 = System.Drawing.Color.LightGray
+        Me.KlxPiaoLabel24.颜色减淡 = False
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.CheckBox1)
+        Me.GroupBox1.Controls.Add(Me.Label7)
+        Me.GroupBox1.Controls.Add(Me.CheckBox2)
+        Me.GroupBox1.Controls.Add(Me.ComboBox4)
+        Me.GroupBox1.Controls.Add(Me.ComboBox1)
+        Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Controls.Add(Me.Label6)
+        Me.GroupBox1.Controls.Add(Me.Label5)
+        Me.GroupBox1.Controls.Add(Me.ComboBox3)
+        Me.GroupBox1.Controls.Add(Me.ComboBox2)
+        Me.GroupBox1.Location = New System.Drawing.Point(34, 19)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(279, 240)
+        Me.GroupBox1.TabIndex = 16
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "属性"
         '
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(22, 18)
+        Me.CheckBox1.Location = New System.Drawing.Point(24, 31)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(99, 21)
         Me.CheckBox1.TabIndex = 13
         Me.CheckBox1.Text = "启用缩放动画"
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(21, 189)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(97, 17)
+        Me.Label7.TabIndex = 15
+        Me.Label7.Text = "最大化/还原方式"
+        '
+        'CheckBox2
+        '
+        Me.CheckBox2.AutoSize = True
+        Me.CheckBox2.Location = New System.Drawing.Point(24, 58)
+        Me.CheckBox2.Name = "CheckBox2"
+        Me.CheckBox2.Size = New System.Drawing.Size(123, 21)
+        Me.CheckBox2.TabIndex = 1
+        Me.CheckBox2.Text = "窗体可以调整大小"
+        Me.CheckBox2.UseVisualStyleBackColor = True
+        '
+        'ComboBox4
+        '
+        Me.ComboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox4.FormattingEnabled = True
+        Me.ComboBox4.Items.AddRange(New Object() {"双击标题框时", "双击窗体任意位置时", "不启用"})
+        Me.ComboBox4.Location = New System.Drawing.Point(131, 186)
+        Me.ComboBox4.Name = "ComboBox4"
+        Me.ComboBox4.Size = New System.Drawing.Size(121, 25)
+        Me.ComboBox4.TabIndex = 14
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"全部显示", "显示关闭和最小化", "仅显示关闭", "不显示"})
+        Me.ComboBox1.Location = New System.Drawing.Point(131, 93)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(121, 25)
+        Me.ComboBox1.TabIndex = 7
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(21, 96)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(104, 17)
+        Me.Label4.TabIndex = 8
+        Me.Label4.Text = "窗体按钮显示方式"
+        '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(19, 145)
+        Me.Label6.Location = New System.Drawing.Point(21, 158)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(80, 17)
         Me.Label6.TabIndex = 12
         Me.Label6.Text = "窗体拖动位置"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(21, 127)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(56, 17)
+        Me.Label5.TabIndex = 9
+        Me.Label5.Text = "标题位置"
         '
         'ComboBox3
         '
         Me.ComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox3.FormattingEnabled = True
         Me.ComboBox3.Items.AddRange(New Object() {"仅标题框", "整个窗体", "不启用拖动"})
-        Me.ComboBox3.Location = New System.Drawing.Point(129, 142)
+        Me.ComboBox3.Location = New System.Drawing.Point(131, 155)
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(121, 25)
         Me.ComboBox3.TabIndex = 11
@@ -289,52 +396,16 @@ Partial Class Form1
         Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox2.FormattingEnabled = True
         Me.ComboBox2.Items.AddRange(New Object() {"左", "居中", "右"})
-        Me.ComboBox2.Location = New System.Drawing.Point(129, 111)
+        Me.ComboBox2.Location = New System.Drawing.Point(131, 124)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(121, 25)
         Me.ComboBox2.TabIndex = 10
         '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(19, 114)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(56, 17)
-        Me.Label5.TabIndex = 9
-        Me.Label5.Text = "标题位置"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(19, 83)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(104, 17)
-        Me.Label4.TabIndex = 8
-        Me.Label4.Text = "窗体按钮显示方式"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"全部显示", "显示关闭和最小化", "仅显示关闭", "不显示"})
-        Me.ComboBox1.Location = New System.Drawing.Point(129, 80)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 25)
-        Me.ComboBox1.TabIndex = 7
-        '
-        'CheckBox2
-        '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(22, 45)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(123, 21)
-        Me.CheckBox2.TabIndex = 1
-        Me.CheckBox2.Text = "窗体可以调整大小"
-        Me.CheckBox2.UseVisualStyleBackColor = True
-        '
         'TabPage3
         '
         Me.TabPage3.BackColor = System.Drawing.Color.White
+        Me.TabPage3.Controls.Add(Me.KlxPiaoLabel26)
+        Me.TabPage3.Controls.Add(Me.KlxPiaoLabel25)
         Me.TabPage3.Controls.Add(Me.KlxPiaoLabel23)
         Me.TabPage3.Controls.Add(Me.KlxPiaoLabel21)
         Me.TabPage3.Controls.Add(Me.Switch1)
@@ -352,27 +423,94 @@ Partial Class Form1
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "KlxPiaoAPI控件"
         '
+        'KlxPiaoLabel26
+        '
+        Me.KlxPiaoLabel26.AutoSize = False
+        Me.KlxPiaoLabel26.BackColor = System.Drawing.Color.LightGray
+        Me.KlxPiaoLabel26.Font = New System.Drawing.Font("微软雅黑 Light", 38.0!)
+        Me.KlxPiaoLabel26.ForeColor = System.Drawing.Color.White
+        Me.KlxPiaoLabel26.Location = New System.Drawing.Point(237, 254)
+        Me.KlxPiaoLabel26.Name = "KlxPiaoLabel26"
+        Me.KlxPiaoLabel26.Size = New System.Drawing.Size(413, 88)
+        Me.KlxPiaoLabel26.TabIndex = 24
+        Me.KlxPiaoLabel26.Text = "KlxPiaoLabel"
+        Me.KlxPiaoLabel26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.KlxPiaoLabel26.偏移量 = New System.Drawing.Point(80, 80)
+        Me.KlxPiaoLabel26.启用投影 = True
+        Me.KlxPiaoLabel26.启用边框 = True
+        Me.KlxPiaoLabel26.圆角百分比 = 0!
+        Me.KlxPiaoLabel26.投影连线 = True
+        Me.KlxPiaoLabel26.投影颜色 = System.Drawing.Color.Gray
+        Me.KlxPiaoLabel26.边框外部颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel26.边框大小 = 5
+        Me.KlxPiaoLabel26.边框颜色 = System.Drawing.Color.Gray
+        Me.KlxPiaoLabel26.颜色减淡 = False
+        '
+        'KlxPiaoLabel25
+        '
+        Me.KlxPiaoLabel25.AutoSize = False
+        Me.KlxPiaoLabel25.BackColor = System.Drawing.Color.White
+        Me.KlxPiaoLabel25.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
+        Me.KlxPiaoLabel25.ForeColor = System.Drawing.Color.Black
+        Me.KlxPiaoLabel25.Location = New System.Drawing.Point(465, 210)
+        Me.KlxPiaoLabel25.Name = "KlxPiaoLabel25"
+        Me.KlxPiaoLabel25.Size = New System.Drawing.Size(93, 17)
+        Me.KlxPiaoLabel25.TabIndex = 23
+        Me.KlxPiaoLabel25.Text = "<- KlxPiaoLabel"
+        Me.KlxPiaoLabel25.偏移量 = New System.Drawing.Point(2, 2)
+        Me.KlxPiaoLabel25.启用投影 = False
+        Me.KlxPiaoLabel25.启用边框 = False
+        Me.KlxPiaoLabel25.圆角百分比 = 0!
+        Me.KlxPiaoLabel25.投影连线 = True
+        Me.KlxPiaoLabel25.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel25.边框外部颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel25.边框大小 = 0
+        Me.KlxPiaoLabel25.边框颜色 = System.Drawing.Color.LightGray
+        Me.KlxPiaoLabel25.颜色减淡 = False
+        '
+        'KlxPiaoLabel23
+        '
+        Me.KlxPiaoLabel23.AutoSize = False
+        Me.KlxPiaoLabel23.BackColor = System.Drawing.Color.White
+        Me.KlxPiaoLabel23.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
+        Me.KlxPiaoLabel23.ForeColor = System.Drawing.Color.Black
+        Me.KlxPiaoLabel23.Location = New System.Drawing.Point(465, 227)
+        Me.KlxPiaoLabel23.Name = "KlxPiaoLabel23"
+        Me.KlxPiaoLabel23.Size = New System.Drawing.Size(93, 17)
+        Me.KlxPiaoLabel23.TabIndex = 22
+        Me.KlxPiaoLabel23.Text = "<- 不是贴图"
+        Me.KlxPiaoLabel23.偏移量 = New System.Drawing.Point(2, 2)
+        Me.KlxPiaoLabel23.启用投影 = False
+        Me.KlxPiaoLabel23.启用边框 = False
+        Me.KlxPiaoLabel23.圆角百分比 = 0!
+        Me.KlxPiaoLabel23.投影连线 = True
+        Me.KlxPiaoLabel23.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel23.边框外部颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel23.边框大小 = 0
+        Me.KlxPiaoLabel23.边框颜色 = System.Drawing.Color.LightGray
+        Me.KlxPiaoLabel23.颜色减淡 = False
+        '
         'KlxPiaoLabel21
         '
         Me.KlxPiaoLabel21.AutoSize = False
         Me.KlxPiaoLabel21.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(201, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.KlxPiaoLabel21.Font = New System.Drawing.Font("微软雅黑", 42.0!)
+        Me.KlxPiaoLabel21.Font = New System.Drawing.Font("微软雅黑", 31.0!)
         Me.KlxPiaoLabel21.ForeColor = System.Drawing.Color.White
         Me.KlxPiaoLabel21.Location = New System.Drawing.Point(242, 123)
         Me.KlxPiaoLabel21.Name = "KlxPiaoLabel21"
-        Me.KlxPiaoLabel21.Size = New System.Drawing.Size(274, 173)
+        Me.KlxPiaoLabel21.Size = New System.Drawing.Size(217, 121)
         Me.KlxPiaoLabel21.TabIndex = 21
         Me.KlxPiaoLabel21.Text = "KlxPiao"
         Me.KlxPiaoLabel21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.KlxPiaoLabel21.偏移量 = New System.Drawing.Point(110, 120)
-        Me.KlxPiaoLabel21.内边框大小 = 8
-        Me.KlxPiaoLabel21.内边框颜色 = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(199, Byte), Integer))
         Me.KlxPiaoLabel21.启用投影 = True
-        Me.KlxPiaoLabel21.启用遮罩 = True
+        Me.KlxPiaoLabel21.启用边框 = True
         Me.KlxPiaoLabel21.圆角百分比 = 0.15!
         Me.KlxPiaoLabel21.投影连线 = True
         Me.KlxPiaoLabel21.投影颜色 = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(199, Byte), Integer))
-        Me.KlxPiaoLabel21.遮罩颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel21.边框外部颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel21.边框大小 = 8
+        Me.KlxPiaoLabel21.边框颜色 = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(199, Byte), Integer))
         Me.KlxPiaoLabel21.颜色减淡 = False
         '
         'Switch1
@@ -422,8 +560,8 @@ Partial Class Form1
         Me.PointBar1.坐标轴颜色 = System.Drawing.Color.LightPink
         Me.PointBar1.显示坐标 = True
         Me.PointBar1.显示坐标轴 = True
-        Me.PointBar1.最大值 = New System.Drawing.Point(40, 40)
-        Me.PointBar1.最小值 = New System.Drawing.Point(-20, -20)
+        Me.PointBar1.最大值 = New System.Drawing.Point(50, 50)
+        Me.PointBar1.最小值 = New System.Drawing.Point(-30, -30)
         Me.PointBar1.边框大小 = 1
         Me.PointBar1.边框颜色 = System.Drawing.Color.Gray
         '
@@ -455,6 +593,7 @@ Partial Class Form1
         'KlxPiaoLabel22
         '
         Me.KlxPiaoLabel22.AutoSize = False
+        Me.KlxPiaoLabel22.BackColor = System.Drawing.Color.White
         Me.KlxPiaoLabel22.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
         Me.KlxPiaoLabel22.ForeColor = System.Drawing.Color.Black
         Me.KlxPiaoLabel22.Location = New System.Drawing.Point(19, 21)
@@ -463,14 +602,14 @@ Partial Class Form1
         Me.KlxPiaoLabel22.TabIndex = 0
         Me.KlxPiaoLabel22.Text = "KlxPiaoPanel"
         Me.KlxPiaoLabel22.偏移量 = New System.Drawing.Point(2, 2)
-        Me.KlxPiaoLabel22.内边框大小 = 0
-        Me.KlxPiaoLabel22.内边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel22.启用投影 = False
-        Me.KlxPiaoLabel22.启用遮罩 = False
+        Me.KlxPiaoLabel22.启用边框 = False
         Me.KlxPiaoLabel22.圆角百分比 = 0!
         Me.KlxPiaoLabel22.投影连线 = True
         Me.KlxPiaoLabel22.投影颜色 = System.Drawing.Color.DarkGray
-        Me.KlxPiaoLabel22.遮罩颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel22.边框外部颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel22.边框大小 = 0
+        Me.KlxPiaoLabel22.边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel22.颜色减淡 = False
         '
         'KlxPiaoProgressBar1
@@ -496,14 +635,14 @@ Partial Class Form1
         Me.KlxPiaoLabel1.TabIndex = 2
         Me.KlxPiaoLabel1.Text = "KlxPiaoLabel"
         Me.KlxPiaoLabel1.偏移量 = New System.Drawing.Point(5, 5)
-        Me.KlxPiaoLabel1.内边框大小 = 0
-        Me.KlxPiaoLabel1.内边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel1.启用投影 = True
-        Me.KlxPiaoLabel1.启用遮罩 = False
+        Me.KlxPiaoLabel1.启用边框 = False
         Me.KlxPiaoLabel1.圆角百分比 = 0!
         Me.KlxPiaoLabel1.投影连线 = True
         Me.KlxPiaoLabel1.投影颜色 = System.Drawing.Color.Black
-        Me.KlxPiaoLabel1.遮罩颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel1.边框外部颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel1.边框大小 = 0
+        Me.KlxPiaoLabel1.边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel1.颜色减淡 = True
         '
         'TabPage4
@@ -578,6 +717,7 @@ Partial Class Form1
         'KlxPiaoLabel19
         '
         Me.KlxPiaoLabel19.AutoSize = False
+        Me.KlxPiaoLabel19.BackColor = System.Drawing.Color.White
         Me.KlxPiaoLabel19.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
         Me.KlxPiaoLabel19.ForeColor = System.Drawing.Color.Black
         Me.KlxPiaoLabel19.Location = New System.Drawing.Point(286, 65)
@@ -586,14 +726,14 @@ Partial Class Form1
         Me.KlxPiaoLabel19.TabIndex = 33
         Me.KlxPiaoLabel19.Text = "（仅适用浅色主题）"
         Me.KlxPiaoLabel19.偏移量 = New System.Drawing.Point(2, 2)
-        Me.KlxPiaoLabel19.内边框大小 = 0
-        Me.KlxPiaoLabel19.内边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel19.启用投影 = False
-        Me.KlxPiaoLabel19.启用遮罩 = False
+        Me.KlxPiaoLabel19.启用边框 = False
         Me.KlxPiaoLabel19.圆角百分比 = 0!
         Me.KlxPiaoLabel19.投影连线 = True
         Me.KlxPiaoLabel19.投影颜色 = System.Drawing.Color.DarkGray
-        Me.KlxPiaoLabel19.遮罩颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel19.边框外部颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel19.边框大小 = 0
+        Me.KlxPiaoLabel19.边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel19.颜色减淡 = False
         '
         'KlxPiaoButton4
@@ -719,6 +859,7 @@ Partial Class Form1
         'KlxPiaoLabel10
         '
         Me.KlxPiaoLabel10.AutoSize = False
+        Me.KlxPiaoLabel10.BackColor = System.Drawing.Color.White
         Me.KlxPiaoLabel10.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
         Me.KlxPiaoLabel10.ForeColor = System.Drawing.Color.Black
         Me.KlxPiaoLabel10.Location = New System.Drawing.Point(3, 0)
@@ -728,14 +869,14 @@ Partial Class Form1
         Me.KlxPiaoLabel10.Text = "关闭按钮"
         Me.KlxPiaoLabel10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.KlxPiaoLabel10.偏移量 = New System.Drawing.Point(2, 2)
-        Me.KlxPiaoLabel10.内边框大小 = 0
-        Me.KlxPiaoLabel10.内边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel10.启用投影 = False
-        Me.KlxPiaoLabel10.启用遮罩 = False
+        Me.KlxPiaoLabel10.启用边框 = False
         Me.KlxPiaoLabel10.圆角百分比 = 0!
         Me.KlxPiaoLabel10.投影连线 = True
         Me.KlxPiaoLabel10.投影颜色 = System.Drawing.Color.DarkGray
-        Me.KlxPiaoLabel10.遮罩颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel10.边框外部颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel10.边框大小 = 0
+        Me.KlxPiaoLabel10.边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel10.颜色减淡 = False
         '
         '最小化按钮前景Panel
@@ -797,6 +938,7 @@ Partial Class Form1
         'KlxPiaoLabel18
         '
         Me.KlxPiaoLabel18.AutoSize = False
+        Me.KlxPiaoLabel18.BackColor = System.Drawing.Color.White
         Me.KlxPiaoLabel18.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
         Me.KlxPiaoLabel18.ForeColor = System.Drawing.Color.Black
         Me.KlxPiaoLabel18.Location = New System.Drawing.Point(109, 56)
@@ -806,19 +948,20 @@ Partial Class Form1
         Me.KlxPiaoLabel18.Text = "背景"
         Me.KlxPiaoLabel18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.KlxPiaoLabel18.偏移量 = New System.Drawing.Point(2, 2)
-        Me.KlxPiaoLabel18.内边框大小 = 0
-        Me.KlxPiaoLabel18.内边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel18.启用投影 = False
-        Me.KlxPiaoLabel18.启用遮罩 = False
+        Me.KlxPiaoLabel18.启用边框 = False
         Me.KlxPiaoLabel18.圆角百分比 = 0!
         Me.KlxPiaoLabel18.投影连线 = True
         Me.KlxPiaoLabel18.投影颜色 = System.Drawing.Color.DarkGray
-        Me.KlxPiaoLabel18.遮罩颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel18.边框外部颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel18.边框大小 = 0
+        Me.KlxPiaoLabel18.边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel18.颜色减淡 = False
         '
         'KlxPiaoLabel17
         '
         Me.KlxPiaoLabel17.AutoSize = False
+        Me.KlxPiaoLabel17.BackColor = System.Drawing.Color.White
         Me.KlxPiaoLabel17.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
         Me.KlxPiaoLabel17.ForeColor = System.Drawing.Color.Black
         Me.KlxPiaoLabel17.Location = New System.Drawing.Point(321, 56)
@@ -828,19 +971,20 @@ Partial Class Form1
         Me.KlxPiaoLabel17.Text = "移入"
         Me.KlxPiaoLabel17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.KlxPiaoLabel17.偏移量 = New System.Drawing.Point(2, 2)
-        Me.KlxPiaoLabel17.内边框大小 = 0
-        Me.KlxPiaoLabel17.内边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel17.启用投影 = False
-        Me.KlxPiaoLabel17.启用遮罩 = False
+        Me.KlxPiaoLabel17.启用边框 = False
         Me.KlxPiaoLabel17.圆角百分比 = 0!
         Me.KlxPiaoLabel17.投影连线 = True
         Me.KlxPiaoLabel17.投影颜色 = System.Drawing.Color.DarkGray
-        Me.KlxPiaoLabel17.遮罩颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel17.边框外部颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel17.边框大小 = 0
+        Me.KlxPiaoLabel17.边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel17.颜色减淡 = False
         '
         'KlxPiaoLabel14
         '
         Me.KlxPiaoLabel14.AutoSize = False
+        Me.KlxPiaoLabel14.BackColor = System.Drawing.Color.White
         Me.KlxPiaoLabel14.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
         Me.KlxPiaoLabel14.ForeColor = System.Drawing.Color.Black
         Me.KlxPiaoLabel14.Location = New System.Drawing.Point(215, 56)
@@ -850,14 +994,14 @@ Partial Class Form1
         Me.KlxPiaoLabel14.Text = "前景"
         Me.KlxPiaoLabel14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.KlxPiaoLabel14.偏移量 = New System.Drawing.Point(2, 2)
-        Me.KlxPiaoLabel14.内边框大小 = 0
-        Me.KlxPiaoLabel14.内边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel14.启用投影 = False
-        Me.KlxPiaoLabel14.启用遮罩 = False
+        Me.KlxPiaoLabel14.启用边框 = False
         Me.KlxPiaoLabel14.圆角百分比 = 0!
         Me.KlxPiaoLabel14.投影连线 = True
         Me.KlxPiaoLabel14.投影颜色 = System.Drawing.Color.DarkGray
-        Me.KlxPiaoLabel14.遮罩颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel14.边框外部颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel14.边框大小 = 0
+        Me.KlxPiaoLabel14.边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel14.颜色减淡 = False
         '
         '关闭按钮移入Panel
@@ -877,6 +1021,7 @@ Partial Class Form1
         'KlxPiaoLabel13
         '
         Me.KlxPiaoLabel13.AutoSize = False
+        Me.KlxPiaoLabel13.BackColor = System.Drawing.Color.White
         Me.KlxPiaoLabel13.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
         Me.KlxPiaoLabel13.ForeColor = System.Drawing.Color.Black
         Me.KlxPiaoLabel13.Location = New System.Drawing.Point(109, 0)
@@ -886,19 +1031,20 @@ Partial Class Form1
         Me.KlxPiaoLabel13.Text = "背景"
         Me.KlxPiaoLabel13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.KlxPiaoLabel13.偏移量 = New System.Drawing.Point(2, 2)
-        Me.KlxPiaoLabel13.内边框大小 = 0
-        Me.KlxPiaoLabel13.内边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel13.启用投影 = False
-        Me.KlxPiaoLabel13.启用遮罩 = False
+        Me.KlxPiaoLabel13.启用边框 = False
         Me.KlxPiaoLabel13.圆角百分比 = 0!
         Me.KlxPiaoLabel13.投影连线 = True
         Me.KlxPiaoLabel13.投影颜色 = System.Drawing.Color.DarkGray
-        Me.KlxPiaoLabel13.遮罩颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel13.边框外部颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel13.边框大小 = 0
+        Me.KlxPiaoLabel13.边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel13.颜色减淡 = False
         '
         'KlxPiaoLabel16
         '
         Me.KlxPiaoLabel16.AutoSize = False
+        Me.KlxPiaoLabel16.BackColor = System.Drawing.Color.White
         Me.KlxPiaoLabel16.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
         Me.KlxPiaoLabel16.ForeColor = System.Drawing.Color.Black
         Me.KlxPiaoLabel16.Location = New System.Drawing.Point(427, 56)
@@ -908,19 +1054,20 @@ Partial Class Form1
         Me.KlxPiaoLabel16.Text = "按下"
         Me.KlxPiaoLabel16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.KlxPiaoLabel16.偏移量 = New System.Drawing.Point(2, 2)
-        Me.KlxPiaoLabel16.内边框大小 = 0
-        Me.KlxPiaoLabel16.内边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel16.启用投影 = False
-        Me.KlxPiaoLabel16.启用遮罩 = False
+        Me.KlxPiaoLabel16.启用边框 = False
         Me.KlxPiaoLabel16.圆角百分比 = 0!
         Me.KlxPiaoLabel16.投影连线 = True
         Me.KlxPiaoLabel16.投影颜色 = System.Drawing.Color.DarkGray
-        Me.KlxPiaoLabel16.遮罩颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel16.边框外部颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel16.边框大小 = 0
+        Me.KlxPiaoLabel16.边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel16.颜色减淡 = False
         '
         'KlxPiaoLabel11
         '
         Me.KlxPiaoLabel11.AutoSize = False
+        Me.KlxPiaoLabel11.BackColor = System.Drawing.Color.White
         Me.KlxPiaoLabel11.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
         Me.KlxPiaoLabel11.ForeColor = System.Drawing.Color.Black
         Me.KlxPiaoLabel11.Location = New System.Drawing.Point(427, 0)
@@ -930,14 +1077,14 @@ Partial Class Form1
         Me.KlxPiaoLabel11.Text = "按下"
         Me.KlxPiaoLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.KlxPiaoLabel11.偏移量 = New System.Drawing.Point(2, 2)
-        Me.KlxPiaoLabel11.内边框大小 = 0
-        Me.KlxPiaoLabel11.内边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel11.启用投影 = False
-        Me.KlxPiaoLabel11.启用遮罩 = False
+        Me.KlxPiaoLabel11.启用边框 = False
         Me.KlxPiaoLabel11.圆角百分比 = 0!
         Me.KlxPiaoLabel11.投影连线 = True
         Me.KlxPiaoLabel11.投影颜色 = System.Drawing.Color.DarkGray
-        Me.KlxPiaoLabel11.遮罩颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel11.边框外部颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel11.边框大小 = 0
+        Me.KlxPiaoLabel11.边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel11.颜色减淡 = False
         '
         '最小化按钮移入Panel
@@ -957,6 +1104,7 @@ Partial Class Form1
         'KlxPiaoLabel15
         '
         Me.KlxPiaoLabel15.AutoSize = False
+        Me.KlxPiaoLabel15.BackColor = System.Drawing.Color.White
         Me.KlxPiaoLabel15.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
         Me.KlxPiaoLabel15.ForeColor = System.Drawing.Color.Black
         Me.KlxPiaoLabel15.Location = New System.Drawing.Point(3, 56)
@@ -966,19 +1114,20 @@ Partial Class Form1
         Me.KlxPiaoLabel15.Text = "最小化按钮"
         Me.KlxPiaoLabel15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.KlxPiaoLabel15.偏移量 = New System.Drawing.Point(2, 2)
-        Me.KlxPiaoLabel15.内边框大小 = 0
-        Me.KlxPiaoLabel15.内边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel15.启用投影 = False
-        Me.KlxPiaoLabel15.启用遮罩 = False
+        Me.KlxPiaoLabel15.启用边框 = False
         Me.KlxPiaoLabel15.圆角百分比 = 0!
         Me.KlxPiaoLabel15.投影连线 = True
         Me.KlxPiaoLabel15.投影颜色 = System.Drawing.Color.DarkGray
-        Me.KlxPiaoLabel15.遮罩颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel15.边框外部颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel15.边框大小 = 0
+        Me.KlxPiaoLabel15.边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel15.颜色减淡 = False
         '
         'KlxPiaoLabel12
         '
         Me.KlxPiaoLabel12.AutoSize = False
+        Me.KlxPiaoLabel12.BackColor = System.Drawing.Color.White
         Me.KlxPiaoLabel12.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
         Me.KlxPiaoLabel12.ForeColor = System.Drawing.Color.Black
         Me.KlxPiaoLabel12.Location = New System.Drawing.Point(321, 0)
@@ -988,14 +1137,14 @@ Partial Class Form1
         Me.KlxPiaoLabel12.Text = "移入"
         Me.KlxPiaoLabel12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.KlxPiaoLabel12.偏移量 = New System.Drawing.Point(2, 2)
-        Me.KlxPiaoLabel12.内边框大小 = 0
-        Me.KlxPiaoLabel12.内边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel12.启用投影 = False
-        Me.KlxPiaoLabel12.启用遮罩 = False
+        Me.KlxPiaoLabel12.启用边框 = False
         Me.KlxPiaoLabel12.圆角百分比 = 0!
         Me.KlxPiaoLabel12.投影连线 = True
         Me.KlxPiaoLabel12.投影颜色 = System.Drawing.Color.DarkGray
-        Me.KlxPiaoLabel12.遮罩颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel12.边框外部颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel12.边框大小 = 0
+        Me.KlxPiaoLabel12.边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel12.颜色减淡 = False
         '
         '关闭按钮背景Panel
@@ -1029,6 +1178,7 @@ Partial Class Form1
         'KlxPiaoLabel9
         '
         Me.KlxPiaoLabel9.AutoSize = False
+        Me.KlxPiaoLabel9.BackColor = System.Drawing.Color.White
         Me.KlxPiaoLabel9.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
         Me.KlxPiaoLabel9.ForeColor = System.Drawing.Color.Black
         Me.KlxPiaoLabel9.Location = New System.Drawing.Point(215, 0)
@@ -1038,19 +1188,20 @@ Partial Class Form1
         Me.KlxPiaoLabel9.Text = "前景"
         Me.KlxPiaoLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.KlxPiaoLabel9.偏移量 = New System.Drawing.Point(2, 2)
-        Me.KlxPiaoLabel9.内边框大小 = 0
-        Me.KlxPiaoLabel9.内边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel9.启用投影 = False
-        Me.KlxPiaoLabel9.启用遮罩 = False
+        Me.KlxPiaoLabel9.启用边框 = False
         Me.KlxPiaoLabel9.圆角百分比 = 0!
         Me.KlxPiaoLabel9.投影连线 = True
         Me.KlxPiaoLabel9.投影颜色 = System.Drawing.Color.DarkGray
-        Me.KlxPiaoLabel9.遮罩颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel9.边框外部颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel9.边框大小 = 0
+        Me.KlxPiaoLabel9.边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel9.颜色减淡 = False
         '
         'KlxPiaoLabel7
         '
         Me.KlxPiaoLabel7.AutoSize = False
+        Me.KlxPiaoLabel7.BackColor = System.Drawing.Color.White
         Me.KlxPiaoLabel7.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
         Me.KlxPiaoLabel7.ForeColor = System.Drawing.Color.Black
         Me.KlxPiaoLabel7.Location = New System.Drawing.Point(21, 56)
@@ -1060,19 +1211,20 @@ Partial Class Form1
         Me.KlxPiaoLabel7.Text = "缩放按钮"
         Me.KlxPiaoLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.KlxPiaoLabel7.偏移量 = New System.Drawing.Point(2, 2)
-        Me.KlxPiaoLabel7.内边框大小 = 0
-        Me.KlxPiaoLabel7.内边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel7.启用投影 = False
-        Me.KlxPiaoLabel7.启用遮罩 = False
+        Me.KlxPiaoLabel7.启用边框 = False
         Me.KlxPiaoLabel7.圆角百分比 = 0!
         Me.KlxPiaoLabel7.投影连线 = True
         Me.KlxPiaoLabel7.投影颜色 = System.Drawing.Color.DarkGray
-        Me.KlxPiaoLabel7.遮罩颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel7.边框外部颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel7.边框大小 = 0
+        Me.KlxPiaoLabel7.边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel7.颜色减淡 = False
         '
         'KlxPiaoLabel4
         '
         Me.KlxPiaoLabel4.AutoSize = False
+        Me.KlxPiaoLabel4.BackColor = System.Drawing.Color.White
         Me.KlxPiaoLabel4.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
         Me.KlxPiaoLabel4.ForeColor = System.Drawing.Color.Black
         Me.KlxPiaoLabel4.Location = New System.Drawing.Point(127, 56)
@@ -1082,14 +1234,14 @@ Partial Class Form1
         Me.KlxPiaoLabel4.Text = "背景"
         Me.KlxPiaoLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.KlxPiaoLabel4.偏移量 = New System.Drawing.Point(2, 2)
-        Me.KlxPiaoLabel4.内边框大小 = 0
-        Me.KlxPiaoLabel4.内边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel4.启用投影 = False
-        Me.KlxPiaoLabel4.启用遮罩 = False
+        Me.KlxPiaoLabel4.启用边框 = False
         Me.KlxPiaoLabel4.圆角百分比 = 0!
         Me.KlxPiaoLabel4.投影连线 = True
         Me.KlxPiaoLabel4.投影颜色 = System.Drawing.Color.DarkGray
-        Me.KlxPiaoLabel4.遮罩颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel4.边框外部颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel4.边框大小 = 0
+        Me.KlxPiaoLabel4.边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel4.颜色减淡 = False
         '
         '缩放按钮背景Panel
@@ -1123,6 +1275,7 @@ Partial Class Form1
         'KlxPiaoLabel5
         '
         Me.KlxPiaoLabel5.AutoSize = False
+        Me.KlxPiaoLabel5.BackColor = System.Drawing.Color.White
         Me.KlxPiaoLabel5.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
         Me.KlxPiaoLabel5.ForeColor = System.Drawing.Color.Black
         Me.KlxPiaoLabel5.Location = New System.Drawing.Point(339, 56)
@@ -1132,19 +1285,20 @@ Partial Class Form1
         Me.KlxPiaoLabel5.Text = "移入"
         Me.KlxPiaoLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.KlxPiaoLabel5.偏移量 = New System.Drawing.Point(2, 2)
-        Me.KlxPiaoLabel5.内边框大小 = 0
-        Me.KlxPiaoLabel5.内边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel5.启用投影 = False
-        Me.KlxPiaoLabel5.启用遮罩 = False
+        Me.KlxPiaoLabel5.启用边框 = False
         Me.KlxPiaoLabel5.圆角百分比 = 0!
         Me.KlxPiaoLabel5.投影连线 = True
         Me.KlxPiaoLabel5.投影颜色 = System.Drawing.Color.DarkGray
-        Me.KlxPiaoLabel5.遮罩颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel5.边框外部颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel5.边框大小 = 0
+        Me.KlxPiaoLabel5.边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel5.颜色减淡 = False
         '
         'KlxPiaoLabel6
         '
         Me.KlxPiaoLabel6.AutoSize = False
+        Me.KlxPiaoLabel6.BackColor = System.Drawing.Color.White
         Me.KlxPiaoLabel6.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
         Me.KlxPiaoLabel6.ForeColor = System.Drawing.Color.Black
         Me.KlxPiaoLabel6.Location = New System.Drawing.Point(445, 56)
@@ -1154,14 +1308,14 @@ Partial Class Form1
         Me.KlxPiaoLabel6.Text = "按下"
         Me.KlxPiaoLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.KlxPiaoLabel6.偏移量 = New System.Drawing.Point(2, 2)
-        Me.KlxPiaoLabel6.内边框大小 = 0
-        Me.KlxPiaoLabel6.内边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel6.启用投影 = False
-        Me.KlxPiaoLabel6.启用遮罩 = False
+        Me.KlxPiaoLabel6.启用边框 = False
         Me.KlxPiaoLabel6.圆角百分比 = 0!
         Me.KlxPiaoLabel6.投影连线 = True
         Me.KlxPiaoLabel6.投影颜色 = System.Drawing.Color.DarkGray
-        Me.KlxPiaoLabel6.遮罩颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel6.边框外部颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel6.边框大小 = 0
+        Me.KlxPiaoLabel6.边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel6.颜色减淡 = False
         '
         '缩放按钮移入Panel
@@ -1181,6 +1335,7 @@ Partial Class Form1
         'KlxPiaoLabel8
         '
         Me.KlxPiaoLabel8.AutoSize = False
+        Me.KlxPiaoLabel8.BackColor = System.Drawing.Color.White
         Me.KlxPiaoLabel8.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
         Me.KlxPiaoLabel8.ForeColor = System.Drawing.Color.Black
         Me.KlxPiaoLabel8.Location = New System.Drawing.Point(233, 56)
@@ -1190,14 +1345,14 @@ Partial Class Form1
         Me.KlxPiaoLabel8.Text = "前景"
         Me.KlxPiaoLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.KlxPiaoLabel8.偏移量 = New System.Drawing.Point(2, 2)
-        Me.KlxPiaoLabel8.内边框大小 = 0
-        Me.KlxPiaoLabel8.内边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel8.启用投影 = False
-        Me.KlxPiaoLabel8.启用遮罩 = False
+        Me.KlxPiaoLabel8.启用边框 = False
         Me.KlxPiaoLabel8.圆角百分比 = 0!
         Me.KlxPiaoLabel8.投影连线 = True
         Me.KlxPiaoLabel8.投影颜色 = System.Drawing.Color.DarkGray
-        Me.KlxPiaoLabel8.遮罩颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel8.边框外部颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel8.边框大小 = 0
+        Me.KlxPiaoLabel8.边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel8.颜色减淡 = False
         '
         '缩放按钮按下Panel
@@ -1245,6 +1400,7 @@ Partial Class Form1
         'KlxPiaoLabel3
         '
         Me.KlxPiaoLabel3.AutoSize = False
+        Me.KlxPiaoLabel3.BackColor = System.Drawing.Color.White
         Me.KlxPiaoLabel3.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
         Me.KlxPiaoLabel3.ForeColor = System.Drawing.Color.Black
         Me.KlxPiaoLabel3.Location = New System.Drawing.Point(126, 19)
@@ -1254,19 +1410,20 @@ Partial Class Form1
         Me.KlxPiaoLabel3.Text = "背景"
         Me.KlxPiaoLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.KlxPiaoLabel3.偏移量 = New System.Drawing.Point(2, 2)
-        Me.KlxPiaoLabel3.内边框大小 = 0
-        Me.KlxPiaoLabel3.内边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel3.启用投影 = False
-        Me.KlxPiaoLabel3.启用遮罩 = False
+        Me.KlxPiaoLabel3.启用边框 = False
         Me.KlxPiaoLabel3.圆角百分比 = 0!
         Me.KlxPiaoLabel3.投影连线 = True
         Me.KlxPiaoLabel3.投影颜色 = System.Drawing.Color.DarkGray
-        Me.KlxPiaoLabel3.遮罩颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel3.边框外部颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel3.边框大小 = 0
+        Me.KlxPiaoLabel3.边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel3.颜色减淡 = False
         '
         'KlxPiaoLabel2
         '
         Me.KlxPiaoLabel2.AutoSize = False
+        Me.KlxPiaoLabel2.BackColor = System.Drawing.Color.White
         Me.KlxPiaoLabel2.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
         Me.KlxPiaoLabel2.ForeColor = System.Drawing.Color.Black
         Me.KlxPiaoLabel2.Location = New System.Drawing.Point(20, 19)
@@ -1276,22 +1433,25 @@ Partial Class Form1
         Me.KlxPiaoLabel2.Text = "主题"
         Me.KlxPiaoLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.KlxPiaoLabel2.偏移量 = New System.Drawing.Point(2, 2)
-        Me.KlxPiaoLabel2.内边框大小 = 0
-        Me.KlxPiaoLabel2.内边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel2.启用投影 = False
-        Me.KlxPiaoLabel2.启用遮罩 = False
+        Me.KlxPiaoLabel2.启用边框 = False
         Me.KlxPiaoLabel2.圆角百分比 = 0!
         Me.KlxPiaoLabel2.投影连线 = True
         Me.KlxPiaoLabel2.投影颜色 = System.Drawing.Color.DarkGray
-        Me.KlxPiaoLabel2.遮罩颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel2.边框外部颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel2.边框大小 = 0
+        Me.KlxPiaoLabel2.边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel2.颜色减淡 = False
         '
         'TabPage6
         '
         Me.TabPage6.BackColor = System.Drawing.Color.White
-        Me.TabPage6.Controls.Add(Me.KlxPiaoLabel20)
-        Me.TabPage6.Controls.Add(Me.TextBox5)
+        Me.TabPage6.Controls.Add(Me.KlxPiaoLabel27)
+        Me.TabPage6.Controls.Add(Me.LinkLabel1)
         Me.TabPage6.Controls.Add(Me.KlxPiaoButton5)
+        Me.TabPage6.Controls.Add(Me.KlxPiaoButton7)
+        Me.TabPage6.Controls.Add(Me.TextBox5)
+        Me.TabPage6.Controls.Add(Me.KlxPiaoLabel20)
         Me.TabPage6.Location = New System.Drawing.Point(4, 26)
         Me.TabPage6.Name = "TabPage6"
         Me.TabPage6.Padding = New System.Windows.Forms.Padding(3)
@@ -1299,35 +1459,54 @@ Partial Class Form1
         Me.TabPage6.TabIndex = 5
         Me.TabPage6.Text = "Designer代码生成器"
         '
+        'KlxPiaoButton7
+        '
+        Me.KlxPiaoButton7.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro
+        Me.KlxPiaoButton7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
+        Me.KlxPiaoButton7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.KlxPiaoButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.KlxPiaoButton7.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
+        Me.KlxPiaoButton7.Location = New System.Drawing.Point(162, 19)
+        Me.KlxPiaoButton7.Name = "KlxPiaoButton7"
+        Me.KlxPiaoButton7.Size = New System.Drawing.Size(125, 40)
+        Me.KlxPiaoButton7.TabIndex = 3
+        Me.KlxPiaoButton7.Text = "应用到窗体设计器"
+        Me.KlxPiaoButton7.UseVisualStyleBackColor = True
+        '
         'KlxPiaoLabel20
         '
         Me.KlxPiaoLabel20.AutoSize = False
+        Me.KlxPiaoLabel20.BackColor = System.Drawing.Color.White
         Me.KlxPiaoLabel20.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
         Me.KlxPiaoLabel20.ForeColor = System.Drawing.Color.Black
-        Me.KlxPiaoLabel20.Location = New System.Drawing.Point(122, 18)
+        Me.KlxPiaoLabel20.Location = New System.Drawing.Point(303, 31)
         Me.KlxPiaoLabel20.Name = "KlxPiaoLabel20"
         Me.KlxPiaoLabel20.Size = New System.Drawing.Size(92, 17)
         Me.KlxPiaoLabel20.TabIndex = 2
         Me.KlxPiaoLabel20.Text = "生成时自动复制"
         Me.KlxPiaoLabel20.偏移量 = New System.Drawing.Point(2, 2)
-        Me.KlxPiaoLabel20.内边框大小 = 0
-        Me.KlxPiaoLabel20.内边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel20.启用投影 = False
-        Me.KlxPiaoLabel20.启用遮罩 = False
+        Me.KlxPiaoLabel20.启用边框 = False
         Me.KlxPiaoLabel20.圆角百分比 = 0!
         Me.KlxPiaoLabel20.投影连线 = True
         Me.KlxPiaoLabel20.投影颜色 = System.Drawing.Color.DarkGray
-        Me.KlxPiaoLabel20.遮罩颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel20.边框外部颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel20.边框大小 = 0
+        Me.KlxPiaoLabel20.边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel20.颜色减淡 = False
         '
         'TextBox5
         '
-        Me.TextBox5.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.TextBox5.Location = New System.Drawing.Point(6, 52)
+        Me.TextBox5.BackColor = System.Drawing.Color.White
+        Me.TextBox5.Font = New System.Drawing.Font("微软雅黑", 9.0!)
+        Me.TextBox5.Location = New System.Drawing.Point(21, 75)
         Me.TextBox5.Multiline = True
         Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(656, 309)
+        Me.TextBox5.ReadOnly = True
+        Me.TextBox5.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.TextBox5.Size = New System.Drawing.Size(630, 241)
         Me.TextBox5.TabIndex = 1
+        Me.TextBox5.WordWrap = False
         '
         'KlxPiaoButton5
         '
@@ -1336,32 +1515,41 @@ Partial Class Form1
         Me.KlxPiaoButton5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
         Me.KlxPiaoButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.KlxPiaoButton5.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
-        Me.KlxPiaoButton5.Location = New System.Drawing.Point(6, 6)
+        Me.KlxPiaoButton5.Location = New System.Drawing.Point(21, 19)
         Me.KlxPiaoButton5.Name = "KlxPiaoButton5"
-        Me.KlxPiaoButton5.Size = New System.Drawing.Size(110, 40)
+        Me.KlxPiaoButton5.Size = New System.Drawing.Size(125, 40)
         Me.KlxPiaoButton5.TabIndex = 0
         Me.KlxPiaoButton5.Text = "生成"
         Me.KlxPiaoButton5.UseVisualStyleBackColor = True
         '
-        'KlxPiaoLabel23
+        'LinkLabel1
         '
-        Me.KlxPiaoLabel23.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
-        Me.KlxPiaoLabel23.ForeColor = System.Drawing.Color.Black
-        Me.KlxPiaoLabel23.Location = New System.Drawing.Point(522, 279)
-        Me.KlxPiaoLabel23.Name = "KlxPiaoLabel23"
-        Me.KlxPiaoLabel23.Size = New System.Drawing.Size(93, 17)
-        Me.KlxPiaoLabel23.TabIndex = 22
-        Me.KlxPiaoLabel23.Text = "<- KlxPiaoLabel"
-        Me.KlxPiaoLabel23.偏移量 = New System.Drawing.Point(2, 2)
-        Me.KlxPiaoLabel23.内边框大小 = 0
-        Me.KlxPiaoLabel23.内边框颜色 = System.Drawing.Color.LightGray
-        Me.KlxPiaoLabel23.启用投影 = False
-        Me.KlxPiaoLabel23.启用遮罩 = False
-        Me.KlxPiaoLabel23.圆角百分比 = 0!
-        Me.KlxPiaoLabel23.投影连线 = True
-        Me.KlxPiaoLabel23.投影颜色 = System.Drawing.Color.DarkGray
-        Me.KlxPiaoLabel23.遮罩颜色 = System.Drawing.Color.White
-        Me.KlxPiaoLabel23.颜色减淡 = False
+        Me.LinkLabel1.AutoSize = True
+        Me.LinkLabel1.Location = New System.Drawing.Point(108, 333)
+        Me.LinkLabel1.Name = "LinkLabel1"
+        Me.LinkLabel1.Size = New System.Drawing.Size(0, 17)
+        Me.LinkLabel1.TabIndex = 4
+        '
+        'KlxPiaoLabel27
+        '
+        Me.KlxPiaoLabel27.BackColor = System.Drawing.Color.White
+        Me.KlxPiaoLabel27.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
+        Me.KlxPiaoLabel27.ForeColor = System.Drawing.Color.Black
+        Me.KlxPiaoLabel27.Location = New System.Drawing.Point(18, 333)
+        Me.KlxPiaoLabel27.Name = "KlxPiaoLabel27"
+        Me.KlxPiaoLabel27.Size = New System.Drawing.Size(92, 17)
+        Me.KlxPiaoLabel27.TabIndex = 5
+        Me.KlxPiaoLabel27.Text = "窗体设计文件："
+        Me.KlxPiaoLabel27.偏移量 = New System.Drawing.Point(2, 2)
+        Me.KlxPiaoLabel27.启用投影 = False
+        Me.KlxPiaoLabel27.启用边框 = False
+        Me.KlxPiaoLabel27.圆角百分比 = 0!
+        Me.KlxPiaoLabel27.投影连线 = True
+        Me.KlxPiaoLabel27.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel27.边框外部颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel27.边框大小 = 0
+        Me.KlxPiaoLabel27.边框颜色 = System.Drawing.Color.LightGray
+        Me.KlxPiaoLabel27.颜色减淡 = False
         '
         'Form1
         '
@@ -1389,7 +1577,9 @@ Partial Class Form1
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
-        Me.TabPage2.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
         Me.KlxPiaoPanel1.ResumeLayout(False)
@@ -1485,4 +1675,13 @@ Partial Class Form1
     Friend WithEvents KlxPiaoLabel21 As KlxPiaoLabel
     Friend WithEvents KlxPiaoLabel22 As KlxPiaoLabel
     Friend WithEvents KlxPiaoLabel23 As KlxPiaoLabel
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents KlxPiaoButton6 As KlxPiaoButton
+    Friend WithEvents KlxPiaoLabel24 As KlxPiaoLabel
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents KlxPiaoLabel25 As KlxPiaoLabel
+    Friend WithEvents KlxPiaoLabel26 As KlxPiaoLabel
+    Friend WithEvents KlxPiaoButton7 As KlxPiaoButton
+    Friend WithEvents LinkLabel1 As LinkLabel
+    Friend WithEvents KlxPiaoLabel27 As KlxPiaoLabel
 End Class

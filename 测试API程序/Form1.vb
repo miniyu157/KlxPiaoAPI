@@ -1,9 +1,10 @@
-﻿Imports KlxPiaoAPI
+﻿Imports System.IO
+Imports KlxPiaoAPI
 Imports KlxPiaoAPI.字符串操作
 Public Class Form1
-
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Text = $"{关于KlxPiao.产品名称} {关于KlxPiao.产品版本} Demo"
+        LinkLabel1.Text = Path.Combine(Path.GetDirectoryName(Path.GetDirectoryName(Application.StartupPath)), $"Form1.Designer.vb")
 
         CheckBox1.Checked = 启用缩放动画
         CheckBox2.Checked = 窗体可调整大小
@@ -506,20 +507,13 @@ End Property")
     Private Sub KlxPiaoButton2_Click(sender As Object, e As EventArgs) Handles KlxPiaoButton2.Click
         Dim originalColor As Color = 主题Panel.BackColor
 
-        缩放按钮鼠标移入背景色 = ChangeBrightness(originalColor, -0.03)
-        缩放按钮鼠标按下背景色 = ChangeBrightness(缩放按钮鼠标移入背景色, -0.03)
+        缩放按钮鼠标移入背景色 = 颜色.调整亮度(originalColor, -0.03)
+        缩放按钮鼠标按下背景色 = 颜色.调整亮度(缩放按钮鼠标移入背景色, -0.03)
 
         刷新配色()
 
         CheckBox5.Checked = True
     End Sub
-
-    Private Function ChangeBrightness(color As Color, factor As Double) As Color
-        Dim red As Integer = Math.Min(Math.Max(0, color.R * (1 + factor)), 255)
-        Dim green As Integer = Math.Min(Math.Max(0, color.G * (1 + factor)), 255)
-        Dim blue As Integer = Math.Min(Math.Max(0, color.B * (1 + factor)), 255)
-        Return Color.FromArgb(color.A, red, green, blue)
-    End Function
 
     '关闭按钮高亮
     Private Sub CheckBox6_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox6.CheckedChanged
@@ -554,4 +548,85 @@ End Property")
 
         My.Computer.Clipboard.SetText(TextBox5.Text)
     End Sub
+
+    '切换皮肤编辑器
+    Private Sub KlxPiaoButton6_Click(sender As Object, e As EventArgs) Handles KlxPiaoButton6.Click
+        TabControl1.SelectedIndex = 4
+    End Sub
+
+    '应用到.Designer
+    Private Sub KlxPiaoButton7_Click(sender As Object, e As EventArgs) Handles KlxPiaoButton7.Click
+        If TextBox5.Text = "" Then
+
+            显示提示框("先生成，再应用", "提示")
+
+        Else
+            Dim 目标路径 As String = LinkLabel1.Text
+            Dim 全部内容 As String = File.ReadAllText(目标路径)
+
+            'Dim 读行 As String() = File.ReadAllLines(目标路径)
+            'Dim 查找属性 As String() = {"Me.标题框颜色", "Me.标题字体颜色", "Me.关闭按钮前景色", "Me.关闭按钮背景色", "Me.关闭按钮鼠标按下背景色", "Me.关闭按钮鼠标移入背景色", "Me.最小化按钮前景色", "Me.最小化按钮背景色", "Me.最小化按钮鼠标按下背景色", "Me.最小化按钮鼠标移入背景色", "Me.缩放按钮前景色", "Me.缩放按钮背景色", "Me.缩放按钮鼠标按下背景色", "Me.缩放按钮鼠标移入背景色"}
+
+            'For Each 原行 In 读行
+            '    For Each 属性名 In 查找属性
+            '        If 原行.Contains(属性名) Then
+            '            For Each 替换行 In TextBox5.Lines
+            '                If 替换行.Contains(属性名) Then
+            '                    全部内容 = 全部内容.Replace(原行, 替换行)
+            '                End If
+            '            Next
+            '        End If
+            '    Next
+            'Next
+
+            Dim 读行 As List(Of String) = File.ReadAllLines(目标路径).ToList
+            Dim 查找属性 As New List(Of String) From {"Me.标题框颜色", "Me.标题字体颜色", "Me.关闭按钮前景色", "Me.关闭按钮背景色", "Me.关闭按钮鼠标按下背景色", "Me.关闭按钮鼠标移入背景色", "Me.最小化按钮前景色", "Me.最小化按钮背景色", "Me.最小化按钮鼠标按下背景色", "Me.最小化按钮鼠标移入背景色", "Me.缩放按钮前景色", "Me.缩放按钮背景色", "Me.缩放按钮鼠标按下背景色", "Me.缩放按钮鼠标移入背景色"}
+
+            读行.ForEach(Sub(原行 As String) 查找属性.ForEach(Sub(属性名 As String) If 原行.Contains(属性名) Then TextBox5.Lines.ToList.ForEach(Sub(替换行 As String) If 替换行.Contains(属性名) Then 全部内容 = 全部内容.Replace(原行, 替换行))))
+
+            Using 更新文件 As New StreamWriter(目标路径)
+                更新文件.Write(全部内容)
+            End Using
+
+            显示提示框("应用成功", "提示")
+
+        End If
+    End Sub
+
+    '修改窗体设计文件路径
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+        Dim 选择文件 As New OpenFileDialog With {
+            .InitialDirectory = Path.GetDirectoryName(LinkLabel1.Text),
+            .Filter = "窗体设计文件|*.Designer.vb"
+        }
+
+        If 选择文件.ShowDialog = DialogResult.OK Then
+            LinkLabel1.Text = 选择文件.FileName
+        End If
+    End Sub
+
+
+    Private Sub 显示提示框(内容 As String, 标题 As String)
+        Dim 提示框 As New KlxPiaoForm With {
+        .Text = 标题,
+        .窗体按钮 = 窗体按钮样式.仅显示关闭,
+        .窗体可调整大小 = False,
+        .ShowInTaskbar = False,
+        .StartPosition = FormStartPosition.CenterParent,
+        .Size = New Size(250, 150)
+    }
+
+        复制主题(Me, 提示框)
+
+        Dim 提示文本 As New KlxPiaoLabel With {
+            .Text = 内容
+        }
+
+        Dim 文字大小 As SizeF = 提示框.CreateGraphics.MeasureString(提示文本.Text, New Font("微软雅黑", 9))
+        提示文本.Location = New Point((提示框.Width - 文字大小.Width) / 2, (提示框.Height - 文字大小.Height) / 2)
+
+        提示框.Controls.Add(提示文本)
+        提示框.ShowDialog()
+    End Sub
+
 End Class

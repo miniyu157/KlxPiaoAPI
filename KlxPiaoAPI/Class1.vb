@@ -7,50 +7,55 @@ Imports System.IO
 Imports System.Drawing
 Imports System.Drawing.Text
 
-Namespace 文件处理
-    Public Module 默认类
-        Public Function 加载字体(本地文件路径 As String, 字体大小 As Single, 字体样式 As FontStyle) As Font
-            ' 创建一个私有字体集合
-            Dim privateFonts As New PrivateFontCollection()
+Public Class 颜色
+    Public Shared Function 调整亮度(color As Color, factor As Double) As Color
+        Dim red As Integer = Math.Min(Math.Max(0, color.R * (1 + factor)), 255)
+        Dim green As Integer = Math.Min(Math.Max(0, color.G * (1 + factor)), 255)
+        Dim blue As Integer = Math.Min(Math.Max(0, color.B * (1 + factor)), 255)
+        Return Color.FromArgb(color.A, red, green, blue)
+    End Function
+End Class
 
-            ' 加载字体文件到私有字体集合
-            privateFonts.AddFontFile(本地文件路径)
+Public Class 文件处理
+    Public Shared Function 加载字体(本地文件路径 As String, 字体大小 As Single, 字体样式 As FontStyle) As Font
+        ' 创建一个私有字体集合
+        Dim privateFonts As New PrivateFontCollection()
 
-            Dim customFont As New Font(privateFonts.Families(0), 字体大小, 字体样式)
-            Return customFont
+        ' 加载字体文件到私有字体集合
+        privateFonts.AddFontFile(本地文件路径)
 
-        End Function
-    End Module
-End Namespace
+        Dim customFont As New Font(privateFonts.Families(0), 字体大小, 字体样式)
+        Return customFont
 
-Namespace 图片处理
-    Public Module 默认类
-        Public Function 图片颜色替换(原图 As Bitmap, 要替换的颜色 As Color, 替换为 As Color) As Bitmap
-            Dim originalBitmap As New Bitmap(原图)
+    End Function
+End Class
 
-            ' 修改像素
-            Dim modifiedBitmap As New Bitmap(originalBitmap.Width, originalBitmap.Height)
-            For y As Integer = 0 To originalBitmap.Height - 1
-                For x As Integer = 0 To originalBitmap.Width - 1
+Public Class 图片处理
+    Public Shared Function 图片颜色替换(原图 As Bitmap, 要替换的颜色 As Color, 替换为 As Color) As Bitmap
+        Dim originalBitmap As New Bitmap(原图)
 
-                    Dim pixelColor As Color = originalBitmap.GetPixel(x, y)
+        ' 修改像素
+        Dim modifiedBitmap As New Bitmap(originalBitmap.Width, originalBitmap.Height)
+        For y As Integer = 0 To originalBitmap.Height - 1
+            For x As Integer = 0 To originalBitmap.Width - 1
 
-                    If pixelColor.A = 0 Then
-                        ' 透明像素，保持原始颜色
-                        modifiedBitmap.SetPixel(x, y, pixelColor)
-                    ElseIf pixelColor.R = 要替换的颜色.R AndAlso pixelColor.G = 要替换的颜色.G AndAlso pixelColor.B = 要替换的颜色.B Then
-                        ' 非透明且颜色匹配，进行替换
-                        modifiedBitmap.SetPixel(x, y, 替换为)
-                    Else
-                        ' 其他情况保持原始颜色
-                        modifiedBitmap.SetPixel(x, y, pixelColor)
-                    End If
-                Next
+                Dim pixelColor As Color = originalBitmap.GetPixel(x, y)
+
+                If pixelColor.A = 0 Then
+                    ' 透明像素，保持原始颜色
+                    modifiedBitmap.SetPixel(x, y, pixelColor)
+                ElseIf pixelColor.R = 要替换的颜色.R AndAlso pixelColor.G = 要替换的颜色.G AndAlso pixelColor.B = 要替换的颜色.B Then
+                    ' 非透明且颜色匹配，进行替换
+                    modifiedBitmap.SetPixel(x, y, 替换为)
+                Else
+                    ' 其他情况保持原始颜色
+                    modifiedBitmap.SetPixel(x, y, pixelColor)
+                End If
             Next
-            Return modifiedBitmap
-        End Function
-    End Module
-End Namespace
+        Next
+        Return modifiedBitmap
+    End Function
+End Class
 
 
 Namespace 常用功能

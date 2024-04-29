@@ -5,6 +5,7 @@ Public Class KlxPiaoButton
 
     Public Sub New()
         MyBase.New()
+
         FlatStyle = FlatStyle.Flat
         FlatAppearance.BorderSize = 1
         FlatAppearance.BorderColor = Color.Gainsboro

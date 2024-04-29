@@ -12,11 +12,11 @@ Public Class KlxPiaoLabel
     Private _偏移量 As Point
     Private _颜色减淡 As Boolean
 
-    Private _启用遮罩 As Boolean
-    Private _遮罩颜色 As Color
+    Private _启用边框 As Boolean
+    Private _边框外部颜色 As Color
     Private _圆角百分比 As Single
-    Private _内边框大小 As Integer
-    Private _内边框颜色 As Color
+    Private _边框大小 As Integer
+    Private _边框颜色 As Color
 
 
     Public Sub New()
@@ -28,14 +28,15 @@ Public Class KlxPiaoLabel
         _偏移量 = New Point(2, 2)
         _颜色减淡 = False
 
-        _启用遮罩 = False
-        _遮罩颜色 = Color.White
+        _启用边框 = False
+        _边框外部颜色 = Color.White
         _圆角百分比 = 0
-        _内边框大小 = 0
-        _内边框颜色 = Color.LightGray
+        _边框大小 = 0
+        _边框颜色 = Color.LightGray
 
         Font = New Font("微软雅黑 Light", 9)
         ForeColor = Color.Black
+        BackColor = Color.White
     End Sub
 
     <Category("文字投影"), Description("绘制投影")>
@@ -100,27 +101,27 @@ Public Class KlxPiaoLabel
         End Set
     End Property
 
-    <Category("遮罩"), Description("是否启用遮罩")>
-    Public Property 启用遮罩 As Boolean
+    <Category("边框"), Description("是否启用边框")>
+    Public Property 启用边框 As Boolean
         Get
-            Return _启用遮罩
+            Return _启用边框
         End Get
         Set(value As Boolean)
-            _启用遮罩 = value
+            _启用边框 = value
             Invalidate()
         End Set
     End Property
-    <Category("遮罩"), Description("遮罩的颜色")>
-    Public Property 遮罩颜色 As Color
+    <Category("边框"), Description("边框的颜色")>
+    Public Property 边框外部颜色 As Color
         Get
-            Return _遮罩颜色
+            Return _边框外部颜色
         End Get
         Set(value As Color)
-            _遮罩颜色 = value
+            _边框外部颜色 = value
             Invalidate()
         End Set
     End Property
-    <Category("遮罩"), Description("范围：0.00-1.00，为1时为圆形，为0时取消圆角")>
+    <Category("边框"), Description("范围：0.00-1.00，为1时为圆形，为0时取消圆角")>
     Public Property 圆角百分比 As Single
         Get
             Return _圆角百分比
@@ -130,23 +131,23 @@ Public Class KlxPiaoLabel
             Invalidate()
         End Set
     End Property
-    <Category("遮罩"), Description("内边框的大小，为0时隐藏内边框")>
-    Public Property 内边框大小 As Integer
+    <Category("边框"), Description("边框的大小，为0时隐藏边框")>
+    Public Property 边框大小 As Integer
         Get
-            Return _内边框大小
+            Return _边框大小
         End Get
         Set(value As Integer)
-            _内边框大小 = value
+            _边框大小 = value
             Invalidate()
         End Set
     End Property
-    <Category("遮罩"), Description("内边框的颜色")>
-    Public Property 内边框颜色 As Color
+    <Category("边框"), Description("边框的颜色")>
+    Public Property 边框颜色 As Color
         Get
-            Return _内边框颜色
+            Return _边框颜色
         End Get
         Set(value As Color)
-            _内边框颜色 = value
+            _边框颜色 = value
             Invalidate()
         End Set
     End Property
@@ -278,16 +279,17 @@ Public Class KlxPiaoLabel
             g.DrawString(Text, Font, New SolidBrush(ForeColor), 绘制位置)
         End If
 
-        If 启用遮罩 Then
+        '边框
+        If 启用边框 Then
 
-            Dim 边框大小 As Integer = 内边框大小
             Dim 圆角大小 As Double = 圆角百分比
             Dim 外部区域 As New Rectangle(0, 0, Width, Height)
             Dim 内部区域 As New Rectangle(外部区域.X + 边框大小, 外部区域.Y + 边框大小, 外部区域.Width - 边框大小 * 2, 外部区域.Height - 边框大小 * 2)
 
-            Dim pathInner As New GraphicsPath()
             Dim pathOuter As New GraphicsPath()
-            Dim radius As Single = 圆角大小 * Width / 2
+            Dim pathInner As New GraphicsPath()
+            Dim 外部圆角 As Single = 圆角大小 * (外部区域.Width / 2)
+            Dim 内部圆角 As Single = 外部圆角 * ((外部区域.Width - 边框大小 * 2) / 外部区域.Width)
 
             If 圆角大小 = 0 Then
                 pathOuter.AddRectangle(外部区域)
@@ -296,15 +298,15 @@ Public Class KlxPiaoLabel
                 pathOuter.AddEllipse(外部区域)
                 pathInner.AddEllipse(内部区域)
             Else
-                pathOuter.AddArc(外部区域.Left, 外部区域.Top, radius * 2, radius * 2, 180, 90)
-                pathOuter.AddArc(外部区域.Right - radius * 2, 外部区域.Top, radius * 2, radius * 2, 270, 90) '
-                pathOuter.AddArc(外部区域.Right - radius * 2, 外部区域.Bottom - radius * 2, radius * 2, radius * 2, 0, 90)
-                pathOuter.AddArc(外部区域.Left, 外部区域.Bottom - radius * 2, radius * 2, radius * 2, 90, 90)
+                pathOuter.AddArc(外部区域.Left, 外部区域.Top, 外部圆角 * 2, 外部圆角 * 2, 180, 90)
+                pathOuter.AddArc(外部区域.Right - 外部圆角 * 2, 外部区域.Top, 外部圆角 * 2, 外部圆角 * 2, 270, 90)
+                pathOuter.AddArc(外部区域.Right - 外部圆角 * 2, 外部区域.Bottom - 外部圆角 * 2, 外部圆角 * 2, 外部圆角 * 2, 0, 90)
+                pathOuter.AddArc(外部区域.Left, 外部区域.Bottom - 外部圆角 * 2, 外部圆角 * 2, 外部圆角 * 2, 90, 90)
 
-                pathInner.AddArc(内部区域.Left, 内部区域.Top, radius * 2, radius * 2, 180, 90)
-                pathInner.AddArc(内部区域.Right - radius * 2, 内部区域.Top, radius * 2, radius * 2, 270, 90)
-                pathInner.AddArc(内部区域.Right - radius * 2, 内部区域.Bottom - radius * 2, radius * 2, radius * 2, 0, 90)
-                pathInner.AddArc(内部区域.Left, 内部区域.Bottom - radius * 2, radius * 2, radius * 2, 90, 90)
+                pathInner.AddArc(内部区域.Left, 内部区域.Top, 内部圆角 * 2, 内部圆角 * 2, 180, 90)
+                pathInner.AddArc(内部区域.Right - 内部圆角 * 2, 内部区域.Top, 内部圆角 * 2, 内部圆角 * 2, 270, 90)
+                pathInner.AddArc(内部区域.Right - 内部圆角 * 2, 内部区域.Bottom - 内部圆角 * 2, 内部圆角 * 2, 内部圆角 * 2, 0, 90)
+                pathInner.AddArc(内部区域.Left, 内部区域.Bottom - 内部圆角 * 2, 内部圆角 * 2, 内部圆角 * 2, 90, 90)
             End If
 
             pathOuter.CloseFigure()
@@ -316,7 +318,7 @@ Public Class KlxPiaoLabel
             combinePath.AddPath(pathInner, True) ' 添加内部路径
 
             ' 填充内部圆角矩形区域外部
-            g.FillPath(New SolidBrush(内边框颜色), combinePath)
+            g.FillPath(New SolidBrush(边框颜色), combinePath)
 
             '创建一个Region对象， 表示圆角矩形区域
             Dim circleRegion As New Region(pathOuter)
@@ -325,7 +327,7 @@ Public Class KlxPiaoLabel
             g.ExcludeClip(circleRegion)
 
             ' 填充被排除的区域
-            g.FillRectangle(New SolidBrush(遮罩颜色), 外部区域)
+            g.FillRectangle(New SolidBrush(边框外部颜色), 外部区域)
 
         End If
 
