@@ -80,10 +80,16 @@
     <Compile Include="KlxPiaoPanel.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="KlxPiaoPictureBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="KlxPiaoProgressBar.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="KlxPiaoTabControl.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="KlxPiaoTabPage.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />

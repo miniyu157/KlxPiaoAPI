@@ -59,6 +59,7 @@ Public Class Form1
         End Select
 
         刷新配色()
+
     End Sub
 
 #Region "杂项，不做修改"
@@ -70,11 +71,9 @@ Public Class Form1
         Dim 类型 As String = TextBox2.Text
         Dim 默认值 As String = TextBox4.Text
 
-        TextBox3.AppendText($"Private _{自定义属性名} As {类型}")
-        TextBox3.AppendText(vbCrLf & "-----" & vbCrLf)
-        TextBox3.AppendText($"_{自定义属性名} = {默认值}")
-        TextBox3.AppendText(vbCrLf & "-----" & vbCrLf)
-        TextBox3.AppendText($"
+        TextBox3.Text = $"Private _{自定义属性名} As {类型}"
+        TextBox6.Text = $"_{自定义属性名} = {默认值}"
+        TextBox7.Text = $"
 Public Property {自定义属性名} As {类型}
     Get
         Return _{自定义属性名}
@@ -83,7 +82,20 @@ Public Property {自定义属性名} As {类型}
         _{自定义属性名} = value
         Invalidate()
     End Set
-End Property")
+End Property"
+    End Sub
+    '复制
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click, Button4.Click, Button8.Click
+        Dim button As Button = TryCast(sender, Button)
+
+        Select Case button.Name
+            Case "Button3"
+                My.Computer.Clipboard.SetText(TextBox3.Text)
+            Case "Button4"
+                My.Computer.Clipboard.SetText(TextBox6.Text)
+            Case "Button8"
+                My.Computer.Clipboard.SetText(TextBox7.Text)
+        End Select
     End Sub
     '按钮：应用本地字体
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -162,6 +174,10 @@ End Property")
 
     Private Sub PointBar1_值Changed(sender As Object, e As System.ComponentModel.PropertyChangedEventArgs) Handles PointBar1.值Changed
         KlxPiaoLabel1.偏移量 = PointBar1.值
+    End Sub
+
+    Private Sub PointBar2_值Changed(sender As Object, e As System.ComponentModel.PropertyChangedEventArgs) Handles PointBar2.值Changed
+        KlxPiaoLabel26.偏移量 = PointBar2.值
     End Sub
 #End Region
 
@@ -604,7 +620,6 @@ End Property")
             LinkLabel1.Text = 选择文件.FileName
         End If
     End Sub
-
 
     Private Sub 显示提示框(内容 As String, 标题 As String)
         Dim 提示框 As New KlxPiaoForm With {

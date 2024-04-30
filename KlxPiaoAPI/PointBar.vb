@@ -254,21 +254,15 @@ Public Class PointBar
 
             值 = New Point(最小值.X + x轴总长度 * (e.Location.X / Width), 最小值.Y + y轴总长度 * (e.Location.Y / Height))
 
-            If 值.X < 最小值.X Then
-                值 = New Point(最小值.X, 值.Y)
-            End If
+            If 值.X < 最小值.X Then 值 = New Point(最小值.X, 值.Y)
 
-            If 值.X > 最大值.X Then
-                值 = New Point(最大值.X, 值.Y)
-            End If
+            If 值.X > 最大值.X Then 值 = New Point(最大值.X, 值.Y)
 
-            If 值.Y < 最小值.Y Then
-                值 = New Point(值.X, 最小值.Y)
-            End If
+            If 值.Y < 最小值.Y Then 值 = New Point(值.X, 最小值.Y)
 
-            If 值.Y > 最大值.Y Then
-                值 = New Point(值.X, 最大值.Y)
-            End If
+            If 值.Y > 最大值.Y Then 值 = New Point(值.X, 最大值.Y)
+
+            Refresh()
         End If
     End Sub
     Private Sub PointBar_MouseUp(sender As Object, e As MouseEventArgs) Handles Me.MouseUp
