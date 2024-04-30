@@ -22,5 +22,10 @@
   使用此强类型资源类的所有资源查找执行重写。
 </summary>
 </member>
+<member name="P:测试API程序.My.Resources.Resources.图片演示">
+<summary>
+  查找 System.Drawing.Bitmap 类型的本地化资源。
+</summary>
+</member>
 </members>
 </doc>

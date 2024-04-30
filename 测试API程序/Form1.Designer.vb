@@ -93,6 +93,12 @@ Partial Class Form1
         Me.KlxPiaoProgressBar3 = New KlxPiaoAPI.KlxPiaoProgressBar()
         Me.KlxPiaoProgressBar2 = New KlxPiaoAPI.KlxPiaoProgressBar()
         Me.KlxPiaoProgressBar1 = New KlxPiaoAPI.KlxPiaoProgressBar()
+        Me.TabPage15 = New System.Windows.Forms.TabPage()
+        Me.KlxPiaoLabel31 = New KlxPiaoAPI.KlxPiaoLabel()
+        Me.KlxPiaoLabel30 = New KlxPiaoAPI.KlxPiaoLabel()
+        Me.TrackBar2 = New System.Windows.Forms.TrackBar()
+        Me.TrackBar1 = New System.Windows.Forms.TrackBar()
+        Me.KlxPiaoPictureBox1 = New KlxPiaoAPI.KlxPiaoPictureBox()
         Me.Switch1 = New KlxPiaoAPI.Switch()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.Button7 = New System.Windows.Forms.Button()
@@ -163,6 +169,10 @@ Partial Class Form1
         Me.TabPage10.SuspendLayout()
         Me.TabPage11.SuspendLayout()
         Me.TabPage14.SuspendLayout()
+        Me.TabPage15.SuspendLayout()
+        CType(Me.TrackBar2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.KlxPiaoPictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage4.SuspendLayout()
         Me.TabPage5.SuspendLayout()
         Me.KlxPiaoPanel16.SuspendLayout()
@@ -268,6 +278,7 @@ Partial Class Form1
         'Button8
         '
         Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.Button8.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Button8.Location = New System.Drawing.Point(585, 72)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(77, 20)
@@ -278,6 +289,7 @@ Partial Class Form1
         'Button4
         '
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.Button4.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Button4.Location = New System.Drawing.Point(585, 43)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(77, 20)
@@ -288,6 +300,7 @@ Partial Class Form1
         'Button3
         '
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.Button3.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Button3.Location = New System.Drawing.Point(585, 13)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(77, 20)
@@ -528,6 +541,7 @@ Partial Class Form1
         Me.KlxPiaoTabPage1.Controls.Add(Me.TabPage8)
         Me.KlxPiaoTabPage1.Controls.Add(Me.TabPage9)
         Me.KlxPiaoTabPage1.Controls.Add(Me.TabPage14)
+        Me.KlxPiaoTabPage1.Controls.Add(Me.TabPage15)
         Me.KlxPiaoTabPage1.ItemSize = New System.Drawing.Size(0, 1)
         Me.KlxPiaoTabPage1.Location = New System.Drawing.Point(94, 0)
         Me.KlxPiaoTabPage1.Multiline = True
@@ -549,10 +563,10 @@ Partial Class Form1
         Me.TabPage7.Controls.Add(Me.CheckBox3)
         Me.TabPage7.Controls.Add(Me.PointBar1)
         Me.TabPage7.Controls.Add(Me.CheckBox4)
-        Me.TabPage7.Location = New System.Drawing.Point(5, 4)
+        Me.TabPage7.Location = New System.Drawing.Point(6, 4)
         Me.TabPage7.Name = "TabPage7"
         Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage7.Size = New System.Drawing.Size(553, 347)
+        Me.TabPage7.Size = New System.Drawing.Size(552, 347)
         Me.TabPage7.TabIndex = 0
         Me.TabPage7.Text = "Label"
         '
@@ -758,10 +772,10 @@ Partial Class Form1
         Me.TabPage8.Controls.Add(Me.KlxPiaoPanel3)
         Me.TabPage8.Controls.Add(Me.KlxPiaoPanel2)
         Me.TabPage8.Controls.Add(Me.KlxPiaoPanel1)
-        Me.TabPage8.Location = New System.Drawing.Point(5, 4)
+        Me.TabPage8.Location = New System.Drawing.Point(6, 4)
         Me.TabPage8.Name = "TabPage8"
         Me.TabPage8.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage8.Size = New System.Drawing.Size(553, 347)
+        Me.TabPage8.Size = New System.Drawing.Size(552, 347)
         Me.TabPage8.TabIndex = 1
         Me.TabPage8.Text = "Panel"
         '
@@ -813,10 +827,10 @@ Partial Class Form1
         Me.TabPage9.Controls.Add(Me.KlxPiaoTabControl3)
         Me.TabPage9.Controls.Add(Me.KlxPiaoTabPage3)
         Me.TabPage9.Controls.Add(Me.KlxPiaoTabControl2)
-        Me.TabPage9.Location = New System.Drawing.Point(5, 4)
+        Me.TabPage9.Location = New System.Drawing.Point(6, 4)
         Me.TabPage9.Name = "TabPage9"
         Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage9.Size = New System.Drawing.Size(553, 347)
+        Me.TabPage9.Size = New System.Drawing.Size(552, 347)
         Me.TabPage9.TabIndex = 2
         Me.TabPage9.Text = "TabControl"
         '
@@ -986,10 +1000,10 @@ Partial Class Form1
         Me.TabPage14.Controls.Add(Me.KlxPiaoProgressBar3)
         Me.TabPage14.Controls.Add(Me.KlxPiaoProgressBar2)
         Me.TabPage14.Controls.Add(Me.KlxPiaoProgressBar1)
-        Me.TabPage14.Location = New System.Drawing.Point(5, 4)
+        Me.TabPage14.Location = New System.Drawing.Point(6, 4)
         Me.TabPage14.Name = "TabPage14"
         Me.TabPage14.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage14.Size = New System.Drawing.Size(553, 347)
+        Me.TabPage14.Size = New System.Drawing.Size(552, 347)
         Me.TabPage14.TabIndex = 3
         Me.TabPage14.Text = "ProgressBar"
         '
@@ -1063,6 +1077,99 @@ Partial Class Form1
         Me.KlxPiaoProgressBar1.TabIndex = 21
         Me.KlxPiaoProgressBar1.边框大小 = 1
         Me.KlxPiaoProgressBar1.边框颜色 = System.Drawing.Color.Black
+        '
+        'TabPage15
+        '
+        Me.TabPage15.BackColor = System.Drawing.Color.White
+        Me.TabPage15.Controls.Add(Me.KlxPiaoLabel31)
+        Me.TabPage15.Controls.Add(Me.KlxPiaoLabel30)
+        Me.TabPage15.Controls.Add(Me.TrackBar2)
+        Me.TabPage15.Controls.Add(Me.TrackBar1)
+        Me.TabPage15.Controls.Add(Me.KlxPiaoPictureBox1)
+        Me.TabPage15.Location = New System.Drawing.Point(6, 4)
+        Me.TabPage15.Name = "TabPage15"
+        Me.TabPage15.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage15.Size = New System.Drawing.Size(552, 347)
+        Me.TabPage15.TabIndex = 4
+        Me.TabPage15.Text = "PictureBox"
+        '
+        'KlxPiaoLabel31
+        '
+        Me.KlxPiaoLabel31.AutoSize = False
+        Me.KlxPiaoLabel31.BackColor = System.Drawing.Color.White
+        Me.KlxPiaoLabel31.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
+        Me.KlxPiaoLabel31.ForeColor = System.Drawing.Color.Black
+        Me.KlxPiaoLabel31.Location = New System.Drawing.Point(234, 117)
+        Me.KlxPiaoLabel31.Name = "KlxPiaoLabel31"
+        Me.KlxPiaoLabel31.Size = New System.Drawing.Size(32, 17)
+        Me.KlxPiaoLabel31.TabIndex = 4
+        Me.KlxPiaoLabel31.Text = "00%"
+        Me.KlxPiaoLabel31.偏移量 = New System.Drawing.Point(2, 2)
+        Me.KlxPiaoLabel31.启用投影 = False
+        Me.KlxPiaoLabel31.启用边框 = False
+        Me.KlxPiaoLabel31.圆角百分比 = 0!
+        Me.KlxPiaoLabel31.投影连线 = True
+        Me.KlxPiaoLabel31.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel31.边框外部颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel31.边框大小 = 0
+        Me.KlxPiaoLabel31.边框颜色 = System.Drawing.Color.LightGray
+        Me.KlxPiaoLabel31.颜色减淡 = False
+        '
+        'KlxPiaoLabel30
+        '
+        Me.KlxPiaoLabel30.AutoSize = False
+        Me.KlxPiaoLabel30.BackColor = System.Drawing.Color.White
+        Me.KlxPiaoLabel30.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
+        Me.KlxPiaoLabel30.ForeColor = System.Drawing.Color.Black
+        Me.KlxPiaoLabel30.Location = New System.Drawing.Point(234, 47)
+        Me.KlxPiaoLabel30.Name = "KlxPiaoLabel30"
+        Me.KlxPiaoLabel30.Size = New System.Drawing.Size(22, 17)
+        Me.KlxPiaoLabel30.TabIndex = 3
+        Me.KlxPiaoLabel30.Text = "00"
+        Me.KlxPiaoLabel30.偏移量 = New System.Drawing.Point(2, 2)
+        Me.KlxPiaoLabel30.启用投影 = False
+        Me.KlxPiaoLabel30.启用边框 = False
+        Me.KlxPiaoLabel30.圆角百分比 = 0!
+        Me.KlxPiaoLabel30.投影连线 = True
+        Me.KlxPiaoLabel30.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel30.边框外部颜色 = System.Drawing.Color.White
+        Me.KlxPiaoLabel30.边框大小 = 0
+        Me.KlxPiaoLabel30.边框颜色 = System.Drawing.Color.LightGray
+        Me.KlxPiaoLabel30.颜色减淡 = False
+        '
+        'TrackBar2
+        '
+        Me.TrackBar2.Location = New System.Drawing.Point(293, 117)
+        Me.TrackBar2.Maximum = 100
+        Me.TrackBar2.Name = "TrackBar2"
+        Me.TrackBar2.Size = New System.Drawing.Size(209, 45)
+        Me.TrackBar2.TabIndex = 2
+        Me.TrackBar2.TickStyle = System.Windows.Forms.TickStyle.None
+        '
+        'TrackBar1
+        '
+        Me.TrackBar1.Location = New System.Drawing.Point(293, 47)
+        Me.TrackBar1.Maximum = 20
+        Me.TrackBar1.Name = "TrackBar1"
+        Me.TrackBar1.Size = New System.Drawing.Size(209, 45)
+        Me.TrackBar1.TabIndex = 1
+        Me.TrackBar1.TickStyle = System.Windows.Forms.TickStyle.None
+        '
+        'KlxPiaoPictureBox1
+        '
+        Me.KlxPiaoPictureBox1.Image = Global.测试API程序.My.Resources.Resources.图片演示
+        Me.KlxPiaoPictureBox1.Location = New System.Drawing.Point(30, 25)
+        Me.KlxPiaoPictureBox1.Name = "KlxPiaoPictureBox1"
+        Me.KlxPiaoPictureBox1.Size = New System.Drawing.Size(155, 155)
+        Me.KlxPiaoPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.KlxPiaoPictureBox1.TabIndex = 0
+        Me.KlxPiaoPictureBox1.TabStop = False
+        Me.KlxPiaoPictureBox1.启用边框 = True
+        Me.KlxPiaoPictureBox1.图片缩放 = False
+        Me.KlxPiaoPictureBox1.圆角百分比 = 0.36!
+        Me.KlxPiaoPictureBox1.边框外部颜色 = System.Drawing.Color.White
+        Me.KlxPiaoPictureBox1.边框大小 = 10
+        Me.KlxPiaoPictureBox1.边框颜色 = System.Drawing.Color.Pink
         '
         'Switch1
         '
@@ -2020,6 +2127,11 @@ Partial Class Form1
         Me.TabPage10.ResumeLayout(False)
         Me.TabPage11.ResumeLayout(False)
         Me.TabPage14.ResumeLayout(False)
+        Me.TabPage15.ResumeLayout(False)
+        Me.TabPage15.PerformLayout()
+        CType(Me.TrackBar2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.KlxPiaoPictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage4.ResumeLayout(False)
         Me.TabPage5.ResumeLayout(False)
         Me.KlxPiaoPanel16.ResumeLayout(False)
@@ -2150,4 +2262,10 @@ Partial Class Form1
     Friend WithEvents KlxPiaoProgressBar3 As KlxPiaoProgressBar
     Friend WithEvents KlxPiaoProgressBar2 As KlxPiaoProgressBar
     Friend WithEvents PointBar2 As PointBar
+    Friend WithEvents TabPage15 As TabPage
+    Friend WithEvents KlxPiaoPictureBox1 As KlxPiaoPictureBox
+    Friend WithEvents TrackBar2 As TrackBar
+    Friend WithEvents TrackBar1 As TrackBar
+    Friend WithEvents KlxPiaoLabel31 As KlxPiaoLabel
+    Friend WithEvents KlxPiaoLabel30 As KlxPiaoLabel
 End Class

@@ -11,6 +11,12 @@ Public Class Form1
         CheckBox3.Checked = KlxPiaoLabel1.投影连线
         CheckBox4.Checked = KlxPiaoLabel1.颜色减淡
 
+        TrackBar1.Value = KlxPiaoPictureBox1.边框大小
+        TrackBar2.Value = KlxPiaoPictureBox1.圆角百分比 * 100
+
+        KlxPiaoLabel30.Text = TrackBar1.Value
+        KlxPiaoLabel31.Text = TrackBar2.Value & "%"
+
         Select Case CheckBox4.Checked
             Case True
                 KlxPiaoLabel1.投影颜色 = Color.Black
@@ -59,7 +65,6 @@ Public Class Form1
         End Select
 
         刷新配色()
-
     End Sub
 
 #Region "杂项，不做修改"
@@ -643,5 +648,17 @@ End Property"
         提示框.Controls.Add(提示文本)
         提示框.ShowDialog()
     End Sub
+
+#Region "PictureBox展示"
+    Private Sub TrackBar1_Scroll(sender As Object, e As EventArgs) Handles TrackBar1.Scroll
+        KlxPiaoPictureBox1.边框大小 = TrackBar1.Value
+        KlxPiaoLabel30.Text = TrackBar1.Value
+    End Sub
+
+    Private Sub TrackBar2_Scroll(sender As Object, e As EventArgs) Handles TrackBar2.Scroll
+        KlxPiaoPictureBox1.圆角百分比 = TrackBar2.Value / 100
+        KlxPiaoLabel31.Text = TrackBar2.Value & "%"
+    End Sub
+#End Region
 
 End Class
