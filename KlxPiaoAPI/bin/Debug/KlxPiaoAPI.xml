@@ -104,7 +104,7 @@ KlxPiaoAPI
 </member>
 <member name="M:KlxPiaoAPI.KlxPiaoForm.加载主题文件(System.String)">
  <summary>
- 加载现有主题文件
+ 加载现有主题文件或资源文件
  </summary>
  <param name="文件路径或资源文件"></param>
 </member>
@@ -135,6 +135,41 @@ KlxPiaoAPI
  <param name="文件路径"></param>
  <param name="控件"></param>
  
+</member>
+<member name="F:KlxPiaoAPI.KlxPiaoTrackBar.鼠标滚轮响应.正向">
+ <summary>
+ 向上增加，向下减少
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.KlxPiaoTrackBar.鼠标滚轮响应.逆向">
+ <summary>
+ 向上减少，向下增加
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.KlxPiaoTrackBar.鼠标滚轮响应.不启用">
+ <summary>
+ 不启用鼠标滚轮响应
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.KlxPiaoTrackBar.键盘响应.仅上下键">
+ <summary>
+ 仅响应Up和Down键
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.KlxPiaoTrackBar.键盘响应.仅左右键">
+ <summary>
+ 仅响应Left和Right键
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.KlxPiaoTrackBar.键盘响应.全方向键">
+ <summary>
+ 响应Up,Down,Left,Right键
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.KlxPiaoTrackBar.键盘响应.不启用">
+ <summary>
+ 不启用键盘响应
+ </summary>
 </member>
 </members>
 </doc>

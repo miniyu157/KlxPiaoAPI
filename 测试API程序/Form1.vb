@@ -11,11 +11,11 @@ Public Class Form1
         CheckBox3.Checked = KlxPiaoLabel1.投影连线
         CheckBox4.Checked = KlxPiaoLabel1.颜色减淡
 
-        TrackBar1.Value = KlxPiaoPictureBox1.边框大小
-        TrackBar2.Value = KlxPiaoPictureBox1.圆角百分比 * 100
+        KlxPiaoTrackBar1.值 = KlxPiaoPictureBox1.边框大小
+        KlxPiaoTrackBar2.值 = KlxPiaoPictureBox1.圆角百分比 * 100
 
-        KlxPiaoLabel30.Text = TrackBar1.Value
-        KlxPiaoLabel31.Text = TrackBar2.Value & "%"
+        KlxPiaoLabel30.Text = KlxPiaoTrackBar1.值
+        KlxPiaoLabel31.Text = KlxPiaoTrackBar2.值 & "%"
 
         Select Case CheckBox4.Checked
             Case True
@@ -68,6 +68,11 @@ Public Class Form1
     End Sub
 
 #Region "杂项，不做修改"
+    '适应TabControl大小
+    Private Sub Form1_SizeChanged(sender As Object, e As EventArgs) Handles Me.SizeChanged
+        TabControl1.Size = Size - New Size(24, 54)
+    End Sub
+
     '代码生成器
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         TextBox3.Clear()
@@ -628,13 +633,13 @@ End Property"
 
     Private Sub 显示提示框(内容 As String, 标题 As String)
         Dim 提示框 As New KlxPiaoForm With {
-        .Text = 标题,
-        .窗体按钮 = 窗体按钮样式.仅显示关闭,
-        .窗体可调整大小 = False,
-        .ShowInTaskbar = False,
-        .StartPosition = FormStartPosition.CenterParent,
-        .Size = New Size(250, 150)
-    }
+            .Text = 标题,
+            .窗体按钮 = 窗体按钮样式.仅显示关闭,
+            .窗体可调整大小 = False,
+            .ShowInTaskbar = False,
+            .StartPosition = FormStartPosition.CenterParent,
+            .Size = New Size(250, 150)
+        }
 
         复制主题(Me, 提示框)
 
@@ -650,15 +655,18 @@ End Property"
     End Sub
 
 #Region "PictureBox展示"
-    Private Sub TrackBar1_Scroll(sender As Object, e As EventArgs) Handles TrackBar1.Scroll
-        KlxPiaoPictureBox1.边框大小 = TrackBar1.Value
-        KlxPiaoLabel30.Text = TrackBar1.Value
+    Private Sub KlxPiaoTrackBar1_值Changed(sender As Object, e As System.ComponentModel.PropertyChangedEventArgs) Handles KlxPiaoTrackBar1.值Changed
+        KlxPiaoPictureBox1.边框大小 = KlxPiaoTrackBar1.值
+        KlxPiaoLabel30.Text = KlxPiaoTrackBar1.值
     End Sub
 
-    Private Sub TrackBar2_Scroll(sender As Object, e As EventArgs) Handles TrackBar2.Scroll
-        KlxPiaoPictureBox1.圆角百分比 = TrackBar2.Value / 100
-        KlxPiaoLabel31.Text = TrackBar2.Value & "%"
+    Private Sub KlxPiaoTrackBar2_值Changed(sender As Object, e As System.ComponentModel.PropertyChangedEventArgs) Handles KlxPiaoTrackBar2.值Changed
+        KlxPiaoPictureBox1.圆角百分比 = KlxPiaoTrackBar2.值 / 100
+        KlxPiaoLabel31.Text = KlxPiaoTrackBar2.值 & "%"
     End Sub
 #End Region
 
+    Private Sub KlxPiaoTrackBar3_值Changed_1(sender As Object, e As System.ComponentModel.PropertyChangedEventArgs) Handles KlxPiaoTrackBar3.值Changed
+        Console.WriteLine(KlxPiaoTrackBar3.值)
+    End Sub
 End Class

@@ -94,11 +94,14 @@ Partial Class Form1
         Me.KlxPiaoProgressBar2 = New KlxPiaoAPI.KlxPiaoProgressBar()
         Me.KlxPiaoProgressBar1 = New KlxPiaoAPI.KlxPiaoProgressBar()
         Me.TabPage15 = New System.Windows.Forms.TabPage()
+        Me.KlxPiaoTrackBar2 = New KlxPiaoAPI.KlxPiaoTrackBar()
+        Me.KlxPiaoTrackBar1 = New KlxPiaoAPI.KlxPiaoTrackBar()
         Me.KlxPiaoLabel31 = New KlxPiaoAPI.KlxPiaoLabel()
         Me.KlxPiaoLabel30 = New KlxPiaoAPI.KlxPiaoLabel()
-        Me.TrackBar2 = New System.Windows.Forms.TrackBar()
-        Me.TrackBar1 = New System.Windows.Forms.TrackBar()
         Me.KlxPiaoPictureBox1 = New KlxPiaoAPI.KlxPiaoPictureBox()
+        Me.TabPage16 = New System.Windows.Forms.TabPage()
+        Me.KlxPiaoTrackBar3 = New KlxPiaoAPI.KlxPiaoTrackBar()
+        Me.KlxPiaoButton1 = New KlxPiaoAPI.KlxPiaoButton()
         Me.Switch1 = New KlxPiaoAPI.Switch()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.Button7 = New System.Windows.Forms.Button()
@@ -170,9 +173,8 @@ Partial Class Form1
         Me.TabPage11.SuspendLayout()
         Me.TabPage14.SuspendLayout()
         Me.TabPage15.SuspendLayout()
-        CType(Me.TrackBar2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.KlxPiaoPictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage16.SuspendLayout()
         Me.TabPage4.SuspendLayout()
         Me.TabPage5.SuspendLayout()
         Me.KlxPiaoPanel16.SuspendLayout()
@@ -380,12 +382,16 @@ Partial Class Form1
         Me.KlxPiaoLabel24.Size = New System.Drawing.Size(152, 17)
         Me.KlxPiaoLabel24.TabIndex = 0
         Me.KlxPiaoLabel24.Text = "使用皮肤编辑器以修改配色"
+        Me.KlxPiaoLabel24.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
         Me.KlxPiaoLabel24.偏移量 = New System.Drawing.Point(2, 2)
         Me.KlxPiaoLabel24.启用投影 = False
         Me.KlxPiaoLabel24.启用边框 = False
         Me.KlxPiaoLabel24.圆角百分比 = 0!
         Me.KlxPiaoLabel24.投影连线 = True
         Me.KlxPiaoLabel24.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel24.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.[Default]
+        Me.KlxPiaoLabel24.文本呈现质量 = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.KlxPiaoLabel24.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel24.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoLabel24.边框大小 = 0
         Me.KlxPiaoLabel24.边框颜色 = System.Drawing.Color.LightGray
@@ -542,6 +548,7 @@ Partial Class Form1
         Me.KlxPiaoTabPage1.Controls.Add(Me.TabPage9)
         Me.KlxPiaoTabPage1.Controls.Add(Me.TabPage14)
         Me.KlxPiaoTabPage1.Controls.Add(Me.TabPage15)
+        Me.KlxPiaoTabPage1.Controls.Add(Me.TabPage16)
         Me.KlxPiaoTabPage1.ItemSize = New System.Drawing.Size(0, 1)
         Me.KlxPiaoTabPage1.Location = New System.Drawing.Point(94, 0)
         Me.KlxPiaoTabPage1.Multiline = True
@@ -602,12 +609,16 @@ Partial Class Form1
         Me.KlxPiaoLabel28.Size = New System.Drawing.Size(199, 60)
         Me.KlxPiaoLabel28.TabIndex = 25
         Me.KlxPiaoLabel28.Text = "3D Text"
+        Me.KlxPiaoLabel28.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
         Me.KlxPiaoLabel28.偏移量 = New System.Drawing.Point(2, 2)
         Me.KlxPiaoLabel28.启用投影 = True
         Me.KlxPiaoLabel28.启用边框 = False
         Me.KlxPiaoLabel28.圆角百分比 = 0!
         Me.KlxPiaoLabel28.投影连线 = False
         Me.KlxPiaoLabel28.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel28.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.[Default]
+        Me.KlxPiaoLabel28.文本呈现质量 = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.KlxPiaoLabel28.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel28.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoLabel28.边框大小 = 0
         Me.KlxPiaoLabel28.边框颜色 = System.Drawing.Color.LightGray
@@ -625,12 +636,16 @@ Partial Class Form1
         Me.KlxPiaoLabel26.TabIndex = 24
         Me.KlxPiaoLabel26.Text = "KlxPiaoLabel"
         Me.KlxPiaoLabel26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.KlxPiaoLabel26.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
         Me.KlxPiaoLabel26.偏移量 = New System.Drawing.Point(80, 80)
         Me.KlxPiaoLabel26.启用投影 = True
         Me.KlxPiaoLabel26.启用边框 = True
         Me.KlxPiaoLabel26.圆角百分比 = 0!
         Me.KlxPiaoLabel26.投影连线 = True
         Me.KlxPiaoLabel26.投影颜色 = System.Drawing.Color.Gray
+        Me.KlxPiaoLabel26.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.AntiAlias
+        Me.KlxPiaoLabel26.文本呈现质量 = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit
+        Me.KlxPiaoLabel26.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel26.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoLabel26.边框大小 = 5
         Me.KlxPiaoLabel26.边框颜色 = System.Drawing.Color.Gray
@@ -647,14 +662,18 @@ Partial Class Form1
         Me.KlxPiaoLabel1.Size = New System.Drawing.Size(413, 88)
         Me.KlxPiaoLabel1.TabIndex = 2
         Me.KlxPiaoLabel1.Text = "KlxPiaoLabel"
+        Me.KlxPiaoLabel1.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
         Me.KlxPiaoLabel1.偏移量 = New System.Drawing.Point(5, 5)
         Me.KlxPiaoLabel1.启用投影 = True
         Me.KlxPiaoLabel1.启用边框 = False
         Me.KlxPiaoLabel1.圆角百分比 = 0!
         Me.KlxPiaoLabel1.投影连线 = True
         Me.KlxPiaoLabel1.投影颜色 = System.Drawing.Color.Black
+        Me.KlxPiaoLabel1.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.[Default]
+        Me.KlxPiaoLabel1.文本呈现质量 = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit
+        Me.KlxPiaoLabel1.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel1.边框外部颜色 = System.Drawing.Color.White
-        Me.KlxPiaoLabel1.边框大小 = 0
+        Me.KlxPiaoLabel1.边框大小 = 5
         Me.KlxPiaoLabel1.边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel1.颜色减淡 = True
         '
@@ -669,12 +688,16 @@ Partial Class Form1
         Me.KlxPiaoLabel25.Size = New System.Drawing.Size(93, 17)
         Me.KlxPiaoLabel25.TabIndex = 23
         Me.KlxPiaoLabel25.Text = "<- KlxPiaoLabel"
+        Me.KlxPiaoLabel25.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
         Me.KlxPiaoLabel25.偏移量 = New System.Drawing.Point(2, 2)
         Me.KlxPiaoLabel25.启用投影 = False
         Me.KlxPiaoLabel25.启用边框 = False
         Me.KlxPiaoLabel25.圆角百分比 = 0!
         Me.KlxPiaoLabel25.投影连线 = True
         Me.KlxPiaoLabel25.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel25.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.[Default]
+        Me.KlxPiaoLabel25.文本呈现质量 = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.KlxPiaoLabel25.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel25.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoLabel25.边框大小 = 0
         Me.KlxPiaoLabel25.边框颜色 = System.Drawing.Color.LightGray
@@ -691,12 +714,16 @@ Partial Class Form1
         Me.KlxPiaoLabel23.Size = New System.Drawing.Size(93, 17)
         Me.KlxPiaoLabel23.TabIndex = 22
         Me.KlxPiaoLabel23.Text = "<- 不是贴图"
+        Me.KlxPiaoLabel23.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
         Me.KlxPiaoLabel23.偏移量 = New System.Drawing.Point(2, 2)
         Me.KlxPiaoLabel23.启用投影 = False
         Me.KlxPiaoLabel23.启用边框 = False
         Me.KlxPiaoLabel23.圆角百分比 = 0!
         Me.KlxPiaoLabel23.投影连线 = True
         Me.KlxPiaoLabel23.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel23.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.[Default]
+        Me.KlxPiaoLabel23.文本呈现质量 = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.KlxPiaoLabel23.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel23.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoLabel23.边框大小 = 0
         Me.KlxPiaoLabel23.边框颜色 = System.Drawing.Color.LightGray
@@ -714,12 +741,16 @@ Partial Class Form1
         Me.KlxPiaoLabel21.TabIndex = 21
         Me.KlxPiaoLabel21.Text = "KlxPiao"
         Me.KlxPiaoLabel21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.KlxPiaoLabel21.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality
         Me.KlxPiaoLabel21.偏移量 = New System.Drawing.Point(110, 120)
         Me.KlxPiaoLabel21.启用投影 = True
         Me.KlxPiaoLabel21.启用边框 = True
         Me.KlxPiaoLabel21.圆角百分比 = 0.15!
         Me.KlxPiaoLabel21.投影连线 = True
         Me.KlxPiaoLabel21.投影颜色 = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(199, Byte), Integer))
+        Me.KlxPiaoLabel21.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.AntiAlias
+        Me.KlxPiaoLabel21.文本呈现质量 = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit
+        Me.KlxPiaoLabel21.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel21.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoLabel21.边框大小 = 8
         Me.KlxPiaoLabel21.边框颜色 = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(199, Byte), Integer))
@@ -935,12 +966,16 @@ Partial Class Form1
         Me.KlxPiaoLabel29.Size = New System.Drawing.Size(130, 17)
         Me.KlxPiaoLabel29.TabIndex = 0
         Me.KlxPiaoLabel29.Text = "带有图片的TabControl"
+        Me.KlxPiaoLabel29.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
         Me.KlxPiaoLabel29.偏移量 = New System.Drawing.Point(2, 2)
         Me.KlxPiaoLabel29.启用投影 = False
         Me.KlxPiaoLabel29.启用边框 = False
         Me.KlxPiaoLabel29.圆角百分比 = 0!
         Me.KlxPiaoLabel29.投影连线 = True
         Me.KlxPiaoLabel29.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel29.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.[Default]
+        Me.KlxPiaoLabel29.文本呈现质量 = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.KlxPiaoLabel29.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel29.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoLabel29.边框大小 = 0
         Me.KlxPiaoLabel29.边框颜色 = System.Drawing.Color.LightGray
@@ -969,12 +1004,16 @@ Partial Class Form1
         Me.KlxPiaoLabel22.Size = New System.Drawing.Size(124, 17)
         Me.KlxPiaoLabel22.TabIndex = 1
         Me.KlxPiaoLabel22.Text = "这里设置了BackColor"
+        Me.KlxPiaoLabel22.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
         Me.KlxPiaoLabel22.偏移量 = New System.Drawing.Point(2, 2)
         Me.KlxPiaoLabel22.启用投影 = False
         Me.KlxPiaoLabel22.启用边框 = False
         Me.KlxPiaoLabel22.圆角百分比 = 0!
         Me.KlxPiaoLabel22.投影连线 = True
         Me.KlxPiaoLabel22.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel22.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.[Default]
+        Me.KlxPiaoLabel22.文本呈现质量 = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.KlxPiaoLabel22.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel22.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoLabel22.边框大小 = 0
         Me.KlxPiaoLabel22.边框颜色 = System.Drawing.Color.LightGray
@@ -1081,10 +1120,10 @@ Partial Class Form1
         'TabPage15
         '
         Me.TabPage15.BackColor = System.Drawing.Color.White
+        Me.TabPage15.Controls.Add(Me.KlxPiaoTrackBar2)
+        Me.TabPage15.Controls.Add(Me.KlxPiaoTrackBar1)
         Me.TabPage15.Controls.Add(Me.KlxPiaoLabel31)
         Me.TabPage15.Controls.Add(Me.KlxPiaoLabel30)
-        Me.TabPage15.Controls.Add(Me.TrackBar2)
-        Me.TabPage15.Controls.Add(Me.TrackBar1)
         Me.TabPage15.Controls.Add(Me.KlxPiaoPictureBox1)
         Me.TabPage15.Location = New System.Drawing.Point(6, 4)
         Me.TabPage15.Name = "TabPage15"
@@ -1092,6 +1131,40 @@ Partial Class Form1
         Me.TabPage15.Size = New System.Drawing.Size(552, 347)
         Me.TabPage15.TabIndex = 4
         Me.TabPage15.Text = "PictureBox"
+        '
+        'KlxPiaoTrackBar2
+        '
+        Me.KlxPiaoTrackBar2.BackColor = System.Drawing.Color.White
+        Me.KlxPiaoTrackBar2.Location = New System.Drawing.Point(287, 122)
+        Me.KlxPiaoTrackBar2.Name = "KlxPiaoTrackBar2"
+        Me.KlxPiaoTrackBar2.Size = New System.Drawing.Size(220, 10)
+        Me.KlxPiaoTrackBar2.TabIndex = 6
+        Me.KlxPiaoTrackBar2.Text = "KlxPiaoTrackBar2"
+        Me.KlxPiaoTrackBar2.值 = 0
+        Me.KlxPiaoTrackBar2.前景色 = System.Drawing.Color.Gray
+        Me.KlxPiaoTrackBar2.增减大小 = 1
+        Me.KlxPiaoTrackBar2.最大值 = 100
+        Me.KlxPiaoTrackBar2.最小值 = 0
+        Me.KlxPiaoTrackBar2.背景色 = System.Drawing.Color.Gainsboro
+        Me.KlxPiaoTrackBar2.键盘响应方式 = KlxPiaoAPI.KlxPiaoTrackBar.键盘响应.全方向键
+        Me.KlxPiaoTrackBar2.鼠标滚轮响应方式 = KlxPiaoAPI.KlxPiaoTrackBar.鼠标滚轮响应.正向
+        '
+        'KlxPiaoTrackBar1
+        '
+        Me.KlxPiaoTrackBar1.BackColor = System.Drawing.Color.White
+        Me.KlxPiaoTrackBar1.Location = New System.Drawing.Point(287, 51)
+        Me.KlxPiaoTrackBar1.Name = "KlxPiaoTrackBar1"
+        Me.KlxPiaoTrackBar1.Size = New System.Drawing.Size(220, 10)
+        Me.KlxPiaoTrackBar1.TabIndex = 5
+        Me.KlxPiaoTrackBar1.Text = "KlxPiaoTrackBar1"
+        Me.KlxPiaoTrackBar1.值 = 0
+        Me.KlxPiaoTrackBar1.前景色 = System.Drawing.Color.Gray
+        Me.KlxPiaoTrackBar1.增减大小 = 1
+        Me.KlxPiaoTrackBar1.最大值 = 20
+        Me.KlxPiaoTrackBar1.最小值 = 0
+        Me.KlxPiaoTrackBar1.背景色 = System.Drawing.Color.Gainsboro
+        Me.KlxPiaoTrackBar1.键盘响应方式 = KlxPiaoAPI.KlxPiaoTrackBar.键盘响应.全方向键
+        Me.KlxPiaoTrackBar1.鼠标滚轮响应方式 = KlxPiaoAPI.KlxPiaoTrackBar.鼠标滚轮响应.正向
         '
         'KlxPiaoLabel31
         '
@@ -1104,12 +1177,16 @@ Partial Class Form1
         Me.KlxPiaoLabel31.Size = New System.Drawing.Size(32, 17)
         Me.KlxPiaoLabel31.TabIndex = 4
         Me.KlxPiaoLabel31.Text = "00%"
+        Me.KlxPiaoLabel31.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
         Me.KlxPiaoLabel31.偏移量 = New System.Drawing.Point(2, 2)
         Me.KlxPiaoLabel31.启用投影 = False
         Me.KlxPiaoLabel31.启用边框 = False
         Me.KlxPiaoLabel31.圆角百分比 = 0!
         Me.KlxPiaoLabel31.投影连线 = True
         Me.KlxPiaoLabel31.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel31.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.[Default]
+        Me.KlxPiaoLabel31.文本呈现质量 = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.KlxPiaoLabel31.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel31.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoLabel31.边框大小 = 0
         Me.KlxPiaoLabel31.边框颜色 = System.Drawing.Color.LightGray
@@ -1126,34 +1203,20 @@ Partial Class Form1
         Me.KlxPiaoLabel30.Size = New System.Drawing.Size(22, 17)
         Me.KlxPiaoLabel30.TabIndex = 3
         Me.KlxPiaoLabel30.Text = "00"
+        Me.KlxPiaoLabel30.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
         Me.KlxPiaoLabel30.偏移量 = New System.Drawing.Point(2, 2)
         Me.KlxPiaoLabel30.启用投影 = False
         Me.KlxPiaoLabel30.启用边框 = False
         Me.KlxPiaoLabel30.圆角百分比 = 0!
         Me.KlxPiaoLabel30.投影连线 = True
         Me.KlxPiaoLabel30.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel30.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.[Default]
+        Me.KlxPiaoLabel30.文本呈现质量 = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.KlxPiaoLabel30.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel30.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoLabel30.边框大小 = 0
         Me.KlxPiaoLabel30.边框颜色 = System.Drawing.Color.LightGray
         Me.KlxPiaoLabel30.颜色减淡 = False
-        '
-        'TrackBar2
-        '
-        Me.TrackBar2.Location = New System.Drawing.Point(293, 117)
-        Me.TrackBar2.Maximum = 100
-        Me.TrackBar2.Name = "TrackBar2"
-        Me.TrackBar2.Size = New System.Drawing.Size(209, 45)
-        Me.TrackBar2.TabIndex = 2
-        Me.TrackBar2.TickStyle = System.Windows.Forms.TickStyle.None
-        '
-        'TrackBar1
-        '
-        Me.TrackBar1.Location = New System.Drawing.Point(293, 47)
-        Me.TrackBar1.Maximum = 20
-        Me.TrackBar1.Name = "TrackBar1"
-        Me.TrackBar1.Size = New System.Drawing.Size(209, 45)
-        Me.TrackBar1.TabIndex = 1
-        Me.TrackBar1.TickStyle = System.Windows.Forms.TickStyle.None
         '
         'KlxPiaoPictureBox1
         '
@@ -1165,11 +1228,54 @@ Partial Class Form1
         Me.KlxPiaoPictureBox1.TabIndex = 0
         Me.KlxPiaoPictureBox1.TabStop = False
         Me.KlxPiaoPictureBox1.启用边框 = True
-        Me.KlxPiaoPictureBox1.图片缩放 = False
+        Me.KlxPiaoPictureBox1.图片缩放 = True
         Me.KlxPiaoPictureBox1.圆角百分比 = 0.36!
         Me.KlxPiaoPictureBox1.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoPictureBox1.边框大小 = 10
         Me.KlxPiaoPictureBox1.边框颜色 = System.Drawing.Color.Pink
+        '
+        'TabPage16
+        '
+        Me.TabPage16.BackColor = System.Drawing.Color.White
+        Me.TabPage16.Controls.Add(Me.KlxPiaoTrackBar3)
+        Me.TabPage16.Controls.Add(Me.KlxPiaoButton1)
+        Me.TabPage16.Location = New System.Drawing.Point(6, 4)
+        Me.TabPage16.Name = "TabPage16"
+        Me.TabPage16.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage16.Size = New System.Drawing.Size(552, 347)
+        Me.TabPage16.TabIndex = 5
+        Me.TabPage16.Text = "其他"
+        '
+        'KlxPiaoTrackBar3
+        '
+        Me.KlxPiaoTrackBar3.BackColor = System.Drawing.Color.White
+        Me.KlxPiaoTrackBar3.Location = New System.Drawing.Point(45, 233)
+        Me.KlxPiaoTrackBar3.Name = "KlxPiaoTrackBar3"
+        Me.KlxPiaoTrackBar3.Size = New System.Drawing.Size(485, 61)
+        Me.KlxPiaoTrackBar3.TabIndex = 3
+        Me.KlxPiaoTrackBar3.Text = "KlxPiaoTrackBar3"
+        Me.KlxPiaoTrackBar3.值 = 25
+        Me.KlxPiaoTrackBar3.前景色 = System.Drawing.Color.Gray
+        Me.KlxPiaoTrackBar3.增减大小 = 3
+        Me.KlxPiaoTrackBar3.最大值 = 50
+        Me.KlxPiaoTrackBar3.最小值 = 20
+        Me.KlxPiaoTrackBar3.背景色 = System.Drawing.Color.Gainsboro
+        Me.KlxPiaoTrackBar3.键盘响应方式 = KlxPiaoAPI.KlxPiaoTrackBar.键盘响应.全方向键
+        Me.KlxPiaoTrackBar3.鼠标滚轮响应方式 = KlxPiaoAPI.KlxPiaoTrackBar.鼠标滚轮响应.正向
+        '
+        'KlxPiaoButton1
+        '
+        Me.KlxPiaoButton1.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro
+        Me.KlxPiaoButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
+        Me.KlxPiaoButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.KlxPiaoButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.KlxPiaoButton1.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
+        Me.KlxPiaoButton1.Location = New System.Drawing.Point(171, 68)
+        Me.KlxPiaoButton1.Name = "KlxPiaoButton1"
+        Me.KlxPiaoButton1.Size = New System.Drawing.Size(110, 40)
+        Me.KlxPiaoButton1.TabIndex = 2
+        Me.KlxPiaoButton1.Text = "KlxPiaoButton1"
+        Me.KlxPiaoButton1.UseVisualStyleBackColor = True
         '
         'Switch1
         '
@@ -1258,12 +1364,16 @@ Partial Class Form1
         Me.KlxPiaoLabel19.Size = New System.Drawing.Size(116, 17)
         Me.KlxPiaoLabel19.TabIndex = 33
         Me.KlxPiaoLabel19.Text = "（仅适用浅色主题）"
+        Me.KlxPiaoLabel19.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
         Me.KlxPiaoLabel19.偏移量 = New System.Drawing.Point(2, 2)
         Me.KlxPiaoLabel19.启用投影 = False
         Me.KlxPiaoLabel19.启用边框 = False
         Me.KlxPiaoLabel19.圆角百分比 = 0!
         Me.KlxPiaoLabel19.投影连线 = True
         Me.KlxPiaoLabel19.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel19.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.[Default]
+        Me.KlxPiaoLabel19.文本呈现质量 = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.KlxPiaoLabel19.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel19.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoLabel19.边框大小 = 0
         Me.KlxPiaoLabel19.边框颜色 = System.Drawing.Color.LightGray
@@ -1401,12 +1511,16 @@ Partial Class Form1
         Me.KlxPiaoLabel10.TabIndex = 19
         Me.KlxPiaoLabel10.Text = "关闭按钮"
         Me.KlxPiaoLabel10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.KlxPiaoLabel10.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
         Me.KlxPiaoLabel10.偏移量 = New System.Drawing.Point(2, 2)
         Me.KlxPiaoLabel10.启用投影 = False
         Me.KlxPiaoLabel10.启用边框 = False
         Me.KlxPiaoLabel10.圆角百分比 = 0!
         Me.KlxPiaoLabel10.投影连线 = True
         Me.KlxPiaoLabel10.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel10.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.[Default]
+        Me.KlxPiaoLabel10.文本呈现质量 = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.KlxPiaoLabel10.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel10.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoLabel10.边框大小 = 0
         Me.KlxPiaoLabel10.边框颜色 = System.Drawing.Color.LightGray
@@ -1480,12 +1594,16 @@ Partial Class Form1
         Me.KlxPiaoLabel18.TabIndex = 20
         Me.KlxPiaoLabel18.Text = "背景"
         Me.KlxPiaoLabel18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.KlxPiaoLabel18.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
         Me.KlxPiaoLabel18.偏移量 = New System.Drawing.Point(2, 2)
         Me.KlxPiaoLabel18.启用投影 = False
         Me.KlxPiaoLabel18.启用边框 = False
         Me.KlxPiaoLabel18.圆角百分比 = 0!
         Me.KlxPiaoLabel18.投影连线 = True
         Me.KlxPiaoLabel18.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel18.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.[Default]
+        Me.KlxPiaoLabel18.文本呈现质量 = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.KlxPiaoLabel18.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel18.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoLabel18.边框大小 = 0
         Me.KlxPiaoLabel18.边框颜色 = System.Drawing.Color.LightGray
@@ -1503,12 +1621,16 @@ Partial Class Form1
         Me.KlxPiaoLabel17.TabIndex = 23
         Me.KlxPiaoLabel17.Text = "移入"
         Me.KlxPiaoLabel17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.KlxPiaoLabel17.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
         Me.KlxPiaoLabel17.偏移量 = New System.Drawing.Point(2, 2)
         Me.KlxPiaoLabel17.启用投影 = False
         Me.KlxPiaoLabel17.启用边框 = False
         Me.KlxPiaoLabel17.圆角百分比 = 0!
         Me.KlxPiaoLabel17.投影连线 = True
         Me.KlxPiaoLabel17.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel17.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.[Default]
+        Me.KlxPiaoLabel17.文本呈现质量 = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.KlxPiaoLabel17.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel17.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoLabel17.边框大小 = 0
         Me.KlxPiaoLabel17.边框颜色 = System.Drawing.Color.LightGray
@@ -1526,12 +1648,16 @@ Partial Class Form1
         Me.KlxPiaoLabel14.TabIndex = 22
         Me.KlxPiaoLabel14.Text = "前景"
         Me.KlxPiaoLabel14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.KlxPiaoLabel14.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
         Me.KlxPiaoLabel14.偏移量 = New System.Drawing.Point(2, 2)
         Me.KlxPiaoLabel14.启用投影 = False
         Me.KlxPiaoLabel14.启用边框 = False
         Me.KlxPiaoLabel14.圆角百分比 = 0!
         Me.KlxPiaoLabel14.投影连线 = True
         Me.KlxPiaoLabel14.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel14.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.[Default]
+        Me.KlxPiaoLabel14.文本呈现质量 = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.KlxPiaoLabel14.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel14.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoLabel14.边框大小 = 0
         Me.KlxPiaoLabel14.边框颜色 = System.Drawing.Color.LightGray
@@ -1563,12 +1689,16 @@ Partial Class Form1
         Me.KlxPiaoLabel13.TabIndex = 11
         Me.KlxPiaoLabel13.Text = "背景"
         Me.KlxPiaoLabel13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.KlxPiaoLabel13.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
         Me.KlxPiaoLabel13.偏移量 = New System.Drawing.Point(2, 2)
         Me.KlxPiaoLabel13.启用投影 = False
         Me.KlxPiaoLabel13.启用边框 = False
         Me.KlxPiaoLabel13.圆角百分比 = 0!
         Me.KlxPiaoLabel13.投影连线 = True
         Me.KlxPiaoLabel13.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel13.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.[Default]
+        Me.KlxPiaoLabel13.文本呈现质量 = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.KlxPiaoLabel13.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel13.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoLabel13.边框大小 = 0
         Me.KlxPiaoLabel13.边框颜色 = System.Drawing.Color.LightGray
@@ -1586,12 +1716,16 @@ Partial Class Form1
         Me.KlxPiaoLabel16.TabIndex = 26
         Me.KlxPiaoLabel16.Text = "按下"
         Me.KlxPiaoLabel16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.KlxPiaoLabel16.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
         Me.KlxPiaoLabel16.偏移量 = New System.Drawing.Point(2, 2)
         Me.KlxPiaoLabel16.启用投影 = False
         Me.KlxPiaoLabel16.启用边框 = False
         Me.KlxPiaoLabel16.圆角百分比 = 0!
         Me.KlxPiaoLabel16.投影连线 = True
         Me.KlxPiaoLabel16.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel16.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.[Default]
+        Me.KlxPiaoLabel16.文本呈现质量 = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.KlxPiaoLabel16.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel16.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoLabel16.边框大小 = 0
         Me.KlxPiaoLabel16.边框颜色 = System.Drawing.Color.LightGray
@@ -1609,12 +1743,16 @@ Partial Class Form1
         Me.KlxPiaoLabel11.TabIndex = 17
         Me.KlxPiaoLabel11.Text = "按下"
         Me.KlxPiaoLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.KlxPiaoLabel11.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
         Me.KlxPiaoLabel11.偏移量 = New System.Drawing.Point(2, 2)
         Me.KlxPiaoLabel11.启用投影 = False
         Me.KlxPiaoLabel11.启用边框 = False
         Me.KlxPiaoLabel11.圆角百分比 = 0!
         Me.KlxPiaoLabel11.投影连线 = True
         Me.KlxPiaoLabel11.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel11.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.[Default]
+        Me.KlxPiaoLabel11.文本呈现质量 = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.KlxPiaoLabel11.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel11.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoLabel11.边框大小 = 0
         Me.KlxPiaoLabel11.边框颜色 = System.Drawing.Color.LightGray
@@ -1646,12 +1784,16 @@ Partial Class Form1
         Me.KlxPiaoLabel15.TabIndex = 28
         Me.KlxPiaoLabel15.Text = "最小化按钮"
         Me.KlxPiaoLabel15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.KlxPiaoLabel15.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
         Me.KlxPiaoLabel15.偏移量 = New System.Drawing.Point(2, 2)
         Me.KlxPiaoLabel15.启用投影 = False
         Me.KlxPiaoLabel15.启用边框 = False
         Me.KlxPiaoLabel15.圆角百分比 = 0!
         Me.KlxPiaoLabel15.投影连线 = True
         Me.KlxPiaoLabel15.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel15.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.[Default]
+        Me.KlxPiaoLabel15.文本呈现质量 = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.KlxPiaoLabel15.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel15.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoLabel15.边框大小 = 0
         Me.KlxPiaoLabel15.边框颜色 = System.Drawing.Color.LightGray
@@ -1669,12 +1811,16 @@ Partial Class Form1
         Me.KlxPiaoLabel12.TabIndex = 14
         Me.KlxPiaoLabel12.Text = "移入"
         Me.KlxPiaoLabel12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.KlxPiaoLabel12.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
         Me.KlxPiaoLabel12.偏移量 = New System.Drawing.Point(2, 2)
         Me.KlxPiaoLabel12.启用投影 = False
         Me.KlxPiaoLabel12.启用边框 = False
         Me.KlxPiaoLabel12.圆角百分比 = 0!
         Me.KlxPiaoLabel12.投影连线 = True
         Me.KlxPiaoLabel12.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel12.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.[Default]
+        Me.KlxPiaoLabel12.文本呈现质量 = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.KlxPiaoLabel12.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel12.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoLabel12.边框大小 = 0
         Me.KlxPiaoLabel12.边框颜色 = System.Drawing.Color.LightGray
@@ -1720,12 +1866,16 @@ Partial Class Form1
         Me.KlxPiaoLabel9.TabIndex = 13
         Me.KlxPiaoLabel9.Text = "前景"
         Me.KlxPiaoLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.KlxPiaoLabel9.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
         Me.KlxPiaoLabel9.偏移量 = New System.Drawing.Point(2, 2)
         Me.KlxPiaoLabel9.启用投影 = False
         Me.KlxPiaoLabel9.启用边框 = False
         Me.KlxPiaoLabel9.圆角百分比 = 0!
         Me.KlxPiaoLabel9.投影连线 = True
         Me.KlxPiaoLabel9.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel9.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.[Default]
+        Me.KlxPiaoLabel9.文本呈现质量 = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.KlxPiaoLabel9.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel9.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoLabel9.边框大小 = 0
         Me.KlxPiaoLabel9.边框颜色 = System.Drawing.Color.LightGray
@@ -1743,12 +1893,16 @@ Partial Class Form1
         Me.KlxPiaoLabel7.TabIndex = 10
         Me.KlxPiaoLabel7.Text = "缩放按钮"
         Me.KlxPiaoLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.KlxPiaoLabel7.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
         Me.KlxPiaoLabel7.偏移量 = New System.Drawing.Point(2, 2)
         Me.KlxPiaoLabel7.启用投影 = False
         Me.KlxPiaoLabel7.启用边框 = False
         Me.KlxPiaoLabel7.圆角百分比 = 0!
         Me.KlxPiaoLabel7.投影连线 = True
         Me.KlxPiaoLabel7.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel7.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.[Default]
+        Me.KlxPiaoLabel7.文本呈现质量 = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.KlxPiaoLabel7.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel7.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoLabel7.边框大小 = 0
         Me.KlxPiaoLabel7.边框颜色 = System.Drawing.Color.LightGray
@@ -1766,12 +1920,16 @@ Partial Class Form1
         Me.KlxPiaoLabel4.TabIndex = 4
         Me.KlxPiaoLabel4.Text = "背景"
         Me.KlxPiaoLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.KlxPiaoLabel4.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
         Me.KlxPiaoLabel4.偏移量 = New System.Drawing.Point(2, 2)
         Me.KlxPiaoLabel4.启用投影 = False
         Me.KlxPiaoLabel4.启用边框 = False
         Me.KlxPiaoLabel4.圆角百分比 = 0!
         Me.KlxPiaoLabel4.投影连线 = True
         Me.KlxPiaoLabel4.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel4.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.[Default]
+        Me.KlxPiaoLabel4.文本呈现质量 = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.KlxPiaoLabel4.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel4.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoLabel4.边框大小 = 0
         Me.KlxPiaoLabel4.边框颜色 = System.Drawing.Color.LightGray
@@ -1817,12 +1975,16 @@ Partial Class Form1
         Me.KlxPiaoLabel5.TabIndex = 6
         Me.KlxPiaoLabel5.Text = "移入"
         Me.KlxPiaoLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.KlxPiaoLabel5.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
         Me.KlxPiaoLabel5.偏移量 = New System.Drawing.Point(2, 2)
         Me.KlxPiaoLabel5.启用投影 = False
         Me.KlxPiaoLabel5.启用边框 = False
         Me.KlxPiaoLabel5.圆角百分比 = 0!
         Me.KlxPiaoLabel5.投影连线 = True
         Me.KlxPiaoLabel5.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel5.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.[Default]
+        Me.KlxPiaoLabel5.文本呈现质量 = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.KlxPiaoLabel5.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel5.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoLabel5.边框大小 = 0
         Me.KlxPiaoLabel5.边框颜色 = System.Drawing.Color.LightGray
@@ -1840,12 +2002,16 @@ Partial Class Form1
         Me.KlxPiaoLabel6.TabIndex = 8
         Me.KlxPiaoLabel6.Text = "按下"
         Me.KlxPiaoLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.KlxPiaoLabel6.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
         Me.KlxPiaoLabel6.偏移量 = New System.Drawing.Point(2, 2)
         Me.KlxPiaoLabel6.启用投影 = False
         Me.KlxPiaoLabel6.启用边框 = False
         Me.KlxPiaoLabel6.圆角百分比 = 0!
         Me.KlxPiaoLabel6.投影连线 = True
         Me.KlxPiaoLabel6.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel6.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.[Default]
+        Me.KlxPiaoLabel6.文本呈现质量 = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.KlxPiaoLabel6.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel6.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoLabel6.边框大小 = 0
         Me.KlxPiaoLabel6.边框颜色 = System.Drawing.Color.LightGray
@@ -1877,12 +2043,16 @@ Partial Class Form1
         Me.KlxPiaoLabel8.TabIndex = 6
         Me.KlxPiaoLabel8.Text = "前景"
         Me.KlxPiaoLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.KlxPiaoLabel8.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
         Me.KlxPiaoLabel8.偏移量 = New System.Drawing.Point(2, 2)
         Me.KlxPiaoLabel8.启用投影 = False
         Me.KlxPiaoLabel8.启用边框 = False
         Me.KlxPiaoLabel8.圆角百分比 = 0!
         Me.KlxPiaoLabel8.投影连线 = True
         Me.KlxPiaoLabel8.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel8.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.[Default]
+        Me.KlxPiaoLabel8.文本呈现质量 = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.KlxPiaoLabel8.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel8.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoLabel8.边框大小 = 0
         Me.KlxPiaoLabel8.边框颜色 = System.Drawing.Color.LightGray
@@ -1942,12 +2112,16 @@ Partial Class Form1
         Me.KlxPiaoLabel3.TabIndex = 2
         Me.KlxPiaoLabel3.Text = "背景"
         Me.KlxPiaoLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.KlxPiaoLabel3.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
         Me.KlxPiaoLabel3.偏移量 = New System.Drawing.Point(2, 2)
         Me.KlxPiaoLabel3.启用投影 = False
         Me.KlxPiaoLabel3.启用边框 = False
         Me.KlxPiaoLabel3.圆角百分比 = 0!
         Me.KlxPiaoLabel3.投影连线 = True
         Me.KlxPiaoLabel3.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel3.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.[Default]
+        Me.KlxPiaoLabel3.文本呈现质量 = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.KlxPiaoLabel3.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel3.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoLabel3.边框大小 = 0
         Me.KlxPiaoLabel3.边框颜色 = System.Drawing.Color.LightGray
@@ -1965,12 +2139,16 @@ Partial Class Form1
         Me.KlxPiaoLabel2.TabIndex = 0
         Me.KlxPiaoLabel2.Text = "主题"
         Me.KlxPiaoLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.KlxPiaoLabel2.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
         Me.KlxPiaoLabel2.偏移量 = New System.Drawing.Point(2, 2)
         Me.KlxPiaoLabel2.启用投影 = False
         Me.KlxPiaoLabel2.启用边框 = False
         Me.KlxPiaoLabel2.圆角百分比 = 0!
         Me.KlxPiaoLabel2.投影连线 = True
         Me.KlxPiaoLabel2.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel2.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.[Default]
+        Me.KlxPiaoLabel2.文本呈现质量 = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.KlxPiaoLabel2.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel2.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoLabel2.边框大小 = 0
         Me.KlxPiaoLabel2.边框颜色 = System.Drawing.Color.LightGray
@@ -2003,12 +2181,16 @@ Partial Class Form1
         Me.KlxPiaoLabel27.Size = New System.Drawing.Size(92, 17)
         Me.KlxPiaoLabel27.TabIndex = 5
         Me.KlxPiaoLabel27.Text = "窗体设计文件："
+        Me.KlxPiaoLabel27.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
         Me.KlxPiaoLabel27.偏移量 = New System.Drawing.Point(2, 2)
         Me.KlxPiaoLabel27.启用投影 = False
         Me.KlxPiaoLabel27.启用边框 = False
         Me.KlxPiaoLabel27.圆角百分比 = 0!
         Me.KlxPiaoLabel27.投影连线 = True
         Me.KlxPiaoLabel27.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel27.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.[Default]
+        Me.KlxPiaoLabel27.文本呈现质量 = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.KlxPiaoLabel27.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel27.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoLabel27.边框大小 = 0
         Me.KlxPiaoLabel27.边框颜色 = System.Drawing.Color.LightGray
@@ -2074,12 +2256,16 @@ Partial Class Form1
         Me.KlxPiaoLabel20.Size = New System.Drawing.Size(92, 17)
         Me.KlxPiaoLabel20.TabIndex = 2
         Me.KlxPiaoLabel20.Text = "生成时自动复制"
+        Me.KlxPiaoLabel20.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
         Me.KlxPiaoLabel20.偏移量 = New System.Drawing.Point(2, 2)
         Me.KlxPiaoLabel20.启用投影 = False
         Me.KlxPiaoLabel20.启用边框 = False
         Me.KlxPiaoLabel20.圆角百分比 = 0!
         Me.KlxPiaoLabel20.投影连线 = True
         Me.KlxPiaoLabel20.投影颜色 = System.Drawing.Color.DarkGray
+        Me.KlxPiaoLabel20.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.[Default]
+        Me.KlxPiaoLabel20.文本呈现质量 = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.KlxPiaoLabel20.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
         Me.KlxPiaoLabel20.边框外部颜色 = System.Drawing.Color.White
         Me.KlxPiaoLabel20.边框大小 = 0
         Me.KlxPiaoLabel20.边框颜色 = System.Drawing.Color.LightGray
@@ -2090,9 +2276,10 @@ Partial Class Form1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(700, 450)
+        Me.ClientSize = New System.Drawing.Size(721, 471)
         Me.Controls.Add(Me.TabControl1)
         Me.Name = "Form1"
+        Me.TransparencyKey = System.Drawing.Color.FromArgb(CType(CType(99, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(99, Byte), Integer))
         Me.关闭按钮前景色 = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.关闭按钮背景色 = System.Drawing.Color.FromArgb(CType(CType(217, Byte), Integer), CType(CType(217, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.关闭按钮鼠标按下背景色 = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(240, Byte), Integer))
@@ -2128,10 +2315,8 @@ Partial Class Form1
         Me.TabPage11.ResumeLayout(False)
         Me.TabPage14.ResumeLayout(False)
         Me.TabPage15.ResumeLayout(False)
-        Me.TabPage15.PerformLayout()
-        CType(Me.TrackBar2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.KlxPiaoPictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage16.ResumeLayout(False)
         Me.TabPage4.ResumeLayout(False)
         Me.TabPage5.ResumeLayout(False)
         Me.KlxPiaoPanel16.ResumeLayout(False)
@@ -2264,8 +2449,11 @@ Partial Class Form1
     Friend WithEvents PointBar2 As PointBar
     Friend WithEvents TabPage15 As TabPage
     Friend WithEvents KlxPiaoPictureBox1 As KlxPiaoPictureBox
-    Friend WithEvents TrackBar2 As TrackBar
-    Friend WithEvents TrackBar1 As TrackBar
     Friend WithEvents KlxPiaoLabel31 As KlxPiaoLabel
     Friend WithEvents KlxPiaoLabel30 As KlxPiaoLabel
+    Friend WithEvents TabPage16 As TabPage
+    Friend WithEvents KlxPiaoTrackBar2 As KlxPiaoTrackBar
+    Friend WithEvents KlxPiaoTrackBar1 As KlxPiaoTrackBar
+    Friend WithEvents KlxPiaoButton1 As KlxPiaoButton
+    Friend WithEvents KlxPiaoTrackBar3 As KlxPiaoTrackBar
 End Class

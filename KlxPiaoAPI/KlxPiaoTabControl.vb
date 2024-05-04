@@ -194,8 +194,10 @@ Public Class KlxPiaoTabControl
             _传递 = 传递变量
         End Sub
 
-        Private Sub Button_MouseDown(sender As Object, e As EventArgs) Handles Me.MouseDown
-            _传递.SelectedIndex = CInt(Tag)
+        Private Sub Button_MouseDown(sender As Object, e As MouseEventArgs) Handles Me.MouseDown
+            If e.Button = MouseButtons.Left Then
+                _传递.SelectedIndex = CInt(Tag)
+            End If
         End Sub
 
         '启用视觉反馈（目前想不出更好的方法）
@@ -206,6 +208,6 @@ Public Class KlxPiaoTabControl
                 BackColor = Color.White
             End If
         End Sub
-
     End Class
+
 End Class

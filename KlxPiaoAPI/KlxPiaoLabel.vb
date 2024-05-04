@@ -1,6 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports System.Drawing
 Imports System.Drawing.Drawing2D
+Imports System.Drawing.Text
 Imports System.Windows.Forms
 
 Public Class KlxPiaoLabel
@@ -18,6 +19,10 @@ Public Class KlxPiaoLabel
     Private _边框大小 As Integer
     Private _边框颜色 As Color
 
+    Private _文本呈现质量 As TextRenderingHint
+    Private _抗锯齿 As SmoothingMode
+    Private _算法 As InterpolationMode
+    Private _偏移方式 As PixelOffsetMode
 
     Public Sub New()
         MyBase.New
@@ -31,8 +36,13 @@ Public Class KlxPiaoLabel
         _启用边框 = False
         _边框外部颜色 = Color.White
         _圆角百分比 = 0
-        _边框大小 = 0
+        _边框大小 = 5
         _边框颜色 = Color.LightGray
+
+        _文本呈现质量 = TextRenderingHint.SystemDefault
+        _抗锯齿 = SmoothingMode.Default
+        _算法 = InterpolationMode.Default
+        _偏移方式 = PixelOffsetMode.Default
 
         Font = New Font("微软雅黑 Light", 9)
         ForeColor = Color.Black
@@ -152,10 +162,55 @@ Public Class KlxPiaoLabel
         End Set
     End Property
 
+    <Category("质量"), Description("指定文本呈现的质量")>
+    Public Property 文本呈现质量 As TextRenderingHint
+        Get
+            Return _文本呈现质量
+        End Get
+        Set(value As TextRenderingHint)
+            _文本呈现质量 = value
+            Invalidate()
+        End Set
+    End Property
+    <Category("质量"), Description("指定是否将平滑处理（抗锯齿）应用于直线、曲线和已填充区域的边缘")>
+    Public Property 抗锯齿 As SmoothingMode
+        Get
+            Return _抗锯齿
+        End Get
+        Set(value As SmoothingMode)
+            _抗锯齿 = value
+            Invalidate()
+        End Set
+    End Property
+    <Category("质量"), Description("InterpolationMode 枚举指定在缩放或旋转图像时使用的算法")>
+    Public Property 算法 As InterpolationMode
+        Get
+            Return _算法
+        End Get
+        Set(value As InterpolationMode)
+            _算法 = value
+            Invalidate()
+        End Set
+    End Property
+    <Category("质量"), Description("指定在呈现期间像素偏移的方式")>
+    Public Property 偏移方式 As PixelOffsetMode
+        Get
+            Return _偏移方式
+        End Get
+        Set(value As PixelOffsetMode)
+            _偏移方式 = value
+            Invalidate()
+        End Set
+    End Property
     Protected Overrides Sub OnPaint(e As PaintEventArgs)
         MyBase.OnPaint(e)
 
         Dim g As Graphics = e.Graphics
+
+        g.TextRenderingHint = 文本呈现质量
+        g.SmoothingMode = 抗锯齿
+        g.InterpolationMode = 算法
+        g.PixelOffsetMode = 偏移方式
 
         g.Clear(BackColor)
 
@@ -268,7 +323,7 @@ Public Class KlxPiaoLabel
                     End If
 
                 Else
-                    g.DrawString(Text, Font, brush, New Point(偏移量.X, 偏移量.Y))
+                    g.DrawString(Text, Font, brush, New Point(绘制位置.X + 偏移量.X, 绘制位置.Y + 偏移量.Y))
                 End If
 
                 '文字本体
@@ -320,7 +375,7 @@ Public Class KlxPiaoLabel
             ' 填充内部圆角矩形区域外部
             g.FillPath(New SolidBrush(边框颜色), combinePath)
 
-            '创建一个Region对象， 表示圆角矩形区域
+            ' 创建一个Region对象， 表示圆角矩形区域
             Dim circleRegion As New Region(pathOuter)
 
             ' 将圆形区域排除在外
@@ -332,4 +387,15 @@ Public Class KlxPiaoLabel
         End If
 
     End Sub
+
+    Public Function 返回图像() As Bitmap
+        Dim bmp As New Bitmap(Width, Height)
+
+        Using g As Graphics = Graphics.FromImage(bmp)
+            Dim e As New PaintEventArgs(g, New Rectangle(0, 0, Width, Height))
+            OnPaint(e)
+        End Using
+
+        Return bmp
+    End Function
 End Class

@@ -2,6 +2,7 @@
 Imports System.Drawing
 Imports System.IO
 Imports System.Reflection
+Imports System.Runtime.InteropServices
 Imports System.Windows.Forms
 
 Public Class KlxPiaoForm
@@ -46,6 +47,8 @@ Public Class KlxPiaoForm
     Private _窗体可调整大小 As Boolean
     Private _快捷缩放方式 As 双击位置
     Private _启用缩放动画 As Boolean
+    Private _启用启动动画 As Boolean
+    Private _启用关闭动画 As Boolean
 
 
     Private _窗体按钮宽度 As Integer
@@ -79,6 +82,8 @@ Public Class KlxPiaoForm
         _窗体可调整大小 = True
         _快捷缩放方式 = 双击位置.双击标题框时
         _启用缩放动画 = True
+        _启用启动动画 = False
+        _启用关闭动画 = False
 
         _窗体按钮宽度 = 40
 
@@ -226,8 +231,26 @@ Public Class KlxPiaoForm
             Invalidate()
         End Set
     End Property
-
-
+    <Category("窗体特性"), Description("是否启用启动动画")>
+    Public Property 启用启动动画 As Boolean
+        Get
+            Return _启用启动动画
+        End Get
+        Set(value As Boolean)
+            _启用启动动画 = value
+            Invalidate()
+        End Set
+    End Property
+    <Category("窗体特性"), Description("是否启用关闭动画")>
+    Public Property 启用关闭动画 As Boolean
+        Get
+            Return _启用关闭动画
+        End Get
+        Set(value As Boolean)
+            _启用关闭动画 = value
+            Invalidate()
+        End Set
+    End Property
     <Category("窗体按钮"), Description("设置每个窗体按钮的宽度")>
     Public Property 窗体按钮宽度 As Integer
         Get
@@ -371,13 +394,12 @@ Public Class KlxPiaoForm
 
         '绘制标题框
         Using brush As New SolidBrush(标题框颜色)
-            '根据边框大小自适应标题框大小位置
             g.FillRectangle(brush, New Rectangle(0, 0, Width, 标题框高度))
         End Using
 
         '绘制边框
-        Using brush As New Pen(窗体边框颜色, 1)
-            g.DrawRectangle(brush, 0, 0, Width - 1, Height - 1)
+        Using BorderPen As New Pen(窗体边框颜色, 1)
+            g.DrawRectangle(BorderPen, 0, 0, Width - 1, Height - 1)
         End Using
 
         '绘制标题
@@ -485,13 +507,62 @@ Public Class KlxPiaoForm
     Private Sub CloseButton_Click(sender As Object, e As EventArgs) Handles CloseButton.Click
         CloseForm()
     End Sub
-    '关闭动画
-    Private Sub CloseForm()
+
+    '关闭事件
+    Private ReadOnly 动画长度 As Integer = 6
+    Private Async Sub CloseForm()
         If Not isClosing Then
             isClosing = True
+
+            If 启用关闭动画 Then
+                Dim newbit As New Bitmap(Width, Height)
+                Using g As Graphics = Graphics.FromImage(newbit)
+                    g.CopyFromScreen(Left, Top, 0, 0, Size)
+                End Using
+                BackgroundImageLayout = ImageLayout.Zoom
+                BackgroundImage = newbit
+                Controls.Clear()
+                For i = 0 To 动画长度
+                    Size -= New Size(i, i)
+                    Location += New Size(i \ 2, i \ 2)
+
+                    Opacity = (100 - i * (100 \ 动画长度)) / 100
+                    Await Task.Delay(10)
+                Next
+                Opacity = 0
+            End If
+
             Close()
         End If
     End Sub
+    '启动动画
+    Private Async Sub KlxPiaoForm_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        If 启用启动动画 Then
+            Await Task.Delay(200)
+
+            For i = 动画长度 To 0 Step -1
+                Size += New Size(i, i)
+                Location -= New Size(i \ 2, i \ 2)
+
+                Opacity = (100 - i * (100 \ 动画长度)) / 100
+                Invalidate()
+                Await Task.Delay(10)
+            Next
+            Opacity = 1
+        End If
+    End Sub
+    Private Sub KlxPiaoForm_Load(sender As Object, e As EventArgs) Handles Me.Load
+        If 启用启动动画 Then
+            Opacity = 0
+
+            Dim 总长度 As Integer = 等差数列求和Sn(0, 1, 动画长度 + 1)
+            Size -= New Size(总长度, 总长度)
+            Location += New Size(总长度 \ 2, 总长度 \ 2)
+        End If
+    End Sub
+    Private Function 等差数列求和Sn(a1 As Integer, d As Integer, n As Integer) As Integer
+        Return a1 * n + (n * (n - 1) * d) / 2
+    End Function
 
     '最大化、还原按钮
     Private Sub ResizingButton_Click(sender As Object, e As EventArgs) Handles ResizingButton.Click
@@ -519,6 +590,11 @@ Public Class KlxPiaoForm
     End Sub
 
 #End Region
+
+    '窗体文字改变时刷新
+    Private Sub KlxPiaoForm_TextChanged(sender As Object, e As EventArgs) Handles Me.TextChanged
+        Refresh()
+    End Sub
 
 #Region "窗体拖动和调整大小"
     Private Enum 调整位置
@@ -786,17 +862,17 @@ Public Class KlxPiaoForm
 
 #Region "加载主题文件"
     ''' <summary>
-    ''' 加载现有主题文件
+    ''' 加载现有主题文件或资源文件
     ''' </summary>
     ''' <param name="文件路径或资源文件"></param>
     Public Sub 加载主题文件(文件路径或资源文件 As String)
         Dim 未解析数据 As String()
 
-        Try
+        If 文件路径或资源文件.IndexOf("\") > -1 Then
             未解析数据 = File.ReadAllLines(文件路径或资源文件)
-        Catch ex As Exception
+        Else
             未解析数据 = 文件路径或资源文件.Split(vbCrLf)
-        End Try
+        End If
 
         Dim 读取属性并设置 As Action(Of String) = Sub(属性名)
 
@@ -977,6 +1053,5 @@ Public Class KlxPiaoForm
         到.标题框颜色 = 从.标题框颜色
         到.标题字体颜色 = 从.标题字体颜色
     End Sub
-
 
 End Class

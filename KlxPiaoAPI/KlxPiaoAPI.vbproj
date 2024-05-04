@@ -77,6 +77,9 @@
     <Compile Include="KlxPiaoLabel.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="KlxPiaoLinkLabel.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="KlxPiaoPanel.vb">
       <SubType>Component</SubType>
     </Compile>
@@ -90,6 +93,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="KlxPiaoTabPage.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="KlxPiaoTrackBar.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />

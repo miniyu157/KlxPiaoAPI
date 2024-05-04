@@ -17,9 +17,9 @@ Public Class KlxPiaoPictureBox
         _启用边框 = False
         _边框外部颜色 = Color.White
         _圆角百分比 = 0
-        _边框大小 = 0
+        _边框大小 = 5
         _边框颜色 = Color.LightGray
-        _图片缩放 = False
+        _图片缩放 = True
 
         SizeMode = PictureBoxSizeMode.Zoom
     End Sub
@@ -89,6 +89,9 @@ Public Class KlxPiaoPictureBox
 
         Dim g As Graphics = pe.Graphics
 
+        g.SmoothingMode = SmoothingMode.AntiAlias
+        g.PixelOffsetMode = PixelOffsetMode.HighQuality
+
         '边框
         If 启用边框 Then
 
@@ -143,7 +146,7 @@ Public Class KlxPiaoPictureBox
 
             ' 填充被排除的区域
             g.FillRectangle(New SolidBrush(边框外部颜色), 外部区域)
-
         End If
+
     End Sub
 End Class
