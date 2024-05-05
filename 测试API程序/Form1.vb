@@ -94,7 +94,7 @@ Public Property {自定义属性名} As {类型}
     End Set
 End Property"
     End Sub
-    '复制
+    '复制代码
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click, Button4.Click, Button8.Click
         Dim button As Button = TryCast(sender, Button)
 
@@ -107,7 +107,7 @@ End Property"
                 My.Computer.Clipboard.SetText(TextBox7.Text)
         End Select
     End Sub
-    '按钮：应用本地字体
+    '应用本地字体
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         应用本地字体(Application.StartupPath & "\义启星空之翼.ttf", Me)
     End Sub
@@ -241,6 +241,7 @@ End Property"
     End Sub
 #End Region
 
+    '更新皮肤编辑器颜色
     Private Sub 刷新配色()
         主题Panel.BackColor = 标题框颜色
         背景Panel.BackColor = BackColor
@@ -494,11 +495,6 @@ End Property"
 
         End If
     End Sub
-
-    Private Sub KlxPiaoButton3_Click(sender As Object, e As EventArgs)
-        刷新配色()
-    End Sub
-
     Private Sub 主题Panel_Click(sender As Object, e As EventArgs) Handles 主题Panel.Click
         Dim 设置颜色 As New ColorDialog With {
             .Color = 标题框颜色,
@@ -516,7 +512,6 @@ End Property"
             刷新配色()
         End If
     End Sub
-
     Private Sub 背景Panel_Click(sender As Object, e As EventArgs) Handles 背景Panel.Click
         Dim 设置颜色 As New ColorDialog With {
             .Color = BackColor,
@@ -531,16 +526,12 @@ End Property"
 
     '一键生成
     Private Sub KlxPiaoButton2_Click(sender As Object, e As EventArgs) Handles KlxPiaoButton2.Click
-        Dim originalColor As Color = 主题Panel.BackColor
-
-        缩放按钮鼠标移入背景色 = 颜色.调整亮度(originalColor, -0.03)
-        缩放按钮鼠标按下背景色 = 颜色.调整亮度(缩放按钮鼠标移入背景色, -0.03)
+        自动生成主题(主题Panel.BackColor)
 
         刷新配色()
 
         CheckBox5.Checked = True
     End Sub
-
     '关闭按钮高亮
     Private Sub CheckBox6_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox6.CheckedChanged
         If CheckBox6.Checked Then
@@ -574,12 +565,10 @@ End Property"
 
         My.Computer.Clipboard.SetText(TextBox5.Text)
     End Sub
-
     '切换皮肤编辑器
     Private Sub KlxPiaoButton6_Click(sender As Object, e As EventArgs) Handles KlxPiaoButton6.Click
         TabControl1.SelectedIndex = 4
     End Sub
-
     '应用到.Designer
     Private Sub KlxPiaoButton7_Click(sender As Object, e As EventArgs) Handles KlxPiaoButton7.Click
         If TextBox5.Text = "" Then
@@ -618,7 +607,6 @@ End Property"
 
         End If
     End Sub
-
     '修改窗体设计文件路径
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
         Dim 选择文件 As New OpenFileDialog With {
@@ -630,7 +618,6 @@ End Property"
             LinkLabel1.Text = 选择文件.FileName
         End If
     End Sub
-
     Private Sub 显示提示框(内容 As String, 标题 As String)
         Dim 提示框 As New KlxPiaoForm With {
             .Text = 标题,
@@ -670,4 +657,13 @@ End Property"
         Console.WriteLine(KlxPiaoTrackBar3.值)
     End Sub
 
+    '随机生成主题
+    Dim rand As New Random
+    Private Sub KlxPiaoButton1_Click(sender As Object, e As EventArgs) Handles KlxPiaoButton1.Click
+        Dim 随机颜色 As Color = Color.FromArgb(rand.Next(0, 255), rand.Next(0, 255), rand.Next(0, 255))
+
+        自动生成主题(随机颜色)
+
+        刷新配色()
+    End Sub
 End Class

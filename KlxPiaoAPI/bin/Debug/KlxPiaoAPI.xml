@@ -108,6 +108,11 @@ KlxPiaoAPI
  </summary>
  <param name="文件路径或资源文件"></param>
 </member>
+<member name="T:KlxPiaoAPI.KlxPiaoForm.设置WindowState">
+ <summary>
+ 最大化/还原时的动画
+ </summary>
+</member>
 <member name="F:KlxPiaoAPI.KlxPiaoForm.设置WindowState.应用于">
  <summary>
  需要设置窗体样式的Form
@@ -135,6 +140,19 @@ KlxPiaoAPI
  <param name="文件路径"></param>
  <param name="控件"></param>
  
+</member>
+<member name="M:KlxPiaoAPI.KlxPiaoForm.复制主题(KlxPiaoAPI.KlxPiaoForm,KlxPiaoAPI.KlxPiaoForm)">
+ <summary>
+ 把一个窗体的主题复制到另一个窗体
+ </summary>
+ <param name="从"></param>
+ <param name="到"></param>
+</member>
+<member name="M:KlxPiaoAPI.KlxPiaoForm.自动生成主题(System.Drawing.Color)">
+ <summary>
+ 根据一个颜色自动生成主题并应用于窗体上
+ </summary>
+ <param name="主题色"></param>
 </member>
 <member name="F:KlxPiaoAPI.KlxPiaoTrackBar.鼠标滚轮响应.正向">
  <summary>

@@ -14,6 +14,10 @@ Public Class 颜色
         Dim blue As Integer = Math.Min(Math.Max(0, color.B * (1 + factor)), 255)
         Return Color.FromArgb(color.A, red, green, blue)
     End Function
+
+    Public Shared Function 获取亮度(color As Color) As Double
+        Return 0.299 * color.R + 0.587 * color.G + 0.114 * color.B
+    End Function
 End Class
 
 Public Class 文件处理

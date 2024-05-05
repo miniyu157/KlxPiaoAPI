@@ -24,6 +24,8 @@
     }
 
     复制主题(从 As KlxPiaoForm, 到 As KlxPiaoForm)
+
+    自动生成主题(主题色 As Color)
     
 ![此处输入图片的描述][2]
 

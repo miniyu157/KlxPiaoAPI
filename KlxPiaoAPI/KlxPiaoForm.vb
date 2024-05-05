@@ -4,6 +4,7 @@ Imports System.IO
 Imports System.Reflection
 Imports System.Runtime.InteropServices
 Imports System.Windows.Forms
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Button
 
 Public Class KlxPiaoForm
     Inherits Form
@@ -976,6 +977,9 @@ Public Class KlxPiaoForm
 
 #End Region
 
+    ''' <summary>
+    ''' 最大化/还原时的动画
+    ''' </summary>
     Public Class 设置WindowState
         ''' <summary>
         ''' 需要设置窗体样式的Form
@@ -1037,6 +1041,11 @@ Public Class KlxPiaoForm
         Next
     End Sub
 
+    ''' <summary>
+    ''' 把一个窗体的主题复制到另一个窗体
+    ''' </summary>
+    ''' <param name="从"></param>
+    ''' <param name="到"></param>
     Public Sub 复制主题(从 As KlxPiaoForm, 到 As KlxPiaoForm)
         到.关闭按钮背景色 = 从.关闭按钮背景色
         到.关闭按钮前景色 = 从.关闭按钮前景色
@@ -1052,6 +1061,37 @@ Public Class KlxPiaoForm
         到.缩放按钮鼠标按下背景色 = 从.缩放按钮鼠标按下背景色
         到.标题框颜色 = 从.标题框颜色
         到.标题字体颜色 = 从.标题字体颜色
+    End Sub
+
+    ''' <summary>
+    ''' 根据一个颜色自动生成主题并应用于窗体上
+    ''' </summary>
+    ''' <param name="主题色"></param>
+    Public Sub 自动生成主题(主题色 As Color)
+        Dim 浅色主题 As Boolean = 颜色.获取亮度(主题色) > 125
+        Dim 前景色 = If(浅色主题, Color.Black, Color.White)
+        Dim 鼠标移入背景色 = 颜色.调整亮度(主题色, If(浅色主题, -0.03, 0.03))
+        Dim 鼠标按下背景色 = 颜色.调整亮度(鼠标移入背景色, If(浅色主题, -0.03, 0.03))
+
+        标题框颜色 = 主题色
+        标题字体颜色 = 前景色
+
+        缩放按钮背景色 = 主题色
+        缩放按钮前景色 = 前景色
+        缩放按钮鼠标移入背景色 = 鼠标移入背景色
+        缩放按钮鼠标按下背景色 = 鼠标按下背景色
+
+        最小化按钮背景色 = 主题色
+        最小化按钮前景色 = 前景色
+        最小化按钮鼠标移入背景色 = 鼠标移入背景色
+        最小化按钮鼠标按下背景色 = 鼠标按下背景色
+
+        关闭按钮背景色 = 主题色
+        关闭按钮前景色 = 前景色
+        关闭按钮鼠标移入背景色 = 鼠标移入背景色
+        关闭按钮鼠标按下背景色 = 鼠标按下背景色
+
+        Refresh()
     End Sub
 
 End Class

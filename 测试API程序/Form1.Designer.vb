@@ -111,11 +111,11 @@ Partial Class Form1
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
-        Me.KlxPiaoLabel19 = New KlxPiaoAPI.KlxPiaoLabel()
         Me.KlxPiaoButton4 = New KlxPiaoAPI.KlxPiaoButton()
         Me.KlxPiaoButton3 = New KlxPiaoAPI.KlxPiaoButton()
         Me.KlxPiaoButton2 = New KlxPiaoAPI.KlxPiaoButton()
         Me.KlxPiaoPanel16 = New KlxPiaoAPI.KlxPiaoPanel()
+        Me.KlxPiaoButton1 = New KlxPiaoAPI.KlxPiaoButton()
         Me.CheckBox6 = New System.Windows.Forms.CheckBox()
         Me.CheckBox5 = New System.Windows.Forms.CheckBox()
         Me.KlxPiaoPanel17 = New KlxPiaoAPI.KlxPiaoPanel()
@@ -1420,7 +1420,7 @@ Partial Class Form1
         'TabPage5
         '
         Me.TabPage5.BackColor = System.Drawing.Color.White
-        Me.TabPage5.Controls.Add(Me.KlxPiaoLabel19)
+        Me.TabPage5.Controls.Add(Me.KlxPiaoButton1)
         Me.TabPage5.Controls.Add(Me.KlxPiaoButton4)
         Me.TabPage5.Controls.Add(Me.KlxPiaoButton3)
         Me.TabPage5.Controls.Add(Me.KlxPiaoButton2)
@@ -1436,32 +1436,6 @@ Partial Class Form1
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "皮肤编辑器"
         '
-        'KlxPiaoLabel19
-        '
-        Me.KlxPiaoLabel19.AutoSize = False
-        Me.KlxPiaoLabel19.BackColor = System.Drawing.Color.White
-        Me.KlxPiaoLabel19.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
-        Me.KlxPiaoLabel19.ForeColor = System.Drawing.Color.Black
-        Me.KlxPiaoLabel19.Location = New System.Drawing.Point(286, 65)
-        Me.KlxPiaoLabel19.Name = "KlxPiaoLabel19"
-        Me.KlxPiaoLabel19.Size = New System.Drawing.Size(116, 17)
-        Me.KlxPiaoLabel19.TabIndex = 33
-        Me.KlxPiaoLabel19.Text = "（仅适用浅色主题）"
-        Me.KlxPiaoLabel19.偏移方式 = System.Drawing.Drawing2D.PixelOffsetMode.[Default]
-        Me.KlxPiaoLabel19.偏移量 = New System.Drawing.Point(2, 2)
-        Me.KlxPiaoLabel19.启用投影 = False
-        Me.KlxPiaoLabel19.启用边框 = False
-        Me.KlxPiaoLabel19.圆角百分比 = 0!
-        Me.KlxPiaoLabel19.投影连线 = True
-        Me.KlxPiaoLabel19.投影颜色 = System.Drawing.Color.DarkGray
-        Me.KlxPiaoLabel19.抗锯齿 = System.Drawing.Drawing2D.SmoothingMode.[Default]
-        Me.KlxPiaoLabel19.文本呈现质量 = System.Drawing.Text.TextRenderingHint.SystemDefault
-        Me.KlxPiaoLabel19.算法 = System.Drawing.Drawing2D.InterpolationMode.[Default]
-        Me.KlxPiaoLabel19.边框外部颜色 = System.Drawing.Color.White
-        Me.KlxPiaoLabel19.边框大小 = 0
-        Me.KlxPiaoLabel19.边框颜色 = System.Drawing.Color.LightGray
-        Me.KlxPiaoLabel19.颜色减淡 = False
-        '
         'KlxPiaoButton4
         '
         Me.KlxPiaoButton4.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro
@@ -1469,9 +1443,9 @@ Partial Class Form1
         Me.KlxPiaoButton4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
         Me.KlxPiaoButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.KlxPiaoButton4.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
-        Me.KlxPiaoButton4.Location = New System.Drawing.Point(543, 24)
+        Me.KlxPiaoButton4.Location = New System.Drawing.Point(571, 24)
         Me.KlxPiaoButton4.Name = "KlxPiaoButton4"
-        Me.KlxPiaoButton4.Size = New System.Drawing.Size(97, 40)
+        Me.KlxPiaoButton4.Size = New System.Drawing.Size(72, 40)
         Me.KlxPiaoButton4.TabIndex = 32
         Me.KlxPiaoButton4.Text = "导入"
         Me.KlxPiaoButton4.UseVisualStyleBackColor = True
@@ -1483,9 +1457,9 @@ Partial Class Form1
         Me.KlxPiaoButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
         Me.KlxPiaoButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.KlxPiaoButton3.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
-        Me.KlxPiaoButton3.Location = New System.Drawing.Point(436, 24)
+        Me.KlxPiaoButton3.Location = New System.Drawing.Point(493, 24)
         Me.KlxPiaoButton3.Name = "KlxPiaoButton3"
-        Me.KlxPiaoButton3.Size = New System.Drawing.Size(97, 40)
+        Me.KlxPiaoButton3.Size = New System.Drawing.Size(72, 40)
         Me.KlxPiaoButton3.TabIndex = 31
         Me.KlxPiaoButton3.Text = "导出"
         Me.KlxPiaoButton3.UseVisualStyleBackColor = True
@@ -1497,9 +1471,9 @@ Partial Class Form1
         Me.KlxPiaoButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
         Me.KlxPiaoButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.KlxPiaoButton2.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
-        Me.KlxPiaoButton2.Location = New System.Drawing.Point(259, 24)
+        Me.KlxPiaoButton2.Location = New System.Drawing.Point(263, 25)
         Me.KlxPiaoButton2.Name = "KlxPiaoButton2"
-        Me.KlxPiaoButton2.Size = New System.Drawing.Size(167, 40)
+        Me.KlxPiaoButton2.Size = New System.Drawing.Size(143, 40)
         Me.KlxPiaoButton2.TabIndex = 30
         Me.KlxPiaoButton2.Text = "根据主题色一键生成"
         Me.KlxPiaoButton2.UseVisualStyleBackColor = True
@@ -1529,6 +1503,20 @@ Partial Class Form1
         Me.KlxPiaoPanel16.投影颜色 = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer))
         Me.KlxPiaoPanel16.边框大小 = 1
         Me.KlxPiaoPanel16.边框颜色 = System.Drawing.Color.FromArgb(CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer))
+        '
+        'KlxPiaoButton1
+        '
+        Me.KlxPiaoButton1.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro
+        Me.KlxPiaoButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
+        Me.KlxPiaoButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.KlxPiaoButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.KlxPiaoButton1.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
+        Me.KlxPiaoButton1.Location = New System.Drawing.Point(412, 24)
+        Me.KlxPiaoButton1.Name = "KlxPiaoButton1"
+        Me.KlxPiaoButton1.Size = New System.Drawing.Size(72, 40)
+        Me.KlxPiaoButton1.TabIndex = 34
+        Me.KlxPiaoButton1.Text = "随机生成"
+        Me.KlxPiaoButton1.UseVisualStyleBackColor = True
         '
         'CheckBox6
         '
@@ -2359,7 +2347,7 @@ Partial Class Form1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(721, 471)
+        Me.ClientSize = New System.Drawing.Size(702, 451)
         Me.Controls.Add(Me.TabControl1)
         Me.Name = "Form1"
         Me.TransparencyKey = System.Drawing.Color.FromArgb(CType(CType(99, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(99, Byte), Integer))
@@ -2478,7 +2466,6 @@ Partial Class Form1
     Friend WithEvents KlxPiaoButton2 As KlxPiaoButton
     Friend WithEvents KlxPiaoButton4 As KlxPiaoButton
     Friend WithEvents KlxPiaoButton3 As KlxPiaoButton
-    Friend WithEvents KlxPiaoLabel19 As KlxPiaoLabel
     Friend WithEvents Label7 As Label
     Friend WithEvents ComboBox4 As ComboBox
     Friend WithEvents CheckBox6 As CheckBox
@@ -2541,4 +2528,5 @@ Partial Class Form1
     Friend WithEvents KlxPiaoTrackBar3 As KlxPiaoTrackBar
     Friend WithEvents KlxPiaoTrackBar5 As KlxPiaoTrackBar
     Friend WithEvents KlxPiaoTrackBar6 As KlxPiaoTrackBar
+    Friend WithEvents KlxPiaoButton1 As KlxPiaoButton
 End Class
