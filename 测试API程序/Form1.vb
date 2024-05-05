@@ -666,7 +666,8 @@ End Property"
     End Sub
 #End Region
 
-    Private Sub KlxPiaoTrackBar3_值Changed_1(sender As Object, e As System.ComponentModel.PropertyChangedEventArgs) Handles KlxPiaoTrackBar3.值Changed
+    Private Sub KlxPiaoTrackBar3_值Changed(sender As Object, e As System.ComponentModel.PropertyChangedEventArgs) Handles KlxPiaoTrackBar3.值Changed
         Console.WriteLine(KlxPiaoTrackBar3.值)
     End Sub
+
 End Class

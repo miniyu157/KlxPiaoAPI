@@ -41,8 +41,22 @@ Public Class KlxPiaoTrackBar
         不启用
     End Enum
 
+    Public Enum 文字位置
+        不显示
+        左
+        居中
+        右
+    End Enum
+
     Private _背景色 As Color
     Private _前景色 As Color
+    Private _边框大小 As Integer
+    Private _边框颜色 As Color
+    Private _值显示方式 As 文字位置
+    Private _值显示边距 As Integer
+
+    Private _焦点边框颜色 As Color
+    Private _焦点边框大小 As Integer
 
     Private _值 As Integer
     Private _最大值 As Integer
@@ -55,6 +69,13 @@ Public Class KlxPiaoTrackBar
 
         _背景色 = Color.Gainsboro
         _前景色 = Color.Gray
+        _边框大小 = 0
+        _边框颜色 = Color.FromArgb(0, 210, 212)
+        _值显示方式 = 文字位置.不显示
+        _值显示边距 = 0
+
+        _焦点边框颜色 = Color.Red
+        _焦点边框大小 = -1
 
         _值 = 0
         _最大值 = 100
@@ -90,6 +111,67 @@ Public Class KlxPiaoTrackBar
         End Get
         Set(value As Color)
             _前景色 = value
+            Invalidate()
+        End Set
+    End Property
+    <Category("KlxPiaoTrackBar外观"), Description("边框的大小，为0时隐藏边框")>
+    Public Property 边框大小 As Integer
+        Get
+            Return _边框大小
+        End Get
+        Set(value As Integer)
+            _边框大小 = value
+            Invalidate()
+        End Set
+    End Property
+    <Category("KlxPiaoTrackBar外观"), Description("边框的颜色")>
+    Public Property 边框颜色 As Color
+        Get
+            Return _边框颜色
+        End Get
+        Set(value As Color)
+            _边框颜色 = value
+            Invalidate()
+        End Set
+    End Property
+    <Category("KlxPiaoTrackBar外观"), Description("显示值到拖动条上，字体由Font属性决定，字体颜色由ForeColor属性决定")>
+    Public Property 值显示方式 As 文字位置
+        Get
+            Return _值显示方式
+        End Get
+        Set(value As 文字位置)
+            _值显示方式 = value
+            Invalidate()
+        End Set
+    End Property
+    <Category("KlxPiaoTrackBar外观"), Description("显示值的左右边距")>
+    Public Property 值显示边距 As Integer
+        Get
+            Return _值显示边距
+        End Get
+        Set(value As Integer)
+            _值显示边距 = value
+            Invalidate()
+        End Set
+    End Property
+
+    <Category("KlxPiaoTrackBar焦点"), Description("控件激活时的边框颜色，Transparent：控件激活时不会改变边框颜色")>
+    Public Property 焦点边框颜色 As Color
+        Get
+            Return _焦点边框颜色
+        End Get
+        Set(value As Color)
+            _焦点边框颜色 = value
+            Invalidate()
+        End Set
+    End Property
+    <Category("KlxPiaoTrackBar焦点"), Description("控件激活时的边框大小，-1：控件激活时不会改变边框大小")>
+    Public Property 焦点边框大小 As Integer
+        Get
+            Return _焦点边框大小
+        End Get
+        Set(value As Integer)
+            _焦点边框大小 = value
             Invalidate()
         End Set
     End Property
@@ -177,9 +259,9 @@ Public Class KlxPiaoTrackBar
                 g.SmoothingMode = SmoothingMode.HighQuality
                 g.PixelOffsetMode = PixelOffsetMode.HighQuality
 
+#Region "绘制前景和背景"
                 重置工作矩形()
 
-#Region "绘制前景和背景"
                 Dim 百分比位置 As Single
                 If Not (正在拖动 OrElse 正在滚动 OrElse 正在按键) Then
                     绘制百分比 = (值 - 最小值) / (最大值 - 最小值)
@@ -197,10 +279,28 @@ Public Class KlxPiaoTrackBar
                 g.FillPath(New SolidBrush(前景色), 左半边)
 #End Region
 
-                '绘制遮罩
-                Using 遮罩Path As New GraphicsPath
-                    Dim 遮罩厚度 As Integer = If(Height Mod 2 = 0, Height, Height + 1)
+                '绘制边框
+                If 边框大小 <> 0 Then
+                    Using 边框Path As New GraphicsPath
+                        Dim 遮罩厚度 As Integer = If(Height Mod 2 = 0, Height, Height + 1)
+                        重置工作矩形()
 
+                        工作矩形.X -= 遮罩厚度 \ 2
+                        工作矩形.Y -= 遮罩厚度 \ 2
+                        工作矩形.Width += 遮罩厚度 \ 2
+                        工作矩形.Height += 遮罩厚度 - 1
+
+                        边框Path.AddArc(New Rectangle(工作矩形.X, 工作矩形.Y, 工作矩形.Height, 工作矩形.Height), 90, 180)
+                        边框Path.AddArc(New Rectangle(工作矩形.Width - 工作矩形.Height, 工作矩形.Y, 工作矩形.Height, 工作矩形.Height), -90, 180)
+                        边框Path.CloseFigure()
+
+                        g.DrawPath(New Pen(边框颜色, 遮罩厚度 + 边框大小), 边框Path)
+                    End Using
+                End If
+
+                '绘制边框二层（遮住第一层出格部分）
+                Using 边框Path As New GraphicsPath
+                    Dim 遮罩厚度 As Integer = If(Height Mod 2 = 0, Height, Height + 1)
                     重置工作矩形()
 
                     工作矩形.X -= 遮罩厚度 \ 2
@@ -208,12 +308,29 @@ Public Class KlxPiaoTrackBar
                     工作矩形.Width += 遮罩厚度 \ 2
                     工作矩形.Height += 遮罩厚度 - 1
 
-                    遮罩Path.AddArc(New Rectangle(工作矩形.X, 工作矩形.Y, 工作矩形.Height, 工作矩形.Height), 90, 180)
-                    遮罩Path.AddArc(New Rectangle(工作矩形.Width - 工作矩形.Height, 工作矩形.Y, 工作矩形.Height, 工作矩形.Height), -90, 180)
-                    遮罩Path.CloseFigure()
+                    边框Path.AddArc(New Rectangle(工作矩形.X, 工作矩形.Y, 工作矩形.Height, 工作矩形.Height), 90, 180)
+                    边框Path.AddArc(New Rectangle(工作矩形.Width - 工作矩形.Height, 工作矩形.Y, 工作矩形.Height, 工作矩形.Height), -90, 180)
+                    边框Path.CloseFigure()
 
-                    g.DrawPath(New Pen(BackColor, 遮罩厚度), 遮罩Path)
+                    g.DrawPath(New Pen(BackColor, 遮罩厚度), 边框Path)
                 End Using
+
+                '绘制值
+                If 值显示方式 <> 文字位置.不显示 Then
+                    Dim 文字大小 As SizeF = g.MeasureString(值, MyBase.Font)
+                    Dim 绘制位置 As PointF
+
+                    Select Case 值显示方式
+                        Case 文字位置.左
+                            绘制位置 = New PointF(边框大小 + 值显示边距, (Height - 文字大小.Height) / 2)
+                        Case 文字位置.右
+                            绘制位置 = New PointF(Width - 边框大小 - 文字大小.Width - 值显示边距, (Height - 文字大小.Height) / 2)
+                        Case 文字位置.居中
+                            绘制位置 = New PointF((Width - 文字大小.Width) / 2, (Height - 文字大小.Height) / 2)
+                    End Select
+
+                    g.DrawString(值, Font, New SolidBrush(ForeColor), 绘制位置)
+                End If
 
                 e.Graphics.DrawImage(bit, 0, 0)
 
@@ -224,7 +341,7 @@ Public Class KlxPiaoTrackBar
 
     Private 绘制百分比 As Double = Nothing
 
-#Region "鼠标设置Value"
+#Region "鼠标调整值"
     Private 正在拖动 As Boolean = False
 
     Protected Overrides Sub OnMouseDown(e As MouseEventArgs)
@@ -257,7 +374,7 @@ Public Class KlxPiaoTrackBar
     End Sub
 #End Region
 
-#Region "滚轮设置Value"
+#Region "滚轮调整值"
     Private 正在滚动 As Boolean = False
 
     Protected Overrides Sub OnMouseWheel(e As MouseEventArgs)
@@ -284,7 +401,7 @@ Public Class KlxPiaoTrackBar
     End Sub
 #End Region
 
-#Region "键盘设置Value"
+#Region "键盘调整值"
     Private 正在按键 As Boolean = False
 
     Protected Overrides Sub OnPreviewKeyDown(e As PreviewKeyDownEventArgs)
@@ -333,20 +450,44 @@ Public Class KlxPiaoTrackBar
     End Sub
 #End Region
 
-    Protected Overrides Sub OnMouseEnter(e As EventArgs)
-        MyBase.OnMouseEnter(e)
+    'Protected Overrides Sub OnMouseEnter(e As EventArgs)
+    '    MyBase.OnMouseEnter(e)
 
-        Size += New Size(4, 4)
-        Location -= New Size(2, 2)
+    '    Size += New Size(4, 4)
+    '    Location -= New Size(2, 2)
 
-        Invalidate()
+    '    Invalidate()
+    'End Sub
+    'Protected Overrides Sub OnMouseLeave(e As EventArgs)
+    '    MyBase.OnMouseLeave(e)
+
+    '    Size -= New Size(4, 4)
+    '    Location += New Size(2, 2)
+
+    '    Invalidate()
+    'End Sub
+
+    Private 原来的边框颜色
+    Private 原来的边框大小
+    Protected Overrides Sub OnGotFocus(e As EventArgs)
+        MyBase.OnGotFocus(e)
+
+        原来的边框颜色 = 边框颜色
+        原来的边框大小 = 边框大小
+
+        If 焦点边框颜色 <> Color.Transparent Then
+            边框颜色 = 焦点边框颜色
+        End If
+
+        If 焦点边框大小 <> -1 Then
+            边框大小 = 焦点边框大小
+        End If
     End Sub
-    Protected Overrides Sub OnMouseLeave(e As EventArgs)
-        MyBase.OnMouseLeave(e)
 
-        Size -= New Size(4, 4)
-        Location += New Size(2, 2)
+    Protected Overrides Sub OnLostFocus(e As EventArgs)
+        MyBase.OnLostFocus(e)
 
-        Invalidate()
+        边框颜色 = 原来的边框颜色
+        边框大小 = 原来的边框大小
     End Sub
 End Class

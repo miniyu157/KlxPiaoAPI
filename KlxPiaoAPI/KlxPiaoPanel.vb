@@ -2,6 +2,7 @@
 Imports System.Drawing
 Imports System.Windows.Forms
 
+<DefaultEvent("Click")>
 Public Class KlxPiaoPanel
     Inherits Panel
 

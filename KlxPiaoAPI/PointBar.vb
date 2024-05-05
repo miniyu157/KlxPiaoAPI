@@ -1,5 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports System.Drawing
+Imports System.Runtime.CompilerServices
+Imports System.Security.Cryptography
 Imports System.Windows.Forms
 
 <DefaultEvent("值Changed")>
@@ -18,6 +20,8 @@ Public Class PointBar
     Private _最小值 As Point
     Private _最大值 As Point
     Private _值 As Point
+    Private _响应键盘 As Boolean
+    Private _响应大小 As Integer
     Public Sub New()
         MyBase.New()
 
@@ -33,6 +37,8 @@ Public Class PointBar
         _最小值 = New Point(-100, -100)
         _最大值 = New Point(100, 100)
         _值 = New Point(0, 0)
+        _响应键盘 = True
+        _响应大小 = 1
 
         Width = 100
         Height = 100
@@ -122,7 +128,7 @@ Public Class PointBar
         End Set
     End Property
 
-    <Category("PointBar数值"), Description("坐标的最小值")>
+    <Category("PointBar属性"), Description("坐标的最小值")>
     Public Property 最小值 As Point
         Get
             Return _最小值
@@ -132,7 +138,7 @@ Public Class PointBar
             Invalidate()
         End Set
     End Property
-    <Category("PointBar数值"), Description("坐标的最大值")>
+    <Category("PointBar属性"), Description("坐标的最大值")>
     Public Property 最大值 As Point
         Get
             Return _最大值
@@ -147,7 +153,7 @@ Public Class PointBar
     Protected Overridable Sub OnValueChanged(propertyName As String)
         RaiseEvent 值Changed(Me, New PropertyChangedEventArgs(propertyName))
     End Sub
-    <Category("PointBar数值"), Description("坐标的值")>
+    <Category("PointBar属性"), Description("坐标的值")>
     Public Property 值 As Point
         Get
             Return _值
@@ -159,7 +165,26 @@ Public Class PointBar
             OnValueChanged("值")
         End Set
     End Property
-
+    <Category("PointBar属性"), Description("是否可以通过方向键调整")>
+    Public Property 响应键盘 As Boolean
+        Get
+            Return _响应键盘
+        End Get
+        Set(value As Boolean)
+            _响应键盘 = value
+            Invalidate()
+        End Set
+    End Property
+    <Category("PointBar属性"), Description("通过方向键一次移动的大小")>
+    Public Property 响应大小 As Integer
+        Get
+            Return _响应大小
+        End Get
+        Set(value As Integer)
+            _响应大小 = value
+            Invalidate()
+        End Set
+    End Property
     Protected Overrides Sub OnPaint(e As PaintEventArgs)
         MyBase.OnPaint(e)
 
@@ -234,21 +259,27 @@ Public Class PointBar
                 g.DrawString($"X:{值.X},Y:{值.Y}", Font, brush, 绘制位置)
             End Using
         End If
+
     End Sub
 
-#Region "鼠标调整大小"
-    Private 正在调整 As Boolean = False
-    Private Sub PointBar_MouseDown(sender As Object, e As MouseEventArgs) Handles Me.MouseDown
+    Private 正在拖动 As Boolean = False
+    Protected Overrides Sub OnMouseDown(e As MouseEventArgs)
+        MyBase.OnMouseDown(e)
+
         If e.Button = MouseButtons.Left Then
             Dim x轴总长度 As Integer = 最大值.X - 最小值.X
             Dim y轴总长度 As Integer = 最大值.Y - 最小值.Y
 
             值 = New Point(最小值.X + x轴总长度 * (e.Location.X / Width), 最小值.Y + y轴总长度 * (e.Location.Y / Height))
-            正在调整 = True
+            正在拖动 = True
         End If
+
+        Focus()
     End Sub
-    Private Sub PointBar_MouseMove(sender As Object, e As MouseEventArgs) Handles Me.MouseMove
-        If 正在调整 Then
+    Protected Overrides Sub OnMouseMove(e As MouseEventArgs)
+        MyBase.OnMouseMove(e)
+
+        If 正在拖动 Then
             Dim x轴总长度 As Integer = 最大值.X - 最小值.X
             Dim y轴总长度 As Integer = 最大值.Y - 最小值.Y
 
@@ -265,9 +296,37 @@ Public Class PointBar
             Refresh()
         End If
     End Sub
-    Private Sub PointBar_MouseUp(sender As Object, e As MouseEventArgs) Handles Me.MouseUp
-        正在调整 = False
+    Protected Overrides Sub OnMouseUp(e As MouseEventArgs)
+        MyBase.OnMouseUp(e)
+
+        正在拖动 = False
     End Sub
-#End Region
+
+    Protected Overrides Sub OnPreviewKeyDown(e As PreviewKeyDownEventArgs)
+        MyBase.OnPreviewKeyDown(e)
+
+        If 响应键盘 Then
+            Select Case e.KeyCode
+                Case Keys.Up, Keys.Down, Keys.Left, Keys.Right
+                    e.IsInputKey = True
+
+                    Dim 移动后的值 As Point = 值
+
+                    If e.KeyCode = Keys.Up Then 移动后的值.Y -= 响应大小
+                    If e.KeyCode = Keys.Down Then 移动后的值.Y += 响应大小
+                    If e.KeyCode = Keys.Left Then 移动后的值.X -= 响应大小
+                    If e.KeyCode = Keys.Right Then 移动后的值.X += 响应大小
+
+                    If 移动后的值.X < 最小值.X Then 移动后的值.X = 最小值.X
+                    If 移动后的值.Y < 最小值.Y Then 移动后的值.Y = 最小值.Y
+                    If 移动后的值.X > 最大值.X Then 移动后的值.X = 最大值.X
+                    If 移动后的值.Y > 最大值.X Then 移动后的值.Y = 最大值.Y
+
+                    值 = 移动后的值
+                Case Else
+                    e.IsInputKey = False
+            End Select
+        End If
+    End Sub
 
 End Class
