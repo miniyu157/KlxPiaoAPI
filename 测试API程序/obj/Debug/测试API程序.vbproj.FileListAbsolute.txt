@@ -14,3 +14,4 @@ E:\Desktop\Projects\KlxPiaoAPI\测试API程序\obj\Debug\测试API程序.exe
 E:\Desktop\Projects\KlxPiaoAPI\测试API程序\obj\Debug\测试API程序.xml
 E:\Desktop\Projects\KlxPiaoAPI\测试API程序\obj\Debug\测试API程序.pdb
 E:\Desktop\Projects\KlxPiaoAPI\测试API程序\obj\Debug\测试API程序.Form1.resources
+E:\Desktop\Projects\KlxPiaoAPI\测试API程序\obj\Debug\测试API程序.Form2.resources

@@ -11,20 +11,42 @@ Public Class KlxPiaoPictureBox
     Private _圆角百分比 As Single
     Private _边框大小 As Integer
     Private _边框颜色 As Color
-    Private _图片缩放 As Boolean
 
     Public Sub New()
         _启用边框 = False
         _边框外部颜色 = Color.White
         _圆角百分比 = 0
-        _边框大小 = 5
+        _边框大小 = 10
         _边框颜色 = Color.LightGray
-        _图片缩放 = True
 
         SizeMode = PictureBoxSizeMode.Zoom
+        Size = New Size(155, 155)
     End Sub
 
-    <Category("边框"), Description("是否启用边框")>
+    <DefaultValue(GetType(Size), "155,155")>
+    Public Overloads Property Size As Size
+        Get
+            Return MyBase.Size
+        End Get
+        Set(value As Size)
+            MyBase.Size = value
+            Invalidate()
+        End Set
+    End Property
+    <DefaultValue(GetType(PictureBoxSizeMode), "Zoom")>
+    Public Overloads Property SizeMode As PictureBoxSizeMode
+        Get
+            Return MyBase.SizeMode
+        End Get
+        Set(value As PictureBoxSizeMode)
+            MyBase.SizeMode = value
+            Invalidate()
+        End Set
+    End Property
+
+    <Category("KlxPiaoPictureBox外观")>
+    <Description("是否启用边框")>
+    <DefaultValue(False)>
     Public Property 启用边框 As Boolean
         Get
             Return _启用边框
@@ -34,7 +56,9 @@ Public Class KlxPiaoPictureBox
             Invalidate()
         End Set
     End Property
-    <Category("边框"), Description("边框的颜色")>
+    <Category("KlxPiaoPictureBox外观")>
+    <Description("边框外部的颜色")>
+    <DefaultValue(GetType(Color), "White")>
     Public Property 边框外部颜色 As Color
         Get
             Return _边框外部颜色
@@ -44,7 +68,9 @@ Public Class KlxPiaoPictureBox
             Invalidate()
         End Set
     End Property
-    <Category("边框"), Description("范围：0.00-1.00，为1时为圆形，为0时取消圆角")>
+    <Category("KlxPiaoPictureBox外观")>
+    <Description("范围：0.00-1.00，等于0时取消圆角")>
+    <DefaultValue(0)>
     Public Property 圆角百分比 As Single
         Get
             Return _圆角百分比
@@ -54,7 +80,9 @@ Public Class KlxPiaoPictureBox
             Invalidate()
         End Set
     End Property
-    <Category("边框"), Description("边框的大小，为0时隐藏边框")>
+    <Category("KlxPiaoPictureBox外观")>
+    <Description("边框的大小，为0时隐藏边框")>
+    <DefaultValue(10)>
     Public Property 边框大小 As Integer
         Get
             Return _边框大小
@@ -64,23 +92,15 @@ Public Class KlxPiaoPictureBox
             Invalidate()
         End Set
     End Property
-    <Category("边框"), Description("边框的颜色")>
+    <Category("KlxPiaoPictureBox外观")>
+    <Description("边框的颜色")>
+    <DefaultValue(GetType(Color), "LightGray")>
     Public Property 边框颜色 As Color
         Get
             Return _边框颜色
         End Get
         Set(value As Color)
             _边框颜色 = value
-            Invalidate()
-        End Set
-    End Property
-    <Category("边框"), Description("不启用缩放时，边框将覆盖图片")>
-    Public Property 图片缩放 As Boolean
-        Get
-            Return _图片缩放
-        End Get
-        Set(value As Boolean)
-            _图片缩放 = value
             Invalidate()
         End Set
     End Property
@@ -92,61 +112,67 @@ Public Class KlxPiaoPictureBox
         g.SmoothingMode = SmoothingMode.AntiAlias
         g.PixelOffsetMode = PixelOffsetMode.HighQuality
 
-        '边框
-        If 启用边框 Then
+        Dim 区域 As New Rectangle(0, 0, Width, Height)
+        Dim 圆角区域 As New Size
+        Select Case 区域.Width - 区域.Height
+            Case 0
+                圆角区域 = New Size(区域.Width * 圆角百分比, 区域.Height * 圆角百分比)
+            Case < 0
+                圆角区域 = New Size(区域.Width * 圆角百分比, 区域.Width * 圆角百分比)
+            Case > 0
+                圆角区域 = New Size(区域.Height * 圆角百分比, 区域.Height * 圆角百分比)
+        End Select
+        Dim 圆角区域1 As New Point(区域.X, 区域.Y)
+        Dim 圆角区域2 As New Point(区域.Width - 圆角区域.Width, 区域.Y)
+        Dim 圆角区域3 As New Point(区域.Width - 圆角区域.Width, 区域.Height - 圆角区域.Height)
+        Dim 圆角区域4 As New Point(区域.X, 区域.Height - 圆角区域.Height)
 
-            Dim 圆角大小 As Double = 圆角百分比
-            Dim 外部区域 As New Rectangle(0, 0, Width, Height)
-            Dim 内部区域 As New Rectangle(外部区域.X + 边框大小, 外部区域.Y + 边框大小, 外部区域.Width - 边框大小 * 2, 外部区域.Height - 边框大小 * 2)
-
-            Dim pathOuter As New GraphicsPath()
-            Dim pathInner As New GraphicsPath()
-            Dim 外部圆角 As Single = 圆角大小 * (外部区域.Width / 2)
-            Dim 内部圆角 As Single = 外部圆角 * ((外部区域.Width - 边框大小 * 2) / 外部区域.Width)
-
-            If 图片缩放 Then
-                g.Clear(Color.White)
-                g.DrawImage(New Bitmap(Image, New Size(Width - 边框大小 * 2, Height - 边框大小 * 2)), 边框大小, 边框大小)
-            End If
-
-            If 圆角大小 = 0 Then
-                pathOuter.AddRectangle(外部区域)
-                pathInner.AddRectangle(内部区域)
-            ElseIf 圆角大小 = 1 Then
-                pathOuter.AddEllipse(外部区域)
-                pathInner.AddEllipse(内部区域)
+        If 边框大小 <> 0 AndAlso 启用边框 Then
+            Dim 边框 As New GraphicsPath
+            If 圆角百分比 <> 0 Then
+                边框.AddArc(New Rectangle(圆角区域1, 圆角区域), 180, 90)
+                边框.AddArc(New Rectangle(圆角区域2, 圆角区域), 270, 90)
+                边框.AddArc(New Rectangle(圆角区域3, 圆角区域), 0, 90)
+                边框.AddArc(New Rectangle(圆角区域4, 圆角区域), 90, 90)
             Else
-                pathOuter.AddArc(外部区域.Left, 外部区域.Top, 外部圆角 * 2, 外部圆角 * 2, 180, 90)
-                pathOuter.AddArc(外部区域.Right - 外部圆角 * 2, 外部区域.Top, 外部圆角 * 2, 外部圆角 * 2, 270, 90)
-                pathOuter.AddArc(外部区域.Right - 外部圆角 * 2, 外部区域.Bottom - 外部圆角 * 2, 外部圆角 * 2, 外部圆角 * 2, 0, 90)
-                pathOuter.AddArc(外部区域.Left, 外部区域.Bottom - 外部圆角 * 2, 外部圆角 * 2, 外部圆角 * 2, 90, 90)
-
-                pathInner.AddArc(内部区域.Left, 内部区域.Top, 内部圆角 * 2, 内部圆角 * 2, 180, 90)
-                pathInner.AddArc(内部区域.Right - 内部圆角 * 2, 内部区域.Top, 内部圆角 * 2, 内部圆角 * 2, 270, 90)
-                pathInner.AddArc(内部区域.Right - 内部圆角 * 2, 内部区域.Bottom - 内部圆角 * 2, 内部圆角 * 2, 内部圆角 * 2, 0, 90)
-                pathInner.AddArc(内部区域.Left, 内部区域.Bottom - 内部圆角 * 2, 内部圆角 * 2, 内部圆角 * 2, 90, 90)
+                边框.AddRectangle(区域)
             End If
+            边框.CloseFigure()
 
-            pathOuter.CloseFigure()
-            pathInner.CloseFigure()
-
-            ' 组合外部和内部圆角矩形路径
-            Dim combinePath As New GraphicsPath()
-            combinePath.AddPath(pathOuter, False) ' 添加外部路径
-            combinePath.AddPath(pathInner, True) ' 添加内部路径
-
-            ' 填充内部圆角矩形区域外部
-            g.FillPath(New SolidBrush(边框颜色), combinePath)
-
-            '创建一个Region对象， 表示圆角矩形区域
-            Dim circleRegion As New Region(pathOuter)
-
-            ' 将圆形区域排除在外
-            g.ExcludeClip(circleRegion)
-
-            ' 填充被排除的区域
-            g.FillRectangle(New SolidBrush(边框外部颜色), 外部区域)
+            g.DrawPath(New Pen(边框颜色, 边框大小), 边框)
         End If
 
+        If 圆角百分比 <> 0 Then
+            Dim 圆角 As New GraphicsPath
+            '左上角
+            圆角.AddArc(New Rectangle(圆角区域1, 圆角区域), 180, 90)
+            圆角.AddLine(圆角区域1, New Point(圆角区域1.X, 圆角区域1.Y + 圆角区域.Height / 2))
+            圆角.CloseFigure()
+            '右上角
+            圆角.AddArc(New Rectangle(圆角区域2, 圆角区域), 270, 90)
+            圆角.AddLine(New Point(圆角区域2.X + 圆角区域.Width, 圆角区域2.Y), 圆角区域2)
+            圆角.CloseFigure()
+            '右下角
+            圆角.AddArc(New Rectangle(圆角区域3, 圆角区域), 0, 90)
+            圆角.AddLine(New Point(圆角区域3.X + 圆角区域.Width, 圆角区域3.Y + 圆角区域.Height), New Point(圆角区域3.X + 圆角区域.Width, 圆角区域3.Y))
+            圆角.CloseFigure()
+            '左下角
+            圆角.AddArc(New Rectangle(圆角区域4, 圆角区域), 90, 90)
+            圆角.AddLine(New Point(圆角区域4.X, 圆角区域4.Y + 圆角区域.Height), New Point(圆角区域4.X + 圆角区域.Width, 圆角区域4.Y + 圆角区域.Height))
+            圆角.CloseFigure()
+
+            g.FillPath(New SolidBrush(边框外部颜色), 圆角)
+        End If
     End Sub
+
+    Public Function 返回图像() As Bitmap
+        Dim bmp As New Bitmap(Width, Height)
+
+        Using g As Graphics = Graphics.FromImage(bmp)
+            Dim e As New PaintEventArgs(g, New Rectangle(0, 0, Width, Height))
+            OnPaint(e)
+        End Using
+
+        Return bmp
+    End Function
 End Class

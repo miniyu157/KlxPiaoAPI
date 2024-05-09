@@ -2,9 +2,7 @@
 Imports System.Drawing
 Imports System.IO
 Imports System.Reflection
-Imports System.Runtime.InteropServices
 Imports System.Windows.Forms
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Button
 
 Public Class KlxPiaoForm
     Inherits Form
@@ -44,6 +42,7 @@ Public Class KlxPiaoForm
 
     Private _窗体按钮 As 窗体按钮样式
     Private _窗体边框颜色 As Color
+    Private _全屏时隐藏窗体边框 As Boolean
     Private _窗体可拖动位置 As 拖动位置
     Private _窗体可调整大小 As Boolean
     Private _快捷缩放方式 As 双击位置
@@ -79,12 +78,13 @@ Public Class KlxPiaoForm
 
         _窗体按钮 = 窗体按钮样式.全部显示
         _窗体边框颜色 = Color.FromArgb(100, 100, 100)
+        _全屏时隐藏窗体边框 = True
         _窗体可拖动位置 = 拖动位置.仅标题框
         _窗体可调整大小 = True
         _快捷缩放方式 = 双击位置.双击标题框时
         _启用缩放动画 = True
-        _启用启动动画 = False
-        _启用关闭动画 = False
+        _启用启动动画 = True
+        _启用关闭动画 = True
 
         _窗体按钮宽度 = 40
 
@@ -189,6 +189,16 @@ Public Class KlxPiaoForm
         End Get
         Set(value As Color)
             _窗体边框颜色 = value
+            Invalidate()
+        End Set
+    End Property
+    <Category("窗体特性")， Description("设置为True，全屏时隐藏窗体边框")>
+    Public Property 全屏时隐藏窗体边框 As Boolean
+        Get
+            Return _全屏时隐藏窗体边框
+        End Get
+        Set(value As Boolean)
+            _全屏时隐藏窗体边框 = value
             Invalidate()
         End Set
     End Property
@@ -385,6 +395,16 @@ Public Class KlxPiaoForm
         End Set
     End Property
 
+    <Browsable(False)>
+    Public Overloads Property FormBorderStyle As FormBorderStyle
+        Get
+            Return MyBase.FormBorderStyle
+        End Get
+        Set(value As FormBorderStyle)
+            MyBase.FormBorderStyle = value
+        End Set
+    End Property
+
     Private WithEvents CloseButton As New Button
     Private WithEvents MinButton As New Button
     Private WithEvents ResizingButton As New Button
@@ -400,7 +420,9 @@ Public Class KlxPiaoForm
 
         '绘制边框
         Using BorderPen As New Pen(窗体边框颜色, 1)
-            g.DrawRectangle(BorderPen, 0, 0, Width - 1, Height - 1)
+            If Not (WindowState = FormWindowState.Maximized AndAlso 全屏时隐藏窗体边框) Then
+                g.DrawRectangle(BorderPen, 0, 0, Width - 1, Height - 1)
+            End If
         End Using
 
         '绘制标题
@@ -428,6 +450,7 @@ Public Class KlxPiaoForm
             End Select
 
             g.DrawString(Text, 标题字体, brush, 文字位置x, 文字位置y)
+
         End Using
 
         '窗体按钮
@@ -497,19 +520,24 @@ Public Class KlxPiaoForm
     End Sub
 
 
-#Region "窗体按钮事件"
+#Region "最大化/还原、缩放、最小化按钮"
     Private Sub MinButton_Click(sender As Object, e As EventArgs) Handles MinButton.Click
         WindowState = FormWindowState.Minimized
     End Sub
+
+    '关闭动画（模拟Windows关闭动画）
     Private isClosing As Boolean = False
-    Private Sub KlxPiaoForm_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        CloseForm()
-    End Sub
     Private Sub CloseButton_Click(sender As Object, e As EventArgs) Handles CloseButton.Click
         CloseForm()
     End Sub
-
-    '关闭事件
+    Protected Overrides Sub OnClosing(e As CancelEventArgs)
+        MyBase.OnClosing(e)
+        CloseForm()
+    End Sub
+    Protected Overrides Sub OnClosed(e As EventArgs)
+        MyBase.OnClosed(e)
+        CloseForm()
+    End Sub
     Private ReadOnly 动画长度 As Integer = 6
     Private Async Sub CloseForm()
         If Not isClosing Then
@@ -536,34 +564,14 @@ Public Class KlxPiaoForm
             Close()
         End If
     End Sub
+
     '启动动画
-    Private Async Sub KlxPiaoForm_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-        If 启用启动动画 Then
-            Await Task.Delay(200)
-
-            For i = 动画长度 To 0 Step -1
-                Size += New Size(i, i)
-                Location -= New Size(i \ 2, i \ 2)
-
-                Opacity = (100 - i * (100 \ 动画长度)) / 100
-                Invalidate()
-                Await Task.Delay(10)
-            Next
-            Opacity = 1
-        End If
-    End Sub
     Private Sub KlxPiaoForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         If 启用启动动画 Then
-            Opacity = 0
-
-            Dim 总长度 As Integer = 等差数列求和Sn(0, 1, 动画长度 + 1)
-            Size -= New Size(总长度, 总长度)
-            Location += New Size(总长度 \ 2, 总长度 \ 2)
+            FormBorderStyle = FormBorderStyle.FixedDialog
+            FormBorderStyle = FormBorderStyle.None
         End If
     End Sub
-    Private Function 等差数列求和Sn(a1 As Integer, d As Integer, n As Integer) As Integer
-        Return a1 * n + (n * (n - 1) * d) / 2
-    End Function
 
     '最大化、还原按钮
     Private Sub ResizingButton_Click(sender As Object, e As EventArgs) Handles ResizingButton.Click
@@ -573,18 +581,18 @@ Public Class KlxPiaoForm
         Select Case WindowState
             Case FormWindowState.Normal
                 Dim 设置样式 As New 设置WindowState With {
-                .应用于 = Me,
-                .样式 = FormWindowState.Maximized,
-                .启用动画 = 启用缩放动画
-            }
+                    .应用于 = Me,
+                    .样式 = FormWindowState.Maximized,
+                    .启用动画 = 启用缩放动画
+                }
 
                 设置样式.设置()
             Case FormWindowState.Maximized
                 Dim 设置样式 As New 设置WindowState With {
-                .应用于 = Me,
-                .样式 = FormWindowState.Normal,
-                .启用动画 = 启用缩放动画
-            }
+                    .应用于 = Me,
+                    .样式 = FormWindowState.Normal,
+                    .启用动画 = 启用缩放动画
+                }
 
                 设置样式.设置()
         End Select
@@ -592,8 +600,10 @@ Public Class KlxPiaoForm
 
 #End Region
 
-    '窗体文字改变时刷新
-    Private Sub KlxPiaoForm_TextChanged(sender As Object, e As EventArgs) Handles Me.TextChanged
+    '标题文字改变时重绘
+    Protected Overrides Sub OnTextChanged(e As EventArgs)
+        MyBase.OnTextChanged(e)
+
         Refresh()
     End Sub
 
@@ -693,7 +703,8 @@ Public Class KlxPiaoForm
     End Sub
 
     '响应窗体拖动，和调整大小
-    Private Sub KlxPiaoForm_MouseDown(sender As Object, e As MouseEventArgs) Handles Me.MouseDown
+    Protected Overrides Sub OnMouseDown(e As MouseEventArgs)
+        MyBase.OnMouseDown(e)
 
         '窗体拖动
         If 窗体可拖动位置 <> 拖动位置.不启用拖动 AndAlso WindowState <> FormWindowState.Maximized AndAlso e.Button = MouseButtons.Left Then
@@ -703,7 +714,6 @@ Public Class KlxPiaoForm
                 MouseDownLocation = e.Location
             End If
         End If
-
 
         '调整大小
         If 窗体可调整大小 AndAlso (Not WindowState = FormWindowState.Maximized) Then
@@ -744,12 +754,13 @@ Public Class KlxPiaoForm
             End If
         End If
     End Sub
-    Private Sub KlxPiaoForm_MouseMove(sender As Object, e As MouseEventArgs) Handles Me.MouseMove
+    Protected Overrides Sub OnMouseMove(e As MouseEventArgs)
+        MyBase.OnMouseMove(e)
+
         '正在调整窗体大小时不允许拖动窗体
         If 正在调整的位置 = 调整位置.调完了 AndAlso e.Button = MouseButtons.Left AndAlso MouseDownLocation <> Point.Empty Then
             Location += (e.Location - MouseDownLocation)
         End If
-
 
         '调整大小
         If 窗体可调整大小 = True AndAlso (Not WindowState = FormWindowState.Maximized) Then
@@ -826,7 +837,9 @@ Public Class KlxPiaoForm
             End If
         End If
     End Sub
-    Private Sub KlxPiaoForm_MouseUp(sender As Object, e As MouseEventArgs) Handles Me.MouseUp
+    Protected Overrides Sub OnMouseUp(e As MouseEventArgs)
+        MyBase.OnMouseUp(e)
+
         MouseDownLocation = Point.Empty
 
         If 窗体可调整大小 = True AndAlso (Not WindowState = FormWindowState.Maximized) Then
@@ -835,7 +848,9 @@ Public Class KlxPiaoForm
     End Sub
 
     '缩放快捷方式（双击标题栏）
-    Private Sub KlxPiaoForm_DoubleClick(sender As Object, e As EventArgs) Handles Me.DoubleClick
+    Protected Overrides Sub OnDoubleClick(e As EventArgs)
+        MyBase.OnDoubleClick(e)
+
         '仅只有显示缩放按钮时才允许最大化、还原
 
         If 窗体按钮 = 窗体按钮样式.全部显示 Then
@@ -937,6 +952,10 @@ Public Class KlxPiaoForm
 #End Region
 
 #Region "导出主题文件"
+    ''' <summary>
+    ''' 导出主题文件
+    ''' </summary>
+    ''' <param name="文件路径"></param>
     Public Sub 导出主题文件(文件路径 As String)
         Using 写入文件 As New StreamWriter(文件路径)
 

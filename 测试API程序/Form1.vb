@@ -625,7 +625,8 @@ End Property"
             .窗体可调整大小 = False,
             .ShowInTaskbar = False,
             .StartPosition = FormStartPosition.CenterParent,
-            .Size = New Size(250, 150)
+            .Size = New Size(250, 150),
+            .窗体边框颜色 = Color.FromArgb(113, 96, 232)
         }
 
         复制主题(Me, 提示框)
@@ -666,4 +667,11 @@ End Property"
 
         刷新配色()
     End Sub
+
+    Private Sub KlxPiaoButton8_Click(sender As Object, e As EventArgs) Handles KlxPiaoButton8.Click
+        Dim 随机颜色 As Color = Color.FromArgb(rand.Next(0, 255), rand.Next(0, 255), rand.Next(0, 255))
+        Form2.自动生成主题(随机颜色)
+        Form2.Show()
+    End Sub
+
 End Class

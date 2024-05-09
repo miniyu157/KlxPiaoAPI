@@ -108,6 +108,12 @@ KlxPiaoAPI
  </summary>
  <param name="文件路径或资源文件"></param>
 </member>
+<member name="M:KlxPiaoAPI.KlxPiaoForm.导出主题文件(System.String)">
+ <summary>
+ 导出主题文件
+ </summary>
+ <param name="文件路径"></param>
+</member>
 <member name="T:KlxPiaoAPI.KlxPiaoForm.设置WindowState">
  <summary>
  最大化/还原时的动画

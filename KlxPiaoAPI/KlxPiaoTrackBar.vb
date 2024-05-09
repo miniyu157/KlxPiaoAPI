@@ -57,6 +57,13 @@ Public Class KlxPiaoTrackBar
 
     Private _焦点边框颜色 As Color
     Private _焦点边框大小 As Integer
+    Private _焦点前景色 As Color
+    Private _焦点背景色 As Color
+
+    Private _移入边框颜色 As Color
+    Private _移入边框大小 As Integer
+    Private _移入前景色 As Color
+    Private _移入背景色 As Color
 
     Private _值 As Integer
     Private _最大值 As Integer
@@ -74,8 +81,15 @@ Public Class KlxPiaoTrackBar
         _值显示方式 = 文字位置.不显示
         _值显示边距 = 0
 
-        _焦点边框颜色 = Color.Red
+        _焦点边框颜色 = Color.Transparent
         _焦点边框大小 = -1
+        _焦点前景色 = Color.Transparent
+        _焦点背景色 = Color.Transparent
+
+        _移入边框颜色 = Color.Transparent
+        _移入边框大小 = -1
+        _移入前景色 = Color.Transparent
+        _移入背景色 = Color.Transparent
 
         _值 = 0
         _最大值 = 100
@@ -94,7 +108,9 @@ Public Class KlxPiaoTrackBar
         SetStyle(ControlStyles.Selectable, True)
     End Sub
 
-    <Category("KlxPiaoTrackBar外观"), Description("组件的背景色")>
+    <Category("KlxPiaoTrackBar外观")>
+    <Description("组件的背景色")>
+    <DefaultValue(GetType(Color), "Gainsboro")>
     Public Property 背景色 As Color
         Get
             Return _背景色
@@ -104,7 +120,9 @@ Public Class KlxPiaoTrackBar
             Invalidate()
         End Set
     End Property
-    <Category("KlxPiaoTrackBar外观"), Description("组件的前景色")>
+    <Category("KlxPiaoTrackBar外观")>
+    <Description("组件的前景色")>
+    <DefaultValue(GetType(Color), "Gray")>
     Public Property 前景色 As Color
         Get
             Return _前景色
@@ -114,7 +132,9 @@ Public Class KlxPiaoTrackBar
             Invalidate()
         End Set
     End Property
-    <Category("KlxPiaoTrackBar外观"), Description("边框的大小，为0时隐藏边框")>
+    <Category("KlxPiaoTrackBar外观")>
+    <Description("边框的大小，为0时隐藏边框")>
+    <DefaultValue(0)>
     Public Property 边框大小 As Integer
         Get
             Return _边框大小
@@ -124,7 +144,9 @@ Public Class KlxPiaoTrackBar
             Invalidate()
         End Set
     End Property
-    <Category("KlxPiaoTrackBar外观"), Description("边框的颜色")>
+    <Category("KlxPiaoTrackBar外观")>
+    <Description("边框的颜色")>
+    <DefaultValue(GetType(Color), "0,210,212")>
     Public Property 边框颜色 As Color
         Get
             Return _边框颜色
@@ -134,7 +156,9 @@ Public Class KlxPiaoTrackBar
             Invalidate()
         End Set
     End Property
-    <Category("KlxPiaoTrackBar外观"), Description("显示值到拖动条上，字体由Font属性决定，字体颜色由ForeColor属性决定")>
+    <Category("KlxPiaoTrackBar外观")>
+    <Description("显示值到拖动条上，字体由Font属性决定，字体颜色由ForeColor属性决定")>
+    <DefaultValue(GetType(文字位置), "不显示")>
     Public Property 值显示方式 As 文字位置
         Get
             Return _值显示方式
@@ -144,7 +168,9 @@ Public Class KlxPiaoTrackBar
             Invalidate()
         End Set
     End Property
-    <Category("KlxPiaoTrackBar外观"), Description("显示值的左右边距")>
+    <Category("KlxPiaoTrackBar外观")>
+    <Description("显示值的左右边距")>
+    <DefaultValue(0)>
     Public Property 值显示边距 As Integer
         Get
             Return _值显示边距
@@ -155,7 +181,9 @@ Public Class KlxPiaoTrackBar
         End Set
     End Property
 
-    <Category("KlxPiaoTrackBar焦点"), Description("控件激活时的边框颜色，Transparent：控件激活时不会改变边框颜色")>
+    <Category("KlxPiaoTrackBar焦点")>
+    <Description("控件激活时的边框颜色，Transparent：控件激活时不改变边框颜色")>
+    <DefaultValue(GetType(Color), "Transparent")>
     Public Property 焦点边框颜色 As Color
         Get
             Return _焦点边框颜色
@@ -165,7 +193,9 @@ Public Class KlxPiaoTrackBar
             Invalidate()
         End Set
     End Property
-    <Category("KlxPiaoTrackBar焦点"), Description("控件激活时的边框大小，-1：控件激活时不会改变边框大小")>
+    <Category("KlxPiaoTrackBar焦点")>
+    <Description("控件激活时的边框大小，-1：控件激活时不改变边框大小")>
+    <DefaultValue(-1)>
     Public Property 焦点边框大小 As Integer
         Get
             Return _焦点边框大小
@@ -175,12 +205,87 @@ Public Class KlxPiaoTrackBar
             Invalidate()
         End Set
     End Property
+    <Category("KlxPiaoTrackBar焦点")>
+    <Description("控件激活时的前景色，Transparent：控件激活时不改变前景色")>
+    <DefaultValue(GetType(Color), "Transparent")>
+    Public Property 焦点前景色 As Color
+        Get
+            Return _焦点前景色
+        End Get
+        Set(value As Color)
+            _焦点前景色 = value
+            Invalidate()
+        End Set
+    End Property
+    <Category("KlxPiaoTrackBar焦点")>
+    <Description("控件激活时的背景色，Transparent：控件激活时不改变背景色")>
+    <DefaultValue(GetType(Color), "Transparent")>
+    Public Property 焦点背景色 As Color
+        Get
+            Return _焦点背景色
+        End Get
+        Set(value As Color)
+            _焦点背景色 = value
+            Invalidate()
+        End Set
+    End Property
+
+    <Category("KlxPiaoTrackBar移入")>
+    <Description("鼠标移入时的边框颜色，Transparent：鼠标移入时不改变边框颜色")>
+    <DefaultValue(GetType(Color), "Transparent")>
+    Public Property 移入边框颜色 As Color
+        Get
+            Return _移入边框颜色
+        End Get
+        Set(value As Color)
+            _移入边框颜色 = value
+            Invalidate()
+        End Set
+    End Property
+    <Category("KlxPiaoTrackBar移入")>
+    <Description("鼠标移入时的边框大小，-1：鼠标移入时不改变边框大小")>
+    <DefaultValue(-1)>
+    Public Property 移入边框大小 As Integer
+        Get
+            Return _移入边框大小
+        End Get
+        Set(value As Integer)
+            _移入边框大小 = value
+            Invalidate()
+        End Set
+    End Property
+    <Category("KlxPiaoTrackBar移入")>
+    <Description("鼠标移入时的前景色，Transparent：鼠标移入时不改变前景色")>
+    <DefaultValue(GetType(Color), "Transparent")>
+    Public Property 移入前景色 As Color
+        Get
+            Return _移入前景色
+        End Get
+        Set(value As Color)
+            _移入前景色 = value
+            Invalidate()
+        End Set
+    End Property
+    <Category("KlxPiaoTrackBar移入")>
+    <Description("鼠标移入时的背景色，Transparent：鼠标移入时不改变背景色")>
+    <DefaultValue(GetType(Color), "Transparent")>
+    Public Property 移入背景色 As Color
+        Get
+            Return _移入背景色
+        End Get
+        Set(value As Color)
+            _移入背景色 = value
+            Invalidate()
+        End Set
+    End Property
 
     Public Event 值Changed As PropertyChangedEventHandler
     Protected Overridable Sub OnValueChanged(propertyName As String)
         RaiseEvent 值Changed(Me, New PropertyChangedEventArgs(propertyName))
     End Sub
-    <Category("KlxPiaoTrackBar属性"), Description("当前的值")>
+    <Category("KlxPiaoTrackBar属性")>
+    <Description("当前的值")>
+    <DefaultValue(0)>
     Public Property 值 As Integer
         Get
             Return _值
@@ -192,7 +297,9 @@ Public Class KlxPiaoTrackBar
             OnValueChanged("值")
         End Set
     End Property
-    <Category("KlxPiaoTrackBar属性"), Description("最大的值")>
+    <Category("KlxPiaoTrackBar属性")>
+    <Description("最大的值")>
+    <DefaultValue(100)>
     Public Property 最大值 As Integer
         Get
             Return _最大值
@@ -202,7 +309,9 @@ Public Class KlxPiaoTrackBar
             Invalidate()
         End Set
     End Property
-    <Category("KlxPiaoTrackBar属性"), Description("最小的值")>
+    <Category("KlxPiaoTrackBar属性")>
+    <Description("最小的值")>
+    <DefaultValue(0)>
     Public Property 最小值 As Integer
         Get
             Return _最小值
@@ -212,7 +321,9 @@ Public Class KlxPiaoTrackBar
             Invalidate()
         End Set
     End Property
-    <Category("KlxPiaoTrackBar属性"), Description("鼠标滚轮响应的方式，正向：向上增加，向下减少；逆向：向上减少，向下增加")>
+    <Category("KlxPiaoTrackBar属性")>
+    <Description("鼠标滚轮响应的方式，正向：向上增加，向下减少；逆向：向上减少，向下增加")>
+    <DefaultValue(GetType(鼠标滚轮响应), "正向")>
     Public Property 鼠标滚轮响应方式 As 鼠标滚轮响应
         Get
             Return _鼠标滚轮响应方式
@@ -222,7 +333,9 @@ Public Class KlxPiaoTrackBar
             Invalidate()
         End Set
     End Property
-    <Category("KlxPiaoTrackBar属性"), Description("键盘响应的方式")>
+    <Category("KlxPiaoTrackBar属性")>
+    <Description("键盘响应的方式")>
+    <DefaultValue(GetType(键盘响应), "全方向键")>
     Public Property 键盘响应方式 As 键盘响应
         Get
             Return _键盘响应方式
@@ -232,13 +345,26 @@ Public Class KlxPiaoTrackBar
             Invalidate()
         End Set
     End Property
-    <Category("KlxPiaoTrackBar属性"), Description("鼠标滚轮或键盘按下一次增减的大小")>
+    <Category("KlxPiaoTrackBar属性")>
+    <Description("鼠标滚轮或键盘按下一次增减的大小")>
+    <DefaultValue(1)>
     Public Property 增减大小 As Integer
         Get
             Return _增减大小
         End Get
         Set(value As Integer)
             _增减大小 = value
+            Invalidate()
+        End Set
+    End Property
+
+    <DefaultValue(GetType(Size), "286,10")>
+    Public Overloads Property Size As Size
+        Get
+            Return MyBase.Size
+        End Get
+        Set(value As Size)
+            MyBase.Size = value
             Invalidate()
         End Set
     End Property
@@ -450,44 +576,61 @@ Public Class KlxPiaoTrackBar
     End Sub
 #End Region
 
-    'Protected Overrides Sub OnMouseEnter(e As EventArgs)
-    '    MyBase.OnMouseEnter(e)
+#Region "应用焦点反馈、移入反馈"
+    Private 原来的边框大小1 As Integer
+    Private 原来的边框颜色1 As Color
+    Private 原来的前景色1 As Color
+    Private 原来的背景色1 As Color
 
-    '    Size += New Size(4, 4)
-    '    Location -= New Size(2, 2)
+    Private 原来的边框大小2 As Integer
+    Private 原来的边框颜色2 As Color
+    Private 原来的前景色2 As Color
+    Private 原来的背景色2 As Color
 
-    '    Invalidate()
-    'End Sub
-    'Protected Overrides Sub OnMouseLeave(e As EventArgs)
-    '    MyBase.OnMouseLeave(e)
+    Protected Overrides Sub OnMouseEnter(e As EventArgs)
+        MyBase.OnMouseEnter(e)
 
-    '    Size -= New Size(4, 4)
-    '    Location += New Size(2, 2)
+        原来的边框大小1 = 边框大小
+        原来的边框颜色1 = 边框颜色
+        原来的前景色1 = 前景色
+        原来的背景色1 = 背景色
 
-    '    Invalidate()
-    'End Sub
+        If 移入边框大小 <> -1 Then 边框大小 = 移入边框大小
+        If 移入边框颜色 <> Color.Transparent Then 边框颜色 = 移入边框颜色
+        If 移入前景色 <> Color.Transparent Then 前景色 = 移入前景色
+        If 移入背景色 <> Color.Transparent Then 背景色 = 移入背景色
+    End Sub
+    Protected Overrides Sub OnMouseLeave(e As EventArgs)
+        MyBase.OnMouseLeave(e)
 
-    Private 原来的边框颜色
-    Private 原来的边框大小
+        If 移入边框大小 <> -1 Then 边框大小 = 原来的边框大小1
+        If 移入边框颜色 <> Color.Transparent Then 边框颜色 = 原来的边框颜色1
+        If 移入前景色 <> Color.Transparent Then 前景色 = 原来的前景色1
+        If 移入背景色 <> Color.Transparent Then 背景色 = 原来的背景色1
+    End Sub
+
     Protected Overrides Sub OnGotFocus(e As EventArgs)
         MyBase.OnGotFocus(e)
 
-        原来的边框颜色 = 边框颜色
-        原来的边框大小 = 边框大小
+        原来的边框大小2 = 边框大小
+        原来的边框颜色2 = 边框颜色
+        原来的前景色2 = 前景色
+        原来的背景色2 = 背景色
 
-        If 焦点边框颜色 <> Color.Transparent Then
-            边框颜色 = 焦点边框颜色
-        End If
-
-        If 焦点边框大小 <> -1 Then
-            边框大小 = 焦点边框大小
-        End If
+        If 焦点边框大小 <> -1 Then 边框大小 = 焦点边框大小
+        If 焦点边框颜色 <> Color.Transparent Then 边框颜色 = 焦点边框颜色
+        If 焦点前景色 <> Color.Transparent Then 前景色 = 焦点前景色
+        If 焦点背景色 <> Color.Transparent Then 背景色 = 焦点背景色
     End Sub
 
     Protected Overrides Sub OnLostFocus(e As EventArgs)
         MyBase.OnLostFocus(e)
 
-        边框颜色 = 原来的边框颜色
-        边框大小 = 原来的边框大小
+        If 焦点边框大小 <> -1 Then 边框大小 = 原来的边框大小2
+        If 焦点边框颜色 <> Color.Transparent Then 边框颜色 = 原来的边框颜色2
+        If 焦点前景色 <> Color.Transparent Then 前景色 = 原来的前景色2
+        If 焦点背景色 <> Color.Transparent Then 背景色 = 原来的背景色2
     End Sub
+#End Region
+
 End Class

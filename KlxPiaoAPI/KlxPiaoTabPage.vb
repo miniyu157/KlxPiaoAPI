@@ -1,4 +1,5 @@
-﻿Imports System.Drawing
+﻿Imports System.ComponentModel
+Imports System.Drawing
 Imports System.Windows.Forms
 
 Public Class KlxPiaoTabPage
@@ -8,7 +9,20 @@ Public Class KlxPiaoTabPage
     Private 当前页背景色 As Color = Nothing
     Public Sub New()
         SetStyle(ControlStyles.UserPaint, True)
+
+        Size = New Size(283, 127)
     End Sub
+
+    <DefaultValue(GetType(Size), "283,127")>
+    Public Overloads Property Size As Size
+        Get
+            Return MyBase.Size
+        End Get
+        Set(value As Size)
+            MyBase.Size = value
+            Invalidate()
+        End Set
+    End Property
 
     Protected Overrides Sub OnPaint(e As PaintEventArgs)
         MyBase.OnPaint(e)
@@ -32,13 +46,13 @@ Public Class KlxPiaoTabPage
             g.DrawLine(BorderPen, Width - 1, 0, Width - 1, Height - 1)
             '绘制下边
             g.DrawLine(BorderPen, Width - 1, Height - 1, 0, Height - 1)
-            '不绘制左边，防止覆盖阴影
+            '不绘制左边，防止覆盖投影
             'g.DrawLine(BorderPen, 0, Height - 1, 0, 0)
         End Using
 
         '未绑定时显示提示文本
         If ItemSize.Height <> 1 Then
-            g.DrawString("请绑定KlxPiaoTabControl", New Font("微软雅黑", 9), New SolidBrush(Color.Red), New Point(6, 6))
+            g.DrawString($"{Name}:请绑定KlxPiaoTabControl", New Font("微软雅黑", 9), New SolidBrush(Color.Red), New Point(6, 6))
         End If
     End Sub
 

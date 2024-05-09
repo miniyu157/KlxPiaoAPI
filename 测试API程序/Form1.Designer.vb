@@ -100,10 +100,13 @@ Partial Class Form1
         Me.KlxPiaoLabel30 = New KlxPiaoAPI.KlxPiaoLabel()
         Me.KlxPiaoPictureBox1 = New KlxPiaoAPI.KlxPiaoPictureBox()
         Me.TabPage16 = New System.Windows.Forms.TabPage()
+        Me.KlxPiaoTrackBar7 = New KlxPiaoAPI.KlxPiaoTrackBar()
         Me.KlxPiaoTrackBar6 = New KlxPiaoAPI.KlxPiaoTrackBar()
         Me.KlxPiaoTrackBar5 = New KlxPiaoAPI.KlxPiaoTrackBar()
         Me.KlxPiaoTrackBar4 = New KlxPiaoAPI.KlxPiaoTrackBar()
         Me.KlxPiaoTrackBar3 = New KlxPiaoAPI.KlxPiaoTrackBar()
+        Me.TabPage17 = New System.Windows.Forms.TabPage()
+        Me.KlxPiaoButton8 = New KlxPiaoAPI.KlxPiaoButton()
         Me.Switch1 = New KlxPiaoAPI.Switch()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.Button7 = New System.Windows.Forms.Button()
@@ -111,11 +114,11 @@ Partial Class Form1
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.KlxPiaoButton1 = New KlxPiaoAPI.KlxPiaoButton()
         Me.KlxPiaoButton4 = New KlxPiaoAPI.KlxPiaoButton()
         Me.KlxPiaoButton3 = New KlxPiaoAPI.KlxPiaoButton()
         Me.KlxPiaoButton2 = New KlxPiaoAPI.KlxPiaoButton()
         Me.KlxPiaoPanel16 = New KlxPiaoAPI.KlxPiaoPanel()
-        Me.KlxPiaoButton1 = New KlxPiaoAPI.KlxPiaoButton()
         Me.CheckBox6 = New System.Windows.Forms.CheckBox()
         Me.CheckBox5 = New System.Windows.Forms.CheckBox()
         Me.KlxPiaoPanel17 = New KlxPiaoAPI.KlxPiaoPanel()
@@ -177,6 +180,7 @@ Partial Class Form1
         Me.TabPage15.SuspendLayout()
         CType(Me.KlxPiaoPictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage16.SuspendLayout()
+        Me.TabPage17.SuspendLayout()
         Me.TabPage4.SuspendLayout()
         Me.TabPage5.SuspendLayout()
         Me.KlxPiaoPanel16.SuspendLayout()
@@ -528,6 +532,7 @@ Partial Class Form1
         '
         'KlxPiaoTabControl1
         '
+        Me.KlxPiaoTabControl1.BackColor = System.Drawing.Color.White
         Me.KlxPiaoTabControl1.Controls.Add(Me.KlxPiaoTabPage1)
         Me.KlxPiaoTabControl1.Location = New System.Drawing.Point(6, 6)
         Me.KlxPiaoTabControl1.Name = "KlxPiaoTabControl1"
@@ -551,6 +556,7 @@ Partial Class Form1
         Me.KlxPiaoTabPage1.Controls.Add(Me.TabPage14)
         Me.KlxPiaoTabPage1.Controls.Add(Me.TabPage15)
         Me.KlxPiaoTabPage1.Controls.Add(Me.TabPage16)
+        Me.KlxPiaoTabPage1.Controls.Add(Me.TabPage17)
         Me.KlxPiaoTabPage1.ItemSize = New System.Drawing.Size(0, 1)
         Me.KlxPiaoTabPage1.Location = New System.Drawing.Point(94, 0)
         Me.KlxPiaoTabPage1.Multiline = True
@@ -1146,20 +1152,6 @@ Partial Class Form1
         Me.KlxPiaoTrackBar2.Size = New System.Drawing.Size(220, 10)
         Me.KlxPiaoTrackBar2.TabIndex = 6
         Me.KlxPiaoTrackBar2.Text = "KlxPiaoTrackBar2"
-        Me.KlxPiaoTrackBar2.值 = 0
-        Me.KlxPiaoTrackBar2.值显示方式 = KlxPiaoAPI.KlxPiaoTrackBar.文字位置.不显示
-        Me.KlxPiaoTrackBar2.值显示边距 = 0
-        Me.KlxPiaoTrackBar2.前景色 = System.Drawing.Color.Gray
-        Me.KlxPiaoTrackBar2.增减大小 = 1
-        Me.KlxPiaoTrackBar2.最大值 = 100
-        Me.KlxPiaoTrackBar2.最小值 = 0
-        Me.KlxPiaoTrackBar2.焦点边框大小 = -1
-        Me.KlxPiaoTrackBar2.焦点边框颜色 = System.Drawing.Color.Red
-        Me.KlxPiaoTrackBar2.背景色 = System.Drawing.Color.Gainsboro
-        Me.KlxPiaoTrackBar2.边框大小 = 0
-        Me.KlxPiaoTrackBar2.边框颜色 = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(212, Byte), Integer))
-        Me.KlxPiaoTrackBar2.键盘响应方式 = KlxPiaoAPI.KlxPiaoTrackBar.键盘响应.全方向键
-        Me.KlxPiaoTrackBar2.鼠标滚轮响应方式 = KlxPiaoAPI.KlxPiaoTrackBar.鼠标滚轮响应.正向
         '
         'KlxPiaoTrackBar1
         '
@@ -1169,20 +1161,8 @@ Partial Class Form1
         Me.KlxPiaoTrackBar1.Size = New System.Drawing.Size(220, 10)
         Me.KlxPiaoTrackBar1.TabIndex = 5
         Me.KlxPiaoTrackBar1.Text = "KlxPiaoTrackBar1"
-        Me.KlxPiaoTrackBar1.值 = 0
-        Me.KlxPiaoTrackBar1.值显示方式 = KlxPiaoAPI.KlxPiaoTrackBar.文字位置.不显示
-        Me.KlxPiaoTrackBar1.值显示边距 = 0
-        Me.KlxPiaoTrackBar1.前景色 = System.Drawing.Color.Gray
-        Me.KlxPiaoTrackBar1.增减大小 = 1
-        Me.KlxPiaoTrackBar1.最大值 = 20
-        Me.KlxPiaoTrackBar1.最小值 = 0
-        Me.KlxPiaoTrackBar1.焦点边框大小 = -1
-        Me.KlxPiaoTrackBar1.焦点边框颜色 = System.Drawing.Color.Red
-        Me.KlxPiaoTrackBar1.背景色 = System.Drawing.Color.Gainsboro
-        Me.KlxPiaoTrackBar1.边框大小 = 0
-        Me.KlxPiaoTrackBar1.边框颜色 = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(212, Byte), Integer))
-        Me.KlxPiaoTrackBar1.键盘响应方式 = KlxPiaoAPI.KlxPiaoTrackBar.键盘响应.全方向键
-        Me.KlxPiaoTrackBar1.鼠标滚轮响应方式 = KlxPiaoAPI.KlxPiaoTrackBar.鼠标滚轮响应.正向
+        Me.KlxPiaoTrackBar1.最大值 = 30
+        Me.KlxPiaoTrackBar1.边框颜色 = System.Drawing.Color.Empty
         '
         'KlxPiaoLabel31
         '
@@ -1242,19 +1222,17 @@ Partial Class Form1
         Me.KlxPiaoPictureBox1.Location = New System.Drawing.Point(30, 25)
         Me.KlxPiaoPictureBox1.Name = "KlxPiaoPictureBox1"
         Me.KlxPiaoPictureBox1.Size = New System.Drawing.Size(155, 155)
-        Me.KlxPiaoPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.KlxPiaoPictureBox1.TabIndex = 0
         Me.KlxPiaoPictureBox1.TabStop = False
         Me.KlxPiaoPictureBox1.启用边框 = True
-        Me.KlxPiaoPictureBox1.图片缩放 = True
         Me.KlxPiaoPictureBox1.圆角百分比 = 0.36!
-        Me.KlxPiaoPictureBox1.边框外部颜色 = System.Drawing.Color.White
-        Me.KlxPiaoPictureBox1.边框大小 = 10
+        Me.KlxPiaoPictureBox1.边框大小 = 18
         Me.KlxPiaoPictureBox1.边框颜色 = System.Drawing.Color.Pink
         '
         'TabPage16
         '
         Me.TabPage16.BackColor = System.Drawing.Color.White
+        Me.TabPage16.Controls.Add(Me.KlxPiaoTrackBar7)
         Me.TabPage16.Controls.Add(Me.KlxPiaoTrackBar6)
         Me.TabPage16.Controls.Add(Me.KlxPiaoTrackBar5)
         Me.TabPage16.Controls.Add(Me.KlxPiaoTrackBar4)
@@ -1266,30 +1244,39 @@ Partial Class Form1
         Me.TabPage16.TabIndex = 5
         Me.TabPage16.Text = "TrackBar"
         '
+        'KlxPiaoTrackBar7
+        '
+        Me.KlxPiaoTrackBar7.BackColor = System.Drawing.Color.White
+        Me.KlxPiaoTrackBar7.Font = New System.Drawing.Font("微软雅黑", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.KlxPiaoTrackBar7.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.KlxPiaoTrackBar7.Location = New System.Drawing.Point(119, 290)
+        Me.KlxPiaoTrackBar7.Name = "KlxPiaoTrackBar7"
+        Me.KlxPiaoTrackBar7.Size = New System.Drawing.Size(374, 13)
+        Me.KlxPiaoTrackBar7.TabIndex = 7
+        Me.KlxPiaoTrackBar7.Text = "KlxPiaoTrackBar7"
+        Me.KlxPiaoTrackBar7.值 = 60
+        Me.KlxPiaoTrackBar7.前景色 = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.KlxPiaoTrackBar7.移入前景色 = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(182, Byte), Integer), CType(CType(182, Byte), Integer))
+        Me.KlxPiaoTrackBar7.背景色 = System.Drawing.Color.White
+        Me.KlxPiaoTrackBar7.边框大小 = 1
+        Me.KlxPiaoTrackBar7.边框颜色 = System.Drawing.Color.Black
+        '
         'KlxPiaoTrackBar6
         '
         Me.KlxPiaoTrackBar6.BackColor = System.Drawing.Color.White
         Me.KlxPiaoTrackBar6.Font = New System.Drawing.Font("微软雅黑", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.KlxPiaoTrackBar6.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.KlxPiaoTrackBar6.Location = New System.Drawing.Point(38, 172)
+        Me.KlxPiaoTrackBar6.Location = New System.Drawing.Point(50, 163)
         Me.KlxPiaoTrackBar6.Name = "KlxPiaoTrackBar6"
         Me.KlxPiaoTrackBar6.Size = New System.Drawing.Size(443, 84)
         Me.KlxPiaoTrackBar6.TabIndex = 6
         Me.KlxPiaoTrackBar6.Text = "KlxPiaoTrackBar6"
         Me.KlxPiaoTrackBar6.值 = 36
         Me.KlxPiaoTrackBar6.值显示方式 = KlxPiaoAPI.KlxPiaoTrackBar.文字位置.居中
-        Me.KlxPiaoTrackBar6.值显示边距 = 0
         Me.KlxPiaoTrackBar6.前景色 = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.KlxPiaoTrackBar6.增减大小 = 1
-        Me.KlxPiaoTrackBar6.最大值 = 100
-        Me.KlxPiaoTrackBar6.最小值 = 0
-        Me.KlxPiaoTrackBar6.焦点边框大小 = -1
-        Me.KlxPiaoTrackBar6.焦点边框颜色 = System.Drawing.Color.Red
         Me.KlxPiaoTrackBar6.背景色 = System.Drawing.Color.White
         Me.KlxPiaoTrackBar6.边框大小 = 20
         Me.KlxPiaoTrackBar6.边框颜色 = System.Drawing.Color.Gray
-        Me.KlxPiaoTrackBar6.键盘响应方式 = KlxPiaoAPI.KlxPiaoTrackBar.键盘响应.全方向键
-        Me.KlxPiaoTrackBar6.鼠标滚轮响应方式 = KlxPiaoAPI.KlxPiaoTrackBar.鼠标滚轮响应.正向
         '
         'KlxPiaoTrackBar5
         '
@@ -1300,19 +1287,12 @@ Partial Class Form1
         Me.KlxPiaoTrackBar5.TabIndex = 5
         Me.KlxPiaoTrackBar5.Text = "KlxPiaoTrackBar5"
         Me.KlxPiaoTrackBar5.值 = 30
-        Me.KlxPiaoTrackBar5.值显示方式 = KlxPiaoAPI.KlxPiaoTrackBar.文字位置.不显示
-        Me.KlxPiaoTrackBar5.值显示边距 = 0
         Me.KlxPiaoTrackBar5.前景色 = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.KlxPiaoTrackBar5.增减大小 = 1
-        Me.KlxPiaoTrackBar5.最大值 = 100
-        Me.KlxPiaoTrackBar5.最小值 = 0
-        Me.KlxPiaoTrackBar5.焦点边框大小 = -1
+        Me.KlxPiaoTrackBar5.焦点边框大小 = 1
         Me.KlxPiaoTrackBar5.焦点边框颜色 = System.Drawing.Color.Red
         Me.KlxPiaoTrackBar5.背景色 = System.Drawing.Color.White
         Me.KlxPiaoTrackBar5.边框大小 = 1
         Me.KlxPiaoTrackBar5.边框颜色 = System.Drawing.Color.Gray
-        Me.KlxPiaoTrackBar5.键盘响应方式 = KlxPiaoAPI.KlxPiaoTrackBar.键盘响应.全方向键
-        Me.KlxPiaoTrackBar5.鼠标滚轮响应方式 = KlxPiaoAPI.KlxPiaoTrackBar.鼠标滚轮响应.正向
         '
         'KlxPiaoTrackBar4
         '
@@ -1323,19 +1303,10 @@ Partial Class Form1
         Me.KlxPiaoTrackBar4.TabIndex = 4
         Me.KlxPiaoTrackBar4.Text = "KlxPiaoTrackBar4"
         Me.KlxPiaoTrackBar4.值 = 30
-        Me.KlxPiaoTrackBar4.值显示方式 = KlxPiaoAPI.KlxPiaoTrackBar.文字位置.不显示
-        Me.KlxPiaoTrackBar4.值显示边距 = 0
         Me.KlxPiaoTrackBar4.前景色 = System.Drawing.Color.Gainsboro
-        Me.KlxPiaoTrackBar4.增减大小 = 1
-        Me.KlxPiaoTrackBar4.最大值 = 100
-        Me.KlxPiaoTrackBar4.最小值 = 0
-        Me.KlxPiaoTrackBar4.焦点边框大小 = -1
         Me.KlxPiaoTrackBar4.焦点边框颜色 = System.Drawing.Color.Red
         Me.KlxPiaoTrackBar4.背景色 = System.Drawing.Color.White
         Me.KlxPiaoTrackBar4.边框大小 = 1
-        Me.KlxPiaoTrackBar4.边框颜色 = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(212, Byte), Integer))
-        Me.KlxPiaoTrackBar4.键盘响应方式 = KlxPiaoAPI.KlxPiaoTrackBar.键盘响应.全方向键
-        Me.KlxPiaoTrackBar4.鼠标滚轮响应方式 = KlxPiaoAPI.KlxPiaoTrackBar.鼠标滚轮响应.正向
         '
         'KlxPiaoTrackBar3
         '
@@ -1346,19 +1317,35 @@ Partial Class Form1
         Me.KlxPiaoTrackBar3.TabIndex = 3
         Me.KlxPiaoTrackBar3.Text = "KlxPiaoTrackBar3"
         Me.KlxPiaoTrackBar3.值 = 25
-        Me.KlxPiaoTrackBar3.值显示方式 = KlxPiaoAPI.KlxPiaoTrackBar.文字位置.不显示
-        Me.KlxPiaoTrackBar3.值显示边距 = 0
-        Me.KlxPiaoTrackBar3.前景色 = System.Drawing.Color.Gray
         Me.KlxPiaoTrackBar3.增减大小 = 3
         Me.KlxPiaoTrackBar3.最大值 = 50
         Me.KlxPiaoTrackBar3.最小值 = 20
-        Me.KlxPiaoTrackBar3.焦点边框大小 = -1
-        Me.KlxPiaoTrackBar3.焦点边框颜色 = System.Drawing.Color.Red
-        Me.KlxPiaoTrackBar3.背景色 = System.Drawing.Color.Gainsboro
-        Me.KlxPiaoTrackBar3.边框大小 = 0
         Me.KlxPiaoTrackBar3.边框颜色 = System.Drawing.Color.Empty
-        Me.KlxPiaoTrackBar3.键盘响应方式 = KlxPiaoAPI.KlxPiaoTrackBar.键盘响应.全方向键
-        Me.KlxPiaoTrackBar3.鼠标滚轮响应方式 = KlxPiaoAPI.KlxPiaoTrackBar.鼠标滚轮响应.正向
+        '
+        'TabPage17
+        '
+        Me.TabPage17.BackColor = System.Drawing.Color.White
+        Me.TabPage17.Controls.Add(Me.KlxPiaoButton8)
+        Me.TabPage17.Location = New System.Drawing.Point(6, 4)
+        Me.TabPage17.Name = "TabPage17"
+        Me.TabPage17.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage17.Size = New System.Drawing.Size(552, 347)
+        Me.TabPage17.TabIndex = 6
+        Me.TabPage17.Text = "调试位"
+        '
+        'KlxPiaoButton8
+        '
+        Me.KlxPiaoButton8.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro
+        Me.KlxPiaoButton8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
+        Me.KlxPiaoButton8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.KlxPiaoButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.KlxPiaoButton8.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
+        Me.KlxPiaoButton8.Location = New System.Drawing.Point(41, 32)
+        Me.KlxPiaoButton8.Name = "KlxPiaoButton8"
+        Me.KlxPiaoButton8.Size = New System.Drawing.Size(110, 40)
+        Me.KlxPiaoButton8.TabIndex = 0
+        Me.KlxPiaoButton8.Text = "KlxPiaoButton8"
+        Me.KlxPiaoButton8.UseVisualStyleBackColor = True
         '
         'Switch1
         '
@@ -1436,6 +1423,20 @@ Partial Class Form1
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "皮肤编辑器"
         '
+        'KlxPiaoButton1
+        '
+        Me.KlxPiaoButton1.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro
+        Me.KlxPiaoButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
+        Me.KlxPiaoButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.KlxPiaoButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.KlxPiaoButton1.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
+        Me.KlxPiaoButton1.Location = New System.Drawing.Point(412, 24)
+        Me.KlxPiaoButton1.Name = "KlxPiaoButton1"
+        Me.KlxPiaoButton1.Size = New System.Drawing.Size(72, 40)
+        Me.KlxPiaoButton1.TabIndex = 34
+        Me.KlxPiaoButton1.Text = "随机生成"
+        Me.KlxPiaoButton1.UseVisualStyleBackColor = True
+        '
         'KlxPiaoButton4
         '
         Me.KlxPiaoButton4.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro
@@ -1503,20 +1504,6 @@ Partial Class Form1
         Me.KlxPiaoPanel16.投影颜色 = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer))
         Me.KlxPiaoPanel16.边框大小 = 1
         Me.KlxPiaoPanel16.边框颜色 = System.Drawing.Color.FromArgb(CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer))
-        '
-        'KlxPiaoButton1
-        '
-        Me.KlxPiaoButton1.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro
-        Me.KlxPiaoButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
-        Me.KlxPiaoButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
-        Me.KlxPiaoButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.KlxPiaoButton1.Font = New System.Drawing.Font("微软雅黑 Light", 9.0!)
-        Me.KlxPiaoButton1.Location = New System.Drawing.Point(412, 24)
-        Me.KlxPiaoButton1.Name = "KlxPiaoButton1"
-        Me.KlxPiaoButton1.Size = New System.Drawing.Size(72, 40)
-        Me.KlxPiaoButton1.TabIndex = 34
-        Me.KlxPiaoButton1.Text = "随机生成"
-        Me.KlxPiaoButton1.UseVisualStyleBackColor = True
         '
         'CheckBox6
         '
@@ -2350,7 +2337,6 @@ Partial Class Form1
         Me.ClientSize = New System.Drawing.Size(702, 451)
         Me.Controls.Add(Me.TabControl1)
         Me.Name = "Form1"
-        Me.TransparencyKey = System.Drawing.Color.FromArgb(CType(CType(99, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(99, Byte), Integer))
         Me.关闭按钮前景色 = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.关闭按钮背景色 = System.Drawing.Color.FromArgb(CType(CType(217, Byte), Integer), CType(CType(217, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.关闭按钮鼠标按下背景色 = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(240, Byte), Integer))
@@ -2388,6 +2374,7 @@ Partial Class Form1
         Me.TabPage15.ResumeLayout(False)
         CType(Me.KlxPiaoPictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage16.ResumeLayout(False)
+        Me.TabPage17.ResumeLayout(False)
         Me.TabPage4.ResumeLayout(False)
         Me.TabPage5.ResumeLayout(False)
         Me.KlxPiaoPanel16.ResumeLayout(False)
@@ -2529,4 +2516,7 @@ Partial Class Form1
     Friend WithEvents KlxPiaoTrackBar5 As KlxPiaoTrackBar
     Friend WithEvents KlxPiaoTrackBar6 As KlxPiaoTrackBar
     Friend WithEvents KlxPiaoButton1 As KlxPiaoButton
+    Friend WithEvents TabPage17 As TabPage
+    Friend WithEvents KlxPiaoButton8 As KlxPiaoButton
+    Friend WithEvents KlxPiaoTrackBar7 As KlxPiaoTrackBar
 End Class

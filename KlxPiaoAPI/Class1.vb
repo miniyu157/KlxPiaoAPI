@@ -8,6 +8,7 @@ Imports System.Drawing
 Imports System.Drawing.Text
 
 Public Class 颜色
+
     Public Shared Function 调整亮度(color As Color, factor As Double) As Color
         Dim red As Integer = Math.Min(Math.Max(0, color.R * (1 + factor)), 255)
         Dim green As Integer = Math.Min(Math.Max(0, color.G * (1 + factor)), 255)

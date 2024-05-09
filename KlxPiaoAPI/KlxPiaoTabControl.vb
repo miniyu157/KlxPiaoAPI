@@ -1,7 +1,9 @@
 ﻿Imports System.ComponentModel
 Imports System.Drawing
 Imports System.Windows.Forms
+Imports System.Windows.Forms.Design
 
+<Designer(GetType(设计时交互支持))>
 Public Class KlxPiaoTabControl
     Inherits Control
 
@@ -170,6 +172,22 @@ Public Class KlxPiaoTabControl
         End Using
     End Sub
 
+    Public Sub 设置选项卡索引(索引 As Integer)
+        绑定.SelectedIndex = 索引
+    End Sub
+
+    Public Function 获取选项卡索引() As Integer
+        Return 绑定.SelectedIndex
+    End Function
+
+    Public Function 获取绑定的KlxPiaoTabPage() As KlxPiaoTabPage
+        Return 绑定
+    End Function
+
+    Public Function 获取选中选项卡文字() As String
+        Return 绑定.SelectedTab.ToString
+    End Function
+
     Private Class 无法获得焦点的按钮
         Inherits Button
 
@@ -210,4 +228,34 @@ Public Class KlxPiaoTabControl
         End Sub
     End Class
 
+End Class
+
+Public Class 设计时交互支持
+    Inherits ControlDesigner
+
+    Private Const WM_LBUTTONUP As Integer = &H202
+    Protected Overrides Sub WndProc(ByRef m As Message)
+        Dim 绑定项 As KlxPiaoTabControl = DirectCast(Control, KlxPiaoTabControl)
+
+        Select Case m.Msg
+            Case WM_LBUTTONUP
+                If 绑定项.绑定 IsNot Nothing AndAlso 绑定项.绑定.TabCount > 0 Then
+                    Dim xPosition As Integer = LowWord(m.LParam.ToInt32())
+                    Dim yPosition As Integer = HighWord(m.LParam.ToInt32())
+
+                    If 绑定项.获取选项卡索引 > -1 AndAlso xPosition >= 0 AndAlso yPosition >= 0 AndAlso xPosition < 绑定项.选项卡大小.Width AndAlso yPosition < 绑定项.Height Then
+                        绑定项.设置选项卡索引(yPosition \ 绑定项.选项卡大小.Height)
+                    End If
+                End If
+        End Select
+
+        MyBase.WndProc(m)
+    End Sub
+    Private Function LowWord(value As Integer) As Integer
+        Return value And &HFFFF
+    End Function
+
+    Private Function HighWord(value As Integer) As Integer
+        Return (value >> 16) And &HFFFF
+    End Function
 End Class
