@@ -1,7 +1,6 @@
 ﻿Imports System.ComponentModel
 Imports System.Drawing
 Imports System.IO
-Imports System.Reflection
 Imports System.Windows.Forms
 
 Public Class KlxPiaoForm
@@ -904,11 +903,10 @@ Public Class KlxPiaoForm
                                                                Dim G As Integer = 值.Split(",")(1)
                                                                Dim B As Integer = 值.Split(",")(2)
 
-                                                               设置属性(属性名, Color.FromArgb(R, G, B))
+                                                               控件.设置属性(Me, 属性名, Color.FromArgb(R, G, B))
                                                            Case Else
                                                                '格式Hex
-
-                                                               设置属性(属性名, ColorTranslator.FromHtml(值))
+                                                               控件.设置属性(Me, 属性名, ColorTranslator.FromHtml(值))
                                                        End Select
 
                                                    Catch ex As Exception
@@ -935,20 +933,6 @@ Public Class KlxPiaoForm
 
         Return If(值 = "", "未找到", 值)
     End Function
-    Private Sub 设置属性(属性名称 As String, 值 As Color)
-        '使用反射获取属性信息
-        Dim propInfo As PropertyInfo = [GetType]().GetProperty(属性名称)
-
-        If propInfo IsNot Nothing AndAlso propInfo.CanWrite Then
-            '将值转换为与属性类型匹配的类型
-            Dim convertedValue As Object = Convert.ChangeType(值, propInfo.PropertyType)
-            '设置属性的值
-            propInfo.SetValue(Me, convertedValue)
-        Else
-            Throw New Exception("找不到属性 " & 属性名称 & " 或者不可写。")
-        End If
-    End Sub
-
 #End Region
 
 #Region "导出主题文件"
@@ -958,42 +942,19 @@ Public Class KlxPiaoForm
     ''' <param name="文件路径"></param>
     Public Sub 导出主题文件(文件路径 As String)
         Using 写入文件 As New StreamWriter(文件路径)
-
             写入文件.WriteLine($"[KlxPiaoForm窗体属性]")
-
             Dim KlxPiaoForm窗体属性 As New List(Of String) From {"BackColor", "窗体边框颜色"}
-            KlxPiaoForm窗体属性.ForEach(Sub(n) 写入文件.WriteLine($"{n}={读取属性(n).R},{读取属性(n).G},{读取属性(n).B}"))
+            KlxPiaoForm窗体属性.ForEach(Sub(n) 写入文件.WriteLine($"{n}={控件.读取属性(Me, n).R},{控件.读取属性(Me, n).G},{控件.读取属性(Me, n).B}"))
 
             写入文件.WriteLine($"{vbCrLf}[KlxPiaoForm标题外观]")
-
             Dim KlxPiaoForm标题外观 As New List(Of String) From {"标题框颜色", "标题字体颜色"}
-
-            KlxPiaoForm标题外观.ForEach(Sub(n) 写入文件.WriteLine($"{n}={读取属性(n).R},{读取属性(n).G},{读取属性(n).B}"))
+            KlxPiaoForm标题外观.ForEach(Sub(n) 写入文件.WriteLine($"{n}={控件.读取属性(Me, n).R},{控件.读取属性(Me, n).G},{控件.读取属性(Me, n).B}"))
 
             写入文件.WriteLine($"{vbCrLf}[KlxPiaoForm窗体按钮]")
-
             Dim KlxPiaoForm窗体按钮 As New List(Of String) From {"关闭按钮背景色", "关闭按钮前景色", "关闭按钮鼠标按下背景色", "关闭按钮鼠标移入背景色", "缩放按钮背景色", "缩放按钮前景色", "缩放按钮鼠标按下背景色", "缩放按钮鼠标移入背景色", "最小化按钮背景色", "最小化按钮前景色", "最小化按钮鼠标按下背景色", "最小化按钮鼠标移入背景色"}
-
-            KlxPiaoForm窗体按钮.ForEach(Sub(n) 写入文件.WriteLine($"{n}={读取属性(n).R},{读取属性(n).G},{读取属性(n).B}"))
+            KlxPiaoForm窗体按钮.ForEach(Sub(n) 写入文件.WriteLine($"{n}={控件.读取属性(Me, n).R},{控件.读取属性(Me, n).G},{控件.读取属性(Me, n).B}"))
         End Using
     End Sub
-
-    Private Function 读取属性(属性名称 As String) As Color
-        '获取当前类的 Type
-        Dim type As Type = [GetType]()
-
-        '使用反射获取属性信息
-        Dim propInfo As PropertyInfo = type.GetProperty(属性名称)
-
-        If propInfo IsNot Nothing Then
-            '通过反射获取属性的值
-            Return propInfo.GetValue(Me)
-        Else
-            Throw New ArgumentException("属性不存在：" & 属性名称)
-        End If
-    End Function
-
-
 #End Region
 
     ''' <summary>

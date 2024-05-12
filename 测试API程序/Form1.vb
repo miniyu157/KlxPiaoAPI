@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Threading
 Imports KlxPiaoAPI
 Imports KlxPiaoAPI.字符串操作
 Public Class Form1
@@ -672,6 +673,46 @@ End Property"
         Dim 随机颜色 As Color = Color.FromArgb(rand.Next(0, 255), rand.Next(0, 255), rand.Next(0, 255))
         Form2.自动生成主题(随机颜色)
         Form2.Show()
+    End Sub
+
+    '过渡动画演示
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
+        Dim 控制点 As PointF() = {New PointF(1, 0), New PointF(0, 1)}
+        If Panel1.Left = 6 Then
+            控件.过渡动画(Panel1, "Left", 6, 562, 2000, 控制点)
+        Else
+            控件.过渡动画(Panel1, "Left", 562, 6, 2000, 控制点)
+        End If
+
+        Dim 随机颜色 As Color = Color.FromArgb(rand.Next(0, 255), rand.Next(0, 255), rand.Next(0, 255))
+        控件.过渡动画(Panel1, "BackColor", Panel1.BackColor, 随机颜色, 200, 控制点)
+        Dim 灯条 As New Thread(AddressOf 绘制灯条)
+        灯条.Start(随机颜色)
+    End Sub
+    Private Sub 绘制灯条(颜色 As Color)
+        Dim grap As Graphics = Panel2.CreateGraphics()
+        Dim 启动时间 As Date = Date.Now
+        Dim 总时间 As TimeSpan = TimeSpan.FromSeconds(2)
+        Dim 运行状态 As Boolean = False
+        Dim 灯条宽度 As Integer = 10
+        Dim 控制点 As PointF() = {New PointF(0.75, 0), New PointF(0.25, 1)}
+        Dim 开始动画 As New Thread(Async Sub()
+                                   Do While 运行状态 = False
+                                       Dim 当前时间 As TimeSpan = Date.Now - 启动时间
+                                       Dim 时间百分比 As Double = 当前时间.TotalMilliseconds / 总时间.TotalMilliseconds
+                                       grap.SmoothingMode = Drawing2D.SmoothingMode.AntiAlias
+
+                                       If 时间百分比 >= 1.0 Then
+                                           运行状态 = True
+                                           grap.FillRectangle(New SolidBrush(颜色), New Rectangle(0, 0, Panel2.Width, 灯条宽度))
+                                       Else
+                                           Dim p As PointF = 控件.BezierCurve(控件.返回曲线百分比(时间百分比, 控制点(0), 控制点(1)), 控制点(0), 控制点(1))
+                                           grap.FillRectangle(New SolidBrush(颜色), New Rectangle(0, 0, Panel2.Width - Panel2.Width * p.Y, 灯条宽度))
+                                       End If
+                                       Await Task.Delay(1000 / 100)
+                                   Loop
+                               End Sub)
+        开始动画.Start()
     End Sub
 
 End Class

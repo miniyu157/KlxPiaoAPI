@@ -109,6 +109,9 @@ Partial Class Form1
         Me.KlxPiaoButton8 = New KlxPiaoAPI.KlxPiaoButton()
         Me.Switch1 = New KlxPiaoAPI.Switch()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button9 = New System.Windows.Forms.Button()
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
@@ -1357,6 +1360,9 @@ Partial Class Form1
         'TabPage4
         '
         Me.TabPage4.BackColor = System.Drawing.Color.White
+        Me.TabPage4.Controls.Add(Me.Panel2)
+        Me.TabPage4.Controls.Add(Me.Panel1)
+        Me.TabPage4.Controls.Add(Me.Button9)
         Me.TabPage4.Controls.Add(Me.Button7)
         Me.TabPage4.Controls.Add(Me.Button6)
         Me.TabPage4.Controls.Add(Me.Button5)
@@ -1367,6 +1373,30 @@ Partial Class Form1
         Me.TabPage4.Size = New System.Drawing.Size(668, 367)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "KlxPiaoForm函数"
+        '
+        'Panel2
+        '
+        Me.Panel2.Location = New System.Drawing.Point(6, 240)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(557, 10)
+        Me.Panel2.TabIndex = 9
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.Gainsboro
+        Me.Panel1.Location = New System.Drawing.Point(6, 256)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(100, 100)
+        Me.Panel1.TabIndex = 8
+        '
+        'Button9
+        '
+        Me.Button9.Location = New System.Drawing.Point(569, 206)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Size = New System.Drawing.Size(93, 44)
+        Me.Button9.TabIndex = 7
+        Me.Button9.Text = "过渡动画"
+        Me.Button9.UseVisualStyleBackColor = True
         '
         'Button7
         '
@@ -2519,4 +2549,7 @@ Partial Class Form1
     Friend WithEvents TabPage17 As TabPage
     Friend WithEvents KlxPiaoButton8 As KlxPiaoButton
     Friend WithEvents KlxPiaoTrackBar7 As KlxPiaoTrackBar
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Button9 As Button
+    Friend WithEvents Panel2 As Panel
 End Class

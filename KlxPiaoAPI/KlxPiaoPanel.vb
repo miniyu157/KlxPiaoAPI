@@ -31,6 +31,10 @@ Public Class KlxPiaoPanel
 
         BackColor = Color.White
         BorderStyle = BorderStyle.None
+
+        SetStyle(ControlStyles.UserPaint, True)
+        SetStyle(ControlStyles.AllPaintingInWmPaint, True)
+        SetStyle(ControlStyles.OptimizedDoubleBuffer, True)
     End Sub
 
     <Category("KlxPiaoPanel外观"), Description("边框的颜色")>
