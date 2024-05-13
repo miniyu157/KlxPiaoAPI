@@ -71,6 +71,9 @@ Partial Class Form1
         Me.PointBar1 = New KlxPiaoAPI.PointBar()
         Me.CheckBox4 = New System.Windows.Forms.CheckBox()
         Me.TabPage8 = New System.Windows.Forms.TabPage()
+        Me.KlxPiaoPanel5 = New KlxPiaoAPI.KlxPiaoPanel()
+        Me.KlxPiaoPanel6 = New KlxPiaoAPI.KlxPiaoPanel()
+        Me.KlxPiaoPanel4 = New KlxPiaoAPI.KlxPiaoPanel()
         Me.KlxPiaoPanel3 = New KlxPiaoAPI.KlxPiaoPanel()
         Me.KlxPiaoPanel2 = New KlxPiaoAPI.KlxPiaoPanel()
         Me.KlxPiaoPanel1 = New KlxPiaoAPI.KlxPiaoPanel()
@@ -815,6 +818,9 @@ Partial Class Form1
         'TabPage8
         '
         Me.TabPage8.BackColor = System.Drawing.Color.White
+        Me.TabPage8.Controls.Add(Me.KlxPiaoPanel5)
+        Me.TabPage8.Controls.Add(Me.KlxPiaoPanel6)
+        Me.TabPage8.Controls.Add(Me.KlxPiaoPanel4)
         Me.TabPage8.Controls.Add(Me.KlxPiaoPanel3)
         Me.TabPage8.Controls.Add(Me.KlxPiaoPanel2)
         Me.TabPage8.Controls.Add(Me.KlxPiaoPanel1)
@@ -825,6 +831,42 @@ Partial Class Form1
         Me.TabPage8.TabIndex = 1
         Me.TabPage8.Text = "Panel"
         '
+        'KlxPiaoPanel5
+        '
+        Me.KlxPiaoPanel5.BackColor = System.Drawing.Color.White
+        Me.KlxPiaoPanel5.Location = New System.Drawing.Point(220, 192)
+        Me.KlxPiaoPanel5.Name = "KlxPiaoPanel5"
+        Me.KlxPiaoPanel5.Size = New System.Drawing.Size(111, 111)
+        Me.KlxPiaoPanel5.TabIndex = 8
+        Me.KlxPiaoPanel5.启用投影 = False
+        Me.KlxPiaoPanel5.圆角百分比 = 0.5!
+        Me.KlxPiaoPanel5.边框大小 = 12
+        Me.KlxPiaoPanel5.边框颜色 = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        '
+        'KlxPiaoPanel6
+        '
+        Me.KlxPiaoPanel6.BackColor = System.Drawing.Color.White
+        Me.KlxPiaoPanel6.Location = New System.Drawing.Point(376, 192)
+        Me.KlxPiaoPanel6.Name = "KlxPiaoPanel6"
+        Me.KlxPiaoPanel6.Size = New System.Drawing.Size(111, 111)
+        Me.KlxPiaoPanel6.TabIndex = 7
+        Me.KlxPiaoPanel6.启用投影 = False
+        Me.KlxPiaoPanel6.圆角百分比 = 0!
+        Me.KlxPiaoPanel6.边框大小 = 6
+        Me.KlxPiaoPanel6.边框颜色 = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        '
+        'KlxPiaoPanel4
+        '
+        Me.KlxPiaoPanel4.BackColor = System.Drawing.Color.White
+        Me.KlxPiaoPanel4.Location = New System.Drawing.Point(58, 192)
+        Me.KlxPiaoPanel4.Name = "KlxPiaoPanel4"
+        Me.KlxPiaoPanel4.Size = New System.Drawing.Size(111, 111)
+        Me.KlxPiaoPanel4.TabIndex = 5
+        Me.KlxPiaoPanel4.启用投影 = False
+        Me.KlxPiaoPanel4.圆角百分比 = 1.0!
+        Me.KlxPiaoPanel4.边框大小 = 18
+        Me.KlxPiaoPanel4.边框颜色 = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        '
         'KlxPiaoPanel3
         '
         Me.KlxPiaoPanel3.BackColor = System.Drawing.Color.White
@@ -832,12 +874,8 @@ Partial Class Form1
         Me.KlxPiaoPanel3.Name = "KlxPiaoPanel3"
         Me.KlxPiaoPanel3.Size = New System.Drawing.Size(111, 112)
         Me.KlxPiaoPanel3.TabIndex = 6
-        Me.KlxPiaoPanel3.启用投影 = True
+        Me.KlxPiaoPanel3.圆角百分比 = 0!
         Me.KlxPiaoPanel3.投影方向 = KlxPiaoAPI.KlxPiaoPanel.方向.左下右
-        Me.KlxPiaoPanel3.投影长度 = 5
-        Me.KlxPiaoPanel3.投影颜色 = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer))
-        Me.KlxPiaoPanel3.边框大小 = 1
-        Me.KlxPiaoPanel3.边框颜色 = System.Drawing.Color.FromArgb(CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer))
         '
         'KlxPiaoPanel2
         '
@@ -846,12 +884,8 @@ Partial Class Form1
         Me.KlxPiaoPanel2.Name = "KlxPiaoPanel2"
         Me.KlxPiaoPanel2.Size = New System.Drawing.Size(111, 112)
         Me.KlxPiaoPanel2.TabIndex = 5
-        Me.KlxPiaoPanel2.启用投影 = True
+        Me.KlxPiaoPanel2.圆角百分比 = 0!
         Me.KlxPiaoPanel2.投影方向 = KlxPiaoAPI.KlxPiaoPanel.方向.左下
-        Me.KlxPiaoPanel2.投影长度 = 5
-        Me.KlxPiaoPanel2.投影颜色 = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer))
-        Me.KlxPiaoPanel2.边框大小 = 1
-        Me.KlxPiaoPanel2.边框颜色 = System.Drawing.Color.FromArgb(CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer))
         '
         'KlxPiaoPanel1
         '
@@ -860,12 +894,7 @@ Partial Class Form1
         Me.KlxPiaoPanel1.Name = "KlxPiaoPanel1"
         Me.KlxPiaoPanel1.Size = New System.Drawing.Size(111, 112)
         Me.KlxPiaoPanel1.TabIndex = 4
-        Me.KlxPiaoPanel1.启用投影 = True
-        Me.KlxPiaoPanel1.投影方向 = KlxPiaoAPI.KlxPiaoPanel.方向.右下
-        Me.KlxPiaoPanel1.投影长度 = 5
-        Me.KlxPiaoPanel1.投影颜色 = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer))
-        Me.KlxPiaoPanel1.边框大小 = 1
-        Me.KlxPiaoPanel1.边框颜色 = System.Drawing.Color.FromArgb(CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer))
+        Me.KlxPiaoPanel1.圆角百分比 = 0!
         '
         'TabPage9
         '
@@ -1431,7 +1460,7 @@ Partial Class Form1
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(174, 44)
         Me.Button2.TabIndex = 3
-        Me.Button2.Text = "加载本地字体（很容易闪退卡死）"
+        Me.Button2.Text = "加载本地字体（很容易卡死闪退）"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'TabPage5
@@ -1528,12 +1557,7 @@ Partial Class Form1
         Me.KlxPiaoPanel16.Name = "KlxPiaoPanel16"
         Me.KlxPiaoPanel16.Size = New System.Drawing.Size(624, 256)
         Me.KlxPiaoPanel16.TabIndex = 29
-        Me.KlxPiaoPanel16.启用投影 = True
-        Me.KlxPiaoPanel16.投影方向 = KlxPiaoAPI.KlxPiaoPanel.方向.右下
-        Me.KlxPiaoPanel16.投影长度 = 5
-        Me.KlxPiaoPanel16.投影颜色 = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer))
-        Me.KlxPiaoPanel16.边框大小 = 1
-        Me.KlxPiaoPanel16.边框颜色 = System.Drawing.Color.FromArgb(CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer))
+        Me.KlxPiaoPanel16.圆角百分比 = 0!
         '
         'CheckBox6
         '
@@ -1581,11 +1605,8 @@ Partial Class Form1
         Me.KlxPiaoPanel17.Size = New System.Drawing.Size(587, 115)
         Me.KlxPiaoPanel17.TabIndex = 30
         Me.KlxPiaoPanel17.启用投影 = False
-        Me.KlxPiaoPanel17.投影方向 = KlxPiaoAPI.KlxPiaoPanel.方向.右下
-        Me.KlxPiaoPanel17.投影长度 = 5
-        Me.KlxPiaoPanel17.投影颜色 = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer))
+        Me.KlxPiaoPanel17.圆角百分比 = 0!
         Me.KlxPiaoPanel17.边框大小 = 0
-        Me.KlxPiaoPanel17.边框颜色 = System.Drawing.Color.FromArgb(CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer))
         '
         'KlxPiaoLabel10
         '
@@ -1621,12 +1642,9 @@ Partial Class Form1
         Me.最小化按钮前景Panel.Name = "最小化按钮前景Panel"
         Me.最小化按钮前景Panel.Size = New System.Drawing.Size(50, 50)
         Me.最小化按钮前景Panel.TabIndex = 24
-        Me.最小化按钮前景Panel.启用投影 = True
+        Me.最小化按钮前景Panel.圆角百分比 = 0!
         Me.最小化按钮前景Panel.投影方向 = KlxPiaoAPI.KlxPiaoPanel.方向.左下右
         Me.最小化按钮前景Panel.投影长度 = 4
-        Me.最小化按钮前景Panel.投影颜色 = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer))
-        Me.最小化按钮前景Panel.边框大小 = 1
-        Me.最小化按钮前景Panel.边框颜色 = System.Drawing.Color.FromArgb(CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer))
         '
         '最小化按钮背景Panel
         '
@@ -1635,12 +1653,9 @@ Partial Class Form1
         Me.最小化按钮背景Panel.Name = "最小化按钮背景Panel"
         Me.最小化按钮背景Panel.Size = New System.Drawing.Size(50, 50)
         Me.最小化按钮背景Panel.TabIndex = 21
-        Me.最小化按钮背景Panel.启用投影 = True
+        Me.最小化按钮背景Panel.圆角百分比 = 0!
         Me.最小化按钮背景Panel.投影方向 = KlxPiaoAPI.KlxPiaoPanel.方向.左下右
         Me.最小化按钮背景Panel.投影长度 = 4
-        Me.最小化按钮背景Panel.投影颜色 = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer))
-        Me.最小化按钮背景Panel.边框大小 = 1
-        Me.最小化按钮背景Panel.边框颜色 = System.Drawing.Color.FromArgb(CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer))
         '
         '关闭按钮按下Panel
         '
@@ -1649,12 +1664,9 @@ Partial Class Form1
         Me.关闭按钮按下Panel.Name = "关闭按钮按下Panel"
         Me.关闭按钮按下Panel.Size = New System.Drawing.Size(50, 50)
         Me.关闭按钮按下Panel.TabIndex = 18
-        Me.关闭按钮按下Panel.启用投影 = True
+        Me.关闭按钮按下Panel.圆角百分比 = 0!
         Me.关闭按钮按下Panel.投影方向 = KlxPiaoAPI.KlxPiaoPanel.方向.左下右
         Me.关闭按钮按下Panel.投影长度 = 4
-        Me.关闭按钮按下Panel.投影颜色 = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer))
-        Me.关闭按钮按下Panel.边框大小 = 1
-        Me.关闭按钮按下Panel.边框颜色 = System.Drawing.Color.FromArgb(CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer))
         '
         '关闭按钮前景Panel
         '
@@ -1663,12 +1675,9 @@ Partial Class Form1
         Me.关闭按钮前景Panel.Name = "关闭按钮前景Panel"
         Me.关闭按钮前景Panel.Size = New System.Drawing.Size(50, 50)
         Me.关闭按钮前景Panel.TabIndex = 15
-        Me.关闭按钮前景Panel.启用投影 = True
+        Me.关闭按钮前景Panel.圆角百分比 = 0!
         Me.关闭按钮前景Panel.投影方向 = KlxPiaoAPI.KlxPiaoPanel.方向.左下右
         Me.关闭按钮前景Panel.投影长度 = 4
-        Me.关闭按钮前景Panel.投影颜色 = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer))
-        Me.关闭按钮前景Panel.边框大小 = 1
-        Me.关闭按钮前景Panel.边框颜色 = System.Drawing.Color.FromArgb(CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer))
         '
         'KlxPiaoLabel18
         '
@@ -1758,12 +1767,9 @@ Partial Class Form1
         Me.关闭按钮移入Panel.Name = "关闭按钮移入Panel"
         Me.关闭按钮移入Panel.Size = New System.Drawing.Size(50, 50)
         Me.关闭按钮移入Panel.TabIndex = 16
-        Me.关闭按钮移入Panel.启用投影 = True
+        Me.关闭按钮移入Panel.圆角百分比 = 0!
         Me.关闭按钮移入Panel.投影方向 = KlxPiaoAPI.KlxPiaoPanel.方向.左下右
         Me.关闭按钮移入Panel.投影长度 = 4
-        Me.关闭按钮移入Panel.投影颜色 = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer))
-        Me.关闭按钮移入Panel.边框大小 = 1
-        Me.关闭按钮移入Panel.边框颜色 = System.Drawing.Color.FromArgb(CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer))
         '
         'KlxPiaoLabel13
         '
@@ -1853,12 +1859,9 @@ Partial Class Form1
         Me.最小化按钮移入Panel.Name = "最小化按钮移入Panel"
         Me.最小化按钮移入Panel.Size = New System.Drawing.Size(50, 50)
         Me.最小化按钮移入Panel.TabIndex = 25
-        Me.最小化按钮移入Panel.启用投影 = True
+        Me.最小化按钮移入Panel.圆角百分比 = 0!
         Me.最小化按钮移入Panel.投影方向 = KlxPiaoAPI.KlxPiaoPanel.方向.左下右
         Me.最小化按钮移入Panel.投影长度 = 4
-        Me.最小化按钮移入Panel.投影颜色 = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer))
-        Me.最小化按钮移入Panel.边框大小 = 1
-        Me.最小化按钮移入Panel.边框颜色 = System.Drawing.Color.FromArgb(CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer))
         '
         'KlxPiaoLabel15
         '
@@ -1921,12 +1924,9 @@ Partial Class Form1
         Me.关闭按钮背景Panel.Name = "关闭按钮背景Panel"
         Me.关闭按钮背景Panel.Size = New System.Drawing.Size(50, 50)
         Me.关闭按钮背景Panel.TabIndex = 12
-        Me.关闭按钮背景Panel.启用投影 = True
+        Me.关闭按钮背景Panel.圆角百分比 = 0!
         Me.关闭按钮背景Panel.投影方向 = KlxPiaoAPI.KlxPiaoPanel.方向.左下右
         Me.关闭按钮背景Panel.投影长度 = 4
-        Me.关闭按钮背景Panel.投影颜色 = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer))
-        Me.关闭按钮背景Panel.边框大小 = 1
-        Me.关闭按钮背景Panel.边框颜色 = System.Drawing.Color.FromArgb(CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer))
         '
         '最小化按钮按下Panel
         '
@@ -1935,12 +1935,9 @@ Partial Class Form1
         Me.最小化按钮按下Panel.Name = "最小化按钮按下Panel"
         Me.最小化按钮按下Panel.Size = New System.Drawing.Size(50, 50)
         Me.最小化按钮按下Panel.TabIndex = 27
-        Me.最小化按钮按下Panel.启用投影 = True
+        Me.最小化按钮按下Panel.圆角百分比 = 0!
         Me.最小化按钮按下Panel.投影方向 = KlxPiaoAPI.KlxPiaoPanel.方向.左下右
         Me.最小化按钮按下Panel.投影长度 = 4
-        Me.最小化按钮按下Panel.投影颜色 = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer))
-        Me.最小化按钮按下Panel.边框大小 = 1
-        Me.最小化按钮按下Panel.边框颜色 = System.Drawing.Color.FromArgb(CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer))
         '
         'KlxPiaoLabel9
         '
@@ -2030,12 +2027,9 @@ Partial Class Form1
         Me.缩放按钮背景Panel.Name = "缩放按钮背景Panel"
         Me.缩放按钮背景Panel.Size = New System.Drawing.Size(50, 50)
         Me.缩放按钮背景Panel.TabIndex = 5
-        Me.缩放按钮背景Panel.启用投影 = True
+        Me.缩放按钮背景Panel.圆角百分比 = 0!
         Me.缩放按钮背景Panel.投影方向 = KlxPiaoAPI.KlxPiaoPanel.方向.左下右
         Me.缩放按钮背景Panel.投影长度 = 4
-        Me.缩放按钮背景Panel.投影颜色 = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer))
-        Me.缩放按钮背景Panel.边框大小 = 1
-        Me.缩放按钮背景Panel.边框颜色 = System.Drawing.Color.FromArgb(CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer))
         '
         '缩放按钮前景Panel
         '
@@ -2044,12 +2038,9 @@ Partial Class Form1
         Me.缩放按钮前景Panel.Name = "缩放按钮前景Panel"
         Me.缩放按钮前景Panel.Size = New System.Drawing.Size(50, 50)
         Me.缩放按钮前景Panel.TabIndex = 7
-        Me.缩放按钮前景Panel.启用投影 = True
+        Me.缩放按钮前景Panel.圆角百分比 = 0!
         Me.缩放按钮前景Panel.投影方向 = KlxPiaoAPI.KlxPiaoPanel.方向.左下右
         Me.缩放按钮前景Panel.投影长度 = 4
-        Me.缩放按钮前景Panel.投影颜色 = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer))
-        Me.缩放按钮前景Panel.边框大小 = 1
-        Me.缩放按钮前景Panel.边框颜色 = System.Drawing.Color.FromArgb(CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer))
         '
         'KlxPiaoLabel5
         '
@@ -2112,12 +2103,9 @@ Partial Class Form1
         Me.缩放按钮移入Panel.Name = "缩放按钮移入Panel"
         Me.缩放按钮移入Panel.Size = New System.Drawing.Size(50, 50)
         Me.缩放按钮移入Panel.TabIndex = 7
-        Me.缩放按钮移入Panel.启用投影 = True
+        Me.缩放按钮移入Panel.圆角百分比 = 0!
         Me.缩放按钮移入Panel.投影方向 = KlxPiaoAPI.KlxPiaoPanel.方向.左下右
         Me.缩放按钮移入Panel.投影长度 = 4
-        Me.缩放按钮移入Panel.投影颜色 = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer))
-        Me.缩放按钮移入Panel.边框大小 = 1
-        Me.缩放按钮移入Panel.边框颜色 = System.Drawing.Color.FromArgb(CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer))
         '
         'KlxPiaoLabel8
         '
@@ -2153,12 +2141,9 @@ Partial Class Form1
         Me.缩放按钮按下Panel.Name = "缩放按钮按下Panel"
         Me.缩放按钮按下Panel.Size = New System.Drawing.Size(50, 50)
         Me.缩放按钮按下Panel.TabIndex = 9
-        Me.缩放按钮按下Panel.启用投影 = True
+        Me.缩放按钮按下Panel.圆角百分比 = 0!
         Me.缩放按钮按下Panel.投影方向 = KlxPiaoAPI.KlxPiaoPanel.方向.左下右
         Me.缩放按钮按下Panel.投影长度 = 4
-        Me.缩放按钮按下Panel.投影颜色 = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer))
-        Me.缩放按钮按下Panel.边框大小 = 1
-        Me.缩放按钮按下Panel.边框颜色 = System.Drawing.Color.FromArgb(CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer))
         '
         '背景Panel
         '
@@ -2167,12 +2152,9 @@ Partial Class Form1
         Me.背景Panel.Name = "背景Panel"
         Me.背景Panel.Size = New System.Drawing.Size(50, 50)
         Me.背景Panel.TabIndex = 3
-        Me.背景Panel.启用投影 = True
+        Me.背景Panel.圆角百分比 = 0!
         Me.背景Panel.投影方向 = KlxPiaoAPI.KlxPiaoPanel.方向.左下右
         Me.背景Panel.投影长度 = 4
-        Me.背景Panel.投影颜色 = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer))
-        Me.背景Panel.边框大小 = 1
-        Me.背景Panel.边框颜色 = System.Drawing.Color.FromArgb(CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer))
         '
         '主题Panel
         '
@@ -2181,12 +2163,9 @@ Partial Class Form1
         Me.主题Panel.Name = "主题Panel"
         Me.主题Panel.Size = New System.Drawing.Size(50, 50)
         Me.主题Panel.TabIndex = 1
-        Me.主题Panel.启用投影 = True
+        Me.主题Panel.圆角百分比 = 0!
         Me.主题Panel.投影方向 = KlxPiaoAPI.KlxPiaoPanel.方向.左下右
         Me.主题Panel.投影长度 = 4
-        Me.主题Panel.投影颜色 = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer), CType(CType(142, Byte), Integer))
-        Me.主题Panel.边框大小 = 1
-        Me.主题Panel.边框颜色 = System.Drawing.Color.FromArgb(CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer), CType(CType(199, Byte), Integer))
         '
         'KlxPiaoLabel3
         '
@@ -2552,4 +2531,7 @@ Partial Class Form1
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Button9 As Button
     Friend WithEvents Panel2 As Panel
+    Friend WithEvents KlxPiaoPanel4 As KlxPiaoPanel
+    Friend WithEvents KlxPiaoPanel5 As KlxPiaoPanel
+    Friend WithEvents KlxPiaoPanel6 As KlxPiaoPanel
 End Class

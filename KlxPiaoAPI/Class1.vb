@@ -10,6 +10,85 @@ Imports System.Windows.Forms
 Imports System.Threading
 
 Public Class 控件
+    Public Class 贝塞尔曲线控制点
+        ''' <summary>
+        ''' 表示一组用于线性插值的控制点。<br/>
+        ''' 线性插值意味着在整个过程中速度保持恒定。<br/>
+        ''' 控制点1: (0, 0)<br/>
+        ''' 控制点2: (1, 1)
+        ''' </summary>
+        Public Shared Linear As PointF() = {New PointF(0, 0), New PointF(1, 1)}
+        ''' <summary>
+        ''' 表示一组用于 EaseIn 插值的控制点。<br/>
+        ''' EaseIn 插值意味着动画开始时速度较慢，然后逐渐加快。<br/>
+        ''' 控制点1: (0.42, 0)<br/>
+        ''' 控制点2: (1, 1)
+        ''' </summary>
+        Public Shared EaseIn As PointF() = {New PointF(0.42, 0), New PointF(1, 1)}
+        ''' <summary>
+        ''' 表示一组用于 EaseOut 插值的控制点。<br/>
+        ''' EaseOut 插值意味着动画开始时速度较快，然后逐渐减慢。<br/>
+        ''' 控制点1: (0, 0)<br/>
+        ''' 控制点2: (0.58, 1)
+        ''' </summary>
+        Public Shared EaseOut As PointF() = {New PointF(0, 0), New PointF(0.58, 1)}
+        ''' <summary>
+        ''' 表示一组用于 EaseInOut 插值的控制点。<br/>
+        ''' EaseInOut 插值意味着动画开始和结束时速度较慢，中间过程速度较快。<br/>
+        ''' 控制点1: (0.42, 0)<br/>
+        ''' 控制点2: (0.58, 1)
+        ''' </summary>
+        Public Shared EaseInOut As PointF() = {New PointF(0.42, 0), New PointF(0.58, 1)}
+        ''' <summary>
+        ''' 表示一组用于 Ease 插值的控制点。<br/>
+        ''' Ease 插值以一种稍微慢于线性的方式开始，然后稍微快于线性地结束。<br/>
+        ''' 控制点1: (0.25, 0.1)<br/>
+        ''' 控制点2: (0.25, 1)
+        ''' </summary>
+        Public Shared Ease As PointF() = {New PointF(0.25, 0.1), New PointF(0.25, 1)}
+        ''' <summary>
+        ''' 表示一组用于 EaseInQuad 插值的控制点。<br/>
+        ''' EaseInQuad 插值以较慢的速度开始，然后以较快的速度增长。<br/>
+        ''' 控制点1: (0.55, 0.085)<br/>
+        ''' 控制点2: (0.68, 0.53)
+        ''' </summary>
+        Public Shared EaseInQuad As PointF() = {New PointF(0.55, 0.085), New PointF(0.68, 0.53)}
+        ''' <summary>
+        ''' 表示一组用于 EaseOutQuad 插值的控制点。<br/>
+        ''' EaseOutQuad 插值以较快的速度开始，然后以较慢的速度结束。<br/>
+        ''' 控制点1: (0.25, 0.46)<br/>
+        ''' 控制点2: (0.45, 0.94)
+        ''' </summary>
+        Public Shared EaseOutQuad As PointF() = {New PointF(0.25, 0.46), New PointF(0.45, 0.94)}
+        ''' <summary>
+        ''' 表示一组用于 EaseInOutQuad 插值的控制点。<br/>
+        ''' EaseInOutQuad 插值以较慢的速度开始，然后在中间以较快的速度增长，最后再次变慢。<br/>
+        ''' 控制点1: (0.45, 0.03)<br/>
+        ''' 控制点2: (0.515, 0.955)
+        ''' </summary>
+        Public Shared EaseInOutQuad As PointF() = {New PointF(0.45, 0.03), New PointF(0.515, 0.955)}
+        ''' <summary>
+        ''' 表示一组用于 EaseInCubic 插值的控制点。<br/>
+        ''' EaseInCubic 插值以较慢的速度开始，然后以较快的速度增长。<br/>
+        ''' 控制点1: (0.55, 0.055)<br/>
+        ''' 控制点2: (0.675, 0.19)
+        ''' </summary>
+        Public Shared EaseInCubic As PointF() = {New PointF(0.55, 0.055), New PointF(0.675, 0.19)}
+        ''' <summary>
+        ''' 表示一组用于 EaseOutCubic 插值的控制点。<br/>
+        ''' EaseOutCubic 插值以较快的速度开始，然后以较慢的速度结束。<br/>
+        ''' 控制点1: (0.215, 0.61)<br/>
+        ''' 控制点2: (0.355, 1)
+        ''' </summary>
+        Public Shared EaseOutCubic As PointF() = {New PointF(0.215, 0.61), New PointF(0.355, 1)}
+        ''' <summary>
+        ''' 表示一组用于 EaseInOutCubic 插值的控制点。<br/>
+        ''' EaseInOutCubic 插值以较慢的速度开始，然后在中间以较快的速度增长，最后再次变慢。<br/>
+        ''' 控制点1: (0.645, 0.045)<br/>
+        ''' 控制点2: (0.355, 1)
+        ''' </summary>
+        Public Shared EaseInOutCubic As PointF() = {New PointF(0.645, 0.045), New PointF(0.355, 1)}
+    End Class
     Public Shared Sub 设置属性(Of T As Control)(控件 As T, 属性名称 As String, 值 As Object)
         Dim propInfo As PropertyInfo = GetType(T).GetProperty(属性名称)
         If propInfo IsNot Nothing AndAlso propInfo.CanWrite Then
@@ -62,13 +141,13 @@ Public Class 控件
                                    Else
                                        Do While 运行状态 = False
                                            Dim 当前时间 As TimeSpan = Date.Now - 启动时间
-                                           Dim 时间百分比 As Double = 当前时间.TotalMilliseconds / 总时间.TotalMilliseconds
-                                           If 时间百分比 >= 1.0 Then
+                                           Dim 时间进度 As Double = 当前时间.TotalMilliseconds / 总时间.TotalMilliseconds
+                                           If 时间进度 >= 1.0 Then
                                                运行状态 = True
-                                               控件名称.Invoke(Sub() 设置属性(控件名称, 属性名, 结束值.ToString))
+                                               控件名称.Invoke(Sub() 设置属性(控件名称, 属性名, 结束值))
                                            Else
-                                               Dim p As PointF = BezierCurve(返回曲线百分比(时间百分比, 控制点(0), 控制点(1)), 控制点(0), 控制点(1))
-                                               控件名称.Invoke(Sub() 设置属性(控件名称, 属性名, (结束值 + p.Y * (开始值 - 结束值))))
+                                               Dim p As PointF = 根据时间进度返回坐标(时间进度, 控制点)
+                                               控件名称.Invoke(Sub() 设置属性(控件名称, 属性名, 开始值 + p.Y * (结束值 - 开始值)))
                                            End If
                                            Await Task.Delay(1000 / 帧率)
                                        Loop
@@ -76,14 +155,17 @@ Public Class 控件
                                End Sub)
         开始动画.Start()
     End Sub
+
     ''' <summary>
-    ''' 根据时间百分比返回曲线百分比
+    ''' 根据时间进度返回坐标，作用于动画时一般只用Y
     ''' </summary>
-    ''' <param name="时间百分比"></param>
-    ''' <param name="控制点1">平面直角坐标系上的点</param>
-    ''' <param name="控制点2">平面直角坐标系上的点</param>
+    ''' <param name="时间进度">已经度过时间和动画持续时间的比值</param>
+    ''' <param name="控制点">平面直角坐标系上的两个控制点</param>
     ''' <returns></returns>
-    Public Shared Function 返回曲线百分比(时间百分比 As Double, 控制点1 As PointF, 控制点2 As PointF) As Double
+    Public Shared Function 根据时间进度返回坐标(时间进度 As Double, 控制点 As PointF()) As PointF
+        Return BezierCurve(返回曲线进度(时间进度, 控制点(0), 控制点(1)), 控制点(0), 控制点(1))
+    End Function
+    Private Shared Function 返回曲线进度(时间进度 As Double, 控制点1 As PointF, 控制点2 As PointF) As Double
         Dim epsilon As Double = 0.001 ' 容差
         Dim low As Double = 0.0
         Dim high As Double = 1.0
@@ -92,9 +174,9 @@ Public Class 控件
         Do
             mid = (low + high) / 2.0
             Dim p As PointF = BezierCurve(mid, 控制点1, 控制点2)
-            If Math.Abs(p.X - 时间百分比) < epsilon Then
+            If Math.Abs(p.X - 时间进度) < epsilon Then
                 Return mid
-            ElseIf p.X < 时间百分比 Then
+            ElseIf p.X < 时间进度 Then
                 low = mid
             Else
                 high = mid
@@ -103,24 +185,15 @@ Public Class 控件
 
         Return mid
     End Function
-
-    ''' <summary>
-    ''' 根据曲线百分比返回坐标
-    ''' </summary>
-    ''' <param name="t"></param>
-    ''' <param name="控制点1">平面直角坐标系上的点</param>
-    ''' <param name="控制点2">平面直角坐标系上的点</param>
-    ''' <returns></returns>
-    Public Shared Function BezierCurve(t As Double, 控制点1 As PointF, 控制点2 As PointF) As PointF
-        Dim p0 As New PointF(0.00, 1.0)
-        Dim p3 As New PointF(1.0, 0.00)
-        控制点1.Y = 1 - 控制点1.Y
-        控制点2.Y = 1 - 控制点2.Y
+    Private Shared Function BezierCurve(t As Double, 控制点1 As PointF, 控制点2 As PointF) As PointF
+        Dim p0 As New PointF(0.00, 0.00)
+        Dim p3 As New PointF(1.0, 1.0)
 
         Dim p As PointF
         Dim mt As Single = 1.0F - t
         p.X = mt * mt * mt * p0.X + 3.0F * mt * mt * t * 控制点1.X + 3.0F * mt * t * t * 控制点2.X + t * t * t * p3.X
         p.Y = mt * mt * mt * p0.Y + 3.0F * mt * mt * t * 控制点1.Y + 3.0F * mt * t * t * 控制点2.Y + t * t * t * p3.Y
+
         Return p
     End Function
 End Class

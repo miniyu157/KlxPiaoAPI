@@ -32,6 +32,94 @@ KlxPiaoAPI
   查找 System.Drawing.Bitmap 类型的本地化资源。
 </summary>
 </member>
+<member name="F:KlxPiaoAPI.控件.贝塞尔曲线控制点.Linear">
+ <summary>
+ 表示一组用于线性插值的控制点。<br/>
+ 线性插值意味着在整个过程中速度保持恒定。<br/>
+ 控制点1: (0, 0)<br/>
+ 控制点2: (1, 1)
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.控件.贝塞尔曲线控制点.EaseIn">
+ <summary>
+ 表示一组用于 EaseIn 插值的控制点。<br/>
+ EaseIn 插值意味着动画开始时速度较慢，然后逐渐加快。<br/>
+ 控制点1: (0.42, 0)<br/>
+ 控制点2: (1, 1)
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.控件.贝塞尔曲线控制点.EaseOut">
+ <summary>
+ 表示一组用于 EaseOut 插值的控制点。<br/>
+ EaseOut 插值意味着动画开始时速度较快，然后逐渐减慢。<br/>
+ 控制点1: (0, 0)<br/>
+ 控制点2: (0.58, 1)
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.控件.贝塞尔曲线控制点.EaseInOut">
+ <summary>
+ 表示一组用于 EaseInOut 插值的控制点。<br/>
+ EaseInOut 插值意味着动画开始和结束时速度较慢，中间过程速度较快。<br/>
+ 控制点1: (0.42, 0)<br/>
+ 控制点2: (0.58, 1)
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.控件.贝塞尔曲线控制点.Ease">
+ <summary>
+ 表示一组用于 Ease 插值的控制点。<br/>
+ Ease 插值以一种稍微慢于线性的方式开始，然后稍微快于线性地结束。<br/>
+ 控制点1: (0.25, 0.1)<br/>
+ 控制点2: (0.25, 1)
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.控件.贝塞尔曲线控制点.EaseInQuad">
+ <summary>
+ 表示一组用于 EaseInQuad 插值的控制点。<br/>
+ EaseInQuad 插值以较慢的速度开始，然后以较快的速度增长。<br/>
+ 控制点1: (0.55, 0.085)<br/>
+ 控制点2: (0.68, 0.53)
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.控件.贝塞尔曲线控制点.EaseOutQuad">
+ <summary>
+ 表示一组用于 EaseOutQuad 插值的控制点。<br/>
+ EaseOutQuad 插值以较快的速度开始，然后以较慢的速度结束。<br/>
+ 控制点1: (0.25, 0.46)<br/>
+ 控制点2: (0.45, 0.94)
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.控件.贝塞尔曲线控制点.EaseInOutQuad">
+ <summary>
+ 表示一组用于 EaseInOutQuad 插值的控制点。<br/>
+ EaseInOutQuad 插值以较慢的速度开始，然后在中间以较快的速度增长，最后再次变慢。<br/>
+ 控制点1: (0.45, 0.03)<br/>
+ 控制点2: (0.515, 0.955)
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.控件.贝塞尔曲线控制点.EaseInCubic">
+ <summary>
+ 表示一组用于 EaseInCubic 插值的控制点。<br/>
+ EaseInCubic 插值以较慢的速度开始，然后以较快的速度增长。<br/>
+ 控制点1: (0.55, 0.055)<br/>
+ 控制点2: (0.675, 0.19)
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.控件.贝塞尔曲线控制点.EaseOutCubic">
+ <summary>
+ 表示一组用于 EaseOutCubic 插值的控制点。<br/>
+ EaseOutCubic 插值以较快的速度开始，然后以较慢的速度结束。<br/>
+ 控制点1: (0.215, 0.61)<br/>
+ 控制点2: (0.355, 1)
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.控件.贝塞尔曲线控制点.EaseInOutCubic">
+ <summary>
+ 表示一组用于 EaseInOutCubic 插值的控制点。<br/>
+ EaseInOutCubic 插值以较慢的速度开始，然后在中间以较快的速度增长，最后再次变慢。<br/>
+ 控制点1: (0.645, 0.045)<br/>
+ 控制点2: (0.355, 1)
+ </summary>
+</member>
 <member name="M:KlxPiaoAPI.控件.过渡动画(System.Windows.Forms.Control,System.String,System.Object,System.Object,System.Int32,System.Drawing.PointF[],System.Int32)">
  <summary>
  修改控件属性的过渡动画
@@ -44,22 +132,12 @@ KlxPiaoAPI
  <param name="控制点">贝塞尔曲线控制点</param>
  <param name="帧率">动画的帧率</param>
 </member>
-<member name="M:KlxPiaoAPI.控件.返回曲线百分比(System.Double,System.Drawing.PointF,System.Drawing.PointF)">
+<member name="M:KlxPiaoAPI.控件.根据时间进度返回坐标(System.Double,System.Drawing.PointF[])">
  <summary>
- 根据时间百分比返回曲线百分比
+ 根据时间进度返回坐标，作用于动画时一般只用Y
  </summary>
- <param name="时间百分比"></param>
- <param name="控制点1">平面直角坐标系上的点</param>
- <param name="控制点2">平面直角坐标系上的点</param>
- <returns></returns>
-</member>
-<member name="M:KlxPiaoAPI.控件.BezierCurve(System.Double,System.Drawing.PointF,System.Drawing.PointF)">
- <summary>
- 根据曲线百分比返回坐标
- </summary>
- <param name="t"></param>
- <param name="控制点1">平面直角坐标系上的点</param>
- <param name="控制点2">平面直角坐标系上的点</param>
+ <param name="时间进度">已经度过时间和动画持续时间的比值</param>
+ <param name="控制点">平面直角坐标系上的两个控制点</param>
  <returns></returns>
 </member>
 <member name="T:KlxPiaoAPI.常用功能.创建快捷方式">
