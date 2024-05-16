@@ -1,0 +1,332 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+KlxPiaoAPI
+</name>
+</assembly>
+<members>
+<member name="T:KlxPiaoAPI.My.Resources.Resources">
+<summary>
+  一个强类型的资源类，用于查找本地化的字符串等。
+</summary>
+</member>
+<member name="P:KlxPiaoAPI.My.Resources.Resources.ResourceManager">
+<summary>
+  返回此类使用的缓存的 ResourceManager 实例。
+</summary>
+</member>
+<member name="P:KlxPiaoAPI.My.Resources.Resources.Culture">
+<summary>
+  重写当前线程的 CurrentUICulture 属性，对
+  使用此强类型资源类的所有资源查找执行重写。
+</summary>
+</member>
+<member name="P:KlxPiaoAPI.My.Resources.Resources.最大化按钮图标">
+<summary>
+  查找 System.Drawing.Bitmap 类型的本地化资源。
+</summary>
+</member>
+<member name="P:KlxPiaoAPI.My.Resources.Resources.还原按钮图标">
+<summary>
+  查找 System.Drawing.Bitmap 类型的本地化资源。
+</summary>
+</member>
+<member name="F:KlxPiaoAPI.控件.贝塞尔曲线控制点.Linear">
+ <summary>
+ 表示一组用于线性插值的控制点。<br/>
+ 线性插值意味着在整个过程中速度保持恒定。<br/>
+ 控制点1: (0, 0)<br/>
+ 控制点2: (1, 1)
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.控件.贝塞尔曲线控制点.EaseIn">
+ <summary>
+ 表示一组用于 EaseIn 插值的控制点。<br/>
+ EaseIn 插值意味着动画开始时速度较慢，然后逐渐加快。<br/>
+ 控制点1: (0.42, 0)<br/>
+ 控制点2: (1, 1)
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.控件.贝塞尔曲线控制点.EaseOut">
+ <summary>
+ 表示一组用于 EaseOut 插值的控制点。<br/>
+ EaseOut 插值意味着动画开始时速度较快，然后逐渐减慢。<br/>
+ 控制点1: (0, 0)<br/>
+ 控制点2: (0.58, 1)
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.控件.贝塞尔曲线控制点.EaseInOut">
+ <summary>
+ 表示一组用于 EaseInOut 插值的控制点。<br/>
+ EaseInOut 插值意味着动画开始和结束时速度较慢，中间过程速度较快。<br/>
+ 控制点1: (0.42, 0)<br/>
+ 控制点2: (0.58, 1)
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.控件.贝塞尔曲线控制点.Ease">
+ <summary>
+ 表示一组用于 Ease 插值的控制点。<br/>
+ Ease 插值以一种稍微慢于线性的方式开始，然后稍微快于线性地结束。<br/>
+ 控制点1: (0.25, 0.1)<br/>
+ 控制点2: (0.25, 1)
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.控件.贝塞尔曲线控制点.EaseInQuad">
+ <summary>
+ 表示一组用于 EaseInQuad 插值的控制点。<br/>
+ EaseInQuad 插值以较慢的速度开始，然后以较快的速度增长。<br/>
+ 控制点1: (0.55, 0.085)<br/>
+ 控制点2: (0.68, 0.53)
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.控件.贝塞尔曲线控制点.EaseOutQuad">
+ <summary>
+ 表示一组用于 EaseOutQuad 插值的控制点。<br/>
+ EaseOutQuad 插值以较快的速度开始，然后以较慢的速度结束。<br/>
+ 控制点1: (0.25, 0.46)<br/>
+ 控制点2: (0.45, 0.94)
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.控件.贝塞尔曲线控制点.EaseInOutQuad">
+ <summary>
+ 表示一组用于 EaseInOutQuad 插值的控制点。<br/>
+ EaseInOutQuad 插值以较慢的速度开始，然后在中间以较快的速度增长，最后再次变慢。<br/>
+ 控制点1: (0.45, 0.03)<br/>
+ 控制点2: (0.515, 0.955)
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.控件.贝塞尔曲线控制点.EaseInCubic">
+ <summary>
+ 表示一组用于 EaseInCubic 插值的控制点。<br/>
+ EaseInCubic 插值以较慢的速度开始，然后以较快的速度增长。<br/>
+ 控制点1: (0.55, 0.055)<br/>
+ 控制点2: (0.675, 0.19)
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.控件.贝塞尔曲线控制点.EaseOutCubic">
+ <summary>
+ 表示一组用于 EaseOutCubic 插值的控制点。<br/>
+ EaseOutCubic 插值以较快的速度开始，然后以较慢的速度结束。<br/>
+ 控制点1: (0.215, 0.61)<br/>
+ 控制点2: (0.355, 1)
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.控件.贝塞尔曲线控制点.EaseInOutCubic">
+ <summary>
+ 表示一组用于 EaseInOutCubic 插值的控制点。<br/>
+ EaseInOutCubic 插值以较慢的速度开始，然后在中间以较快的速度增长，最后再次变慢。<br/>
+ 控制点1: (0.645, 0.045)<br/>
+ 控制点2: (0.355, 1)
+ </summary>
+</member>
+<member name="M:KlxPiaoAPI.控件.过渡动画(System.Windows.Forms.Control,System.String,System.Object,System.Object,System.Int32,System.Drawing.PointF[],System.Int32)">
+ <summary>
+ 修改控件属性的过渡动画
+ </summary>
+ <param name="控件名称">要修改属性的控件</param>
+ <param name="属性名">要修改的属性</param>
+ <param name="开始值">初始值</param>
+ <param name="结束值">最终值</param>
+ <param name="持续时间">动画持续时间</param>
+ <param name="控制点">贝塞尔曲线控制点</param>
+ <param name="帧率">动画的帧率</param>
+</member>
+<member name="M:KlxPiaoAPI.控件.根据时间进度返回坐标(System.Double,System.Drawing.PointF[])">
+ <summary>
+ 根据时间进度返回坐标，作用于动画时一般只用Y
+ </summary>
+ <param name="时间进度">已经度过时间和动画持续时间的比值</param>
+ <param name="控制点">平面直角坐标系上的两个控制点</param>
+ <returns></returns>
+</member>
+<member name="M:KlxPiaoAPI.颜色.调整亮度(System.Drawing.Color,System.Double)">
+ <summary>
+ 细微调整颜色亮度，范围 -1.00 到 +1.00
+ </summary>
+ <param name="color">原颜色</param>
+ <param name="factor">调整值</param>
+ <returns></returns>
+</member>
+<member name="M:KlxPiaoAPI.颜色.获取亮度(System.Drawing.Color)">
+ <summary>
+ 获取指定颜色的亮度
+ </summary>
+ <param name="color"></param>
+ <returns>返回Integer 0 到 255 之间</returns>
+</member>
+<member name="T:KlxPiaoAPI.常用功能.创建快捷方式">
+ <summary>
+ 调用WScript.Shell创建快捷方式
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.常用功能.创建快捷方式.快捷方式路径">
+ <summary>
+ 要带有.lnk
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.常用功能.创建快捷方式.起始位置">
+ <summary>
+ 未设置起始位置时使用目标文件所在文件夹
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.常用功能.创建快捷方式.图标">
+ <summary>
+ 未设置图标时使用默认图标
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.常用功能.创建快捷方式.快捷键">
+ <summary>
+ 例如"Ctrl+Alt+e"
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.常用功能.创建快捷方式.运行方式">
+ <summary>
+ 在常规窗口（默认），最大化，最小化中选择一项
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.常用功能.创建快捷方式.窗体样式.常规窗口">
+ <summary>
+ 创建快捷方式.窗体.常规窗口 = 1
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.常用功能.创建快捷方式.窗体样式.最大化">
+ <summary>
+ 创建快捷方式.窗体.最大化 = 3
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.常用功能.创建快捷方式.窗体样式.最小化">
+ <summary>
+ 创建快捷方式.窗体.最小化 = 7
+ </summary>
+</member>
+<member name="M:KlxPiaoAPI.字符串操作.默认类.提取中间文本1(System.String,System.String,System.String)">
+ <summary>
+ 提供者：ChatGPT
+ </summary>
+</member>
+<member name="M:KlxPiaoAPI.字符串操作.默认类.提取中间文本2(System.String,System.String,System.String)">
+ <summary>
+ 提供者：百度AI
+ </summary>
+</member>
+<member name="M:KlxPiaoAPI.字符串操作.默认类.提取中间文本3(System.String,System.String,System.String)">
+ <summary>
+ 提供者：KlxPiao
+ </summary>
+</member>
+<member name="M:KlxPiaoAPI.字符串操作.默认类.提取所有中间文本1(System.String,System.String,System.String)">
+ <summary>
+ 提供者：百度AI
+ </summary>
+</member>
+<member name="M:KlxPiaoAPI.字符串操作.默认类.提取所有中间文本2(System.String,System.String,System.String)">
+ <summary>
+ 提供者：ChatGPT
+ </summary>
+</member>
+<member name="M:KlxPiaoAPI.KlxPiaoForm.加载主题文件(System.String)">
+ <summary>
+ 加载现有主题文件或资源文件
+ </summary>
+ <param name="文件路径或资源文件"></param>
+</member>
+<member name="M:KlxPiaoAPI.KlxPiaoForm.导出主题文件(System.String)">
+ <summary>
+ 导出主题文件
+ </summary>
+ <param name="文件路径"></param>
+</member>
+<member name="T:KlxPiaoAPI.KlxPiaoForm.设置WindowState">
+ <summary>
+ 最大化/还原时的动画
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.KlxPiaoForm.设置WindowState.应用于">
+ <summary>
+ 需要设置窗体样式的Form
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.KlxPiaoForm.设置WindowState.启用动画">
+ <summary>
+ 是否启用动画，默认为True
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.KlxPiaoForm.设置WindowState.持续时间">
+ <summary>
+ 动画持续的时间(毫秒)，默认为50
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.KlxPiaoForm.设置WindowState.最低透明度">
+ <summary>
+ 为0-100之间，默认为50
+ </summary>
+</member>
+<member name="M:KlxPiaoAPI.KlxPiaoForm.应用本地字体(System.String,System.Windows.Forms.Control)">
+ <summary>
+ 很容易卡死闪退
+ </summary>
+ <param name="文件路径"></param>
+ <param name="控件"></param>
+ 
+</member>
+<member name="M:KlxPiaoAPI.KlxPiaoForm.复制主题(KlxPiaoAPI.KlxPiaoForm,KlxPiaoAPI.KlxPiaoForm)">
+ <summary>
+ 把一个窗体的主题复制到另一个窗体
+ </summary>
+ <param name="从"></param>
+ <param name="到"></param>
+</member>
+<member name="M:KlxPiaoAPI.KlxPiaoForm.自动生成主题(System.Drawing.Color)">
+ <summary>
+ 根据一个颜色自动生成主题并应用于窗体上
+ </summary>
+ <param name="主题色"></param>
+</member>
+<member name="F:KlxPiaoAPI.KlxPiaoTrackBar.鼠标滚轮响应.正向">
+ <summary>
+ 向上增加，向下减少
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.KlxPiaoTrackBar.鼠标滚轮响应.逆向">
+ <summary>
+ 向上减少，向下增加
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.KlxPiaoTrackBar.鼠标滚轮响应.不启用">
+ <summary>
+ 不启用鼠标滚轮响应
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.KlxPiaoTrackBar.键盘响应.仅上下键">
+ <summary>
+ 仅响应Up和Down键
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.KlxPiaoTrackBar.键盘响应.仅左右键">
+ <summary>
+ 仅响应Left和Right键
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.KlxPiaoTrackBar.键盘响应.全方向键">
+ <summary>
+ 响应Up,Down,Left,Right键
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.KlxPiaoTrackBar.键盘响应.不启用">
+ <summary>
+ 不启用键盘响应
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.PointBar.坐标系.计算机图形坐标系">
+ <summary>
+ 屏幕坐标系，第一象限在右下角。
+ </summary>
+</member>
+<member name="F:KlxPiaoAPI.PointBar.坐标系.数学坐标系">
+ <summary>
+ 传统的笛卡尔坐标系，第一象限在右上角。
+ </summary>
+</member>
+</members>
+</doc>
