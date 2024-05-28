@@ -1,6 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports System.Drawing
 Imports System.Drawing.Drawing2D
+Imports System.Net.Mail
 Imports System.Windows.Forms
 
 <DefaultEvent("Click")>
@@ -292,33 +293,42 @@ Public Class KlxPiaoPanel
             .Location = New Point(0, 0)
         }
 
-        If 投影方向 = 方向.右下 Then
-            rect.Size -= New Size(投影长度, 投影长度)
-        Else
-            rect.X = 投影长度
-
-            If 投影方向 = 方向.左下右 Then
-                rect.Width = Width - 投影长度 * 2
+        If 启用投影 Then
+            If 投影方向 = 方向.右下 Then
+                rect.Size -= New Size(投影长度, 投影长度)
             Else
-                rect.Width = Width - 投影长度
-            End If
+                rect.X = 投影长度
 
-            rect.Height = Height - 投影长度
+                If 投影方向 = 方向.左下右 Then
+                    rect.Width = Width - 投影长度 * 2
+                Else
+                    rect.Width = Width - 投影长度
+                End If
+
+                rect.Height = Height - 投影长度
+            End If
+        Else
+            rect.Size -= New Size(边框大小, 边框大小)
+            rect.Location += New Size(边框大小 / 2, 边框大小 / 2)
         End If
 
         Return rect
     End Function
     Public Function 获取工作区大小() As Size
-        Dim w As Integer = Width
+        If 启用投影 Then
+            Dim w As Integer = Width
 
-        Select Case 投影方向
-            Case 方向.左下右
-                w -= 投影长度 * 2
-            Case Else
-                w -= 投影长度
-        End Select
+            Select Case 投影方向
+                Case 方向.左下右
+                    w -= 投影长度 * 2
+                Case Else
+                    w -= 投影长度
+            End Select
 
-        Return New Size(w, Height - 投影长度)
+            Return New Size(w, Height - 投影长度)
+        Else
+            Return Size - New Size(边框大小, 边框大小)
+        End If
     End Function
 
 End Class
