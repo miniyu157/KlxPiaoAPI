@@ -1,6 +1,9 @@
 # KlxPiaoAPI (.NET Framework)
 提供常用函数、界面美化和一些控件
 
+.NET Framework版本的KlxPiaoAPI已停止更新
+请移步至 https://github.com/miniyu157/KlxPiao （尚未发布）
+
 ![home][1]
 
 
